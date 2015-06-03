@@ -1,0 +1,50 @@
+<div class="app-lib-app-qv-card app-lib-grid-item" data-groups="<f:render partial='Misc/CommaSeparatedCategoryList' arguments='{categories: app.categories}' />">
+	<f:if condition="{app.featured}"><div class="app-lib-app-qv-featured-badge"></div></f:if>
+	<noscript>
+		<f:if condition="{app.page}">
+			<f:then><f:link.typolink parameter="{app.page}" title="{f:translate(id: 'views.list.detailLinkTitle')}" additionalAttributes="{style: inlineStlyeLink}"></f:link.typolink></f:then>
+			<f:else><f:link.action action="show" arguments="{app: app}" title="{f:translate(id: 'views.list.detailLinkTitle')}" additionalAttributes="{style: inlineStlyeLink}"></f:link.action></f:else>
+		</f:if>
+	</noscript>
+	<div class="app-lib-app-qv-card-content">
+		<!-- Cover Icon -->
+		<div class="app-lib-app-qv-cover">
+			<div class="app-lib-app-qv-cover-outer-align">
+				<div class="app-lib-app-qv-cover-inner-align">
+					<f:if condition="{app.icon}">
+						<f:then>
+							<f:image src="{app.icon.uid}" width="128m" height="128m" class="hidden-xs" treatIdAsReference="1" />
+							<f:image src="{app.icon.uid}" width="96m" height="96m" class="visible-xs" treatIdAsReference="1" />
+						</f:then>
+						<f:else>
+							<f:image src="{f:uri.resource(path: 'Images/emptyapp.png')}" width="128m" height="128m" class="hidden-xs" />
+							<f:image src="{f:uri.resource(path: 'Images/emptyapp.png')}" width="96m" height="96m" class="visible-xs" />
+						</f:else>
+					</f:if>
+				</div>
+			</div>
+		</div>
+		<!-- App Info: Title & Developer -->
+		<div class="app-lib-app-qv-details">
+			<h5>{app.title}</h5>
+			<f:if condition="{settings.enableRating}">
+				<span class="app-lib-stars-container">
+					<div class="app-lib-reason-set-star-rating">
+						<div class="app-lib-tiny-star app-lib-star-rating-non-editable-container" aria-label="Mit {app.rating -> f:format.number(decimals: 1)} von fünf Sternen bewertet">
+							<div class="app-lib-current-rating" style="width: {app.ratingPercentage}%;"></div>
+						</div>
+					</div>
+				</span>
+			</f:if>
+		</div>
+	</div>
+	<div class="app-lib-app-qv-card-overlay {f:if(condition: iterator.isEven, then: 'even', else: 'odd')}" style="{inlineStlye}">
+		<f:if condition="{app.page}">
+			<f:then><f:link.typolink parameter="{app.page}" additionalAttributes="{style: inlineStlyeLink}"></f:link.typolink></f:then>
+			<f:else><f:link.action action="show" arguments="{app: app}" additionalAttributes="{style: inlineStlyeLink}"></f:link.action></f:else>
+		</f:if>
+		<h5>{app.title}</h5>
+		<small>{app.descriptionTeaser -> f:format.html()}</small>
+		<p><i class="fa fa-caret-right fa-lg"></i> <f:translate id="views.list.detailLinkTitle" /></p>
+	</div>
+</div>

@@ -1,0 +1,21 @@
+
+plugin.tx_applibrary {
+	view {
+		# cat=plugin.tx_applibrary/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:app_library/Resources/Private/Templates/
+		# cat=plugin.tx_applibrary/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:app_library/Resources/Private/Partials/
+		# cat=plugin.tx_applibrary/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:app_library/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_applibrary//a; type=string; label=Default storage PID
+		storagePid =
+	}
+	settings {
+		# cat=plugin.tx_applibrary//10;type=boolean;label=Enable rating function
+		enableRating = 0
+		# cat=plugin.tx_applibrary//11; type=int+; label=Data Protection Statement PID
+		dataProtectionStatement = 0
+	}
+}

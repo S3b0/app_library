@@ -1,0 +1,21 @@
+<div class="panel panel-default">
+	<div class="panel-heading" role="tab" id="heading{i}">
+		<h4 class="panel-title">
+			<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse{i}" aria-expanded="false" aria-controls="collapse{i}">
+				{faq.title}
+			</a>
+		</h4>
+	</div>
+	<div id="collapse{i}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{i}">
+		<div class="panel-body">
+			<p class="app-lib-app-dv-faq-data">
+				<span class="app-lib-app-dv-faq-date">[ {faq.date -> f:format.date(format: 'Y-m-d')} ]</span>
+				<f:if condition="{0: faq.inquirer, 1: faq.responder} != {0: '', 1: ''}">
+					<f:then><f:if condition="{faq.inquirer}">{f:translate(id: 'askedBy', default: 'Question:')} {faq.inquirer} | </f:if>{f:translate(id: 'answeredBy', default: 'Answer:')} {faq.responder}</f:then>
+					<f:else>&nbsp;</f:else>
+				</f:if>
+			</p>
+			{faq.answer -> f:format.html()}
+		</div>
+	</div>
+</div>

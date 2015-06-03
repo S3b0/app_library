@@ -1,0 +1,40 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<f:flashMessages renderMode="div" />
+
+	<h1 class="{f:if(condition: app.featured,then: 'ft-bdg')}">{app.title}</h1>
+	<hr />
+
+	<div class="row">
+		<div class="col-md-3 app-lib-detail-sidebar"><f:render partial="App/SidebarDetail" arguments="{_all}" /></div>
+		<div class="col-md-9 app-lib-detail-main"><f:render partial="App/Properties" arguments="{_all}" /></div>
+	</div>
+	<script type="text/javascript" language="JavaScript">$(function () {
+		$('[data-toggle="tooltip"]').tooltip();
+
+		var owl = $(".owl-carousel"),
+			cards = $('.app-lib-app-qv-card');
+		owl.owlCarousel({autoWidth: true, dots: false, lazyLoad: true, loop: true, margin: 10, video: true});
+		owl.on('initialized.owl.carousel', function() {
+			if ( $('.owl-stage').width() <= owl.width() ) {
+				$('.app-lib-owl-nav').hide();
+			}
+		});
+		$('.app-lib-owl-nav-nxt').click(function() { owl.trigger('next.owl.carousel') });
+		$('.app-lib-owl-nav-prv').click(function() { owl.trigger('prev.owl.carousel') });
+
+		cards.on('mouseover', function() {
+			$('.app-lib-app-qv-card-overlay').stop(true, false).slideUp(100);
+			$(this).children('.app-lib-app-qv-card-overlay').first().stop(true, false).slideDown(100);
+		});
+		cards.on('mouseout', function() {
+			$('.app-lib-app-qv-card-overlay').stop(true, false).slideUp(100);
+		});
+/*
+		$('a.expand-all').on('click', function() { $($(this).data('collapsible') + ':not(".in")').collapse('show'); });
+		$('a.collapse-all').on('click', function() { $($(this).data('collapsible') + '.in').collapse('hide'); });
+*/
+	})</script>
+
+</f:section>

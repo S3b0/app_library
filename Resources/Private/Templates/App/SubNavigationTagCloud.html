@@ -1,0 +1,3 @@
+<div class="applib-tagcloud {settings.addListClass}">
+	<f:for each="{tags}" as="tag" iteration="iterator"><f:link.action pluginName="List" arguments="{tag: tag}" pageUid="{settings.page}" style="font-size: {tag.fontSize}%">{tag.title}</f:link.action><f:if condition="{iterator.isLast} == 0"> </f:if></f:for>
+</div>

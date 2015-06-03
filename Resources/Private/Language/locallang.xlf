@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-04-23T10:02:10Z" product-name="app_library">
+		<header/>
+		<body>
+
+			<!-- GENERAL -->
+			<trans-unit id="attrTitle.download.internal">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="attrTitle.download.external">
+				<source>Download from %s</source>
+			</trans-unit>
+			<trans-unit id="search.rule">
+				<source>Only words with 3 or more characters are accepted</source>
+			</trans-unit>
+			<trans-unit id="resultsFor">
+				<source>Displaying results for %1$s "%2$s"</source>
+			</trans-unit>
+
+			<!-- LIST VIEW -->
+			<trans-unit id="views.list.providerLinkTitle">
+				<source>Display all apps by %s »</source>
+			</trans-unit>
+			<trans-unit id="views.list.detailLinkTitle">
+				<source>Click for details</source>
+			</trans-unit>
+
+			<!-- DETAIL VIEW -->
+			<trans-unit id="views.detail.sidebar.ratedAL">
+				<source>Rated %s out of five stars</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.votes">
+				<source>votes</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.categories">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.category">
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.updateDate">
+				<source>Updated</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.fileSize">
+				<source>Size</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.version">
+				<source>Version</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.languages">
+				<source>Languages</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.language">
+				<source>Language</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.compatibility">
+				<source>Operating Systems</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.developer">
+				<source>Developer</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.costs">
+				<source>Costs</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.costs.paid">
+				<source>Subject to charge</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.costs.free">
+				<source>Free of charge</source>
+			</trans-unit>
+			<trans-unit id="views.detail.features">
+				<source>Features</source>
+			</trans-unit>
+			<trans-unit id="views.detail.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="views.detail.sysReq">
+				<source>System Requirements</source>
+			</trans-unit>
+			<trans-unit id="views.detail.faq">
+				<source>Frequently Asked Questions</source>
+			</trans-unit>
+
+			<!-- DOWNLOAD REQUEST -->
+			<trans-unit id="newLog.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="newLog.email">
+				<source>E-Mail address</source>
+			</trans-unit>
+			<trans-unit id="newLog.company">
+				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="newLog.address">
+				<source>Address</source>
+			</trans-unit>
+			<trans-unit id="newLog.zip">
+				<source>Postal Code</source>
+			</trans-unit>
+			<trans-unit id="newLog.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="newLog.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="newLog.state_province">
+				<source>State / Province</source>
+			</trans-unit>
+			<trans-unit id="newLog.dps_accept">
+				<source>I herewith declare my express agreement to the %s of ecom instruments GmbH.</source>
+			</trans-unit>
+			<trans-unit id="newLog.mandatory">
+				<source>Fields marked with %s are mandatory.</source>
+			</trans-unit>
+			<trans-unit id="newLog.submit">
+				<source>Submit</source>
+			</trans-unit>
+
+			<!-- OPERATING SYSTEMS TOOLTIP TEXT -->
+			<trans-unit id="supportedOS.0">
+				<source>iOS</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.1">
+				<source>Android</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.2">
+				<source>Mac OSX</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.3">
+				<source>Windows</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.4">
+				<source>Linux</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.5">
+				<source>Chrome OS</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.6">
+				<source>Firefox OS</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.7">
+				<source>Be OS</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.8">
+				<source>Redhat</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.9">
+				<source>Suse</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.10">
+				<source>Unix</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.11">
+				<source>Symbian</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.12">
+				<source>DOS</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.13">
+				<source>Free Bsd</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.14">
+				<source>Mandriva</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.15">
+				<source>OS2</source>
+			</trans-unit>
+
+
+
+			<trans-unit id="tx_applib_domain_model_app">
+				<source>App</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.file_reference">
+				<source>File Reference</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.external_url">
+				<source>External Url</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.icon">
+				<source>Icon</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.featured_until">
+				<source>Featured Until</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.release_date">
+				<source>Release Date</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.last_modified">
+				<source>Last Modified</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems">
+				<source>Supported Operating Systems</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.views">
+				<source>Views</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.downloads">
+				<source>Downloads</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.settings">
+				<source>Settings</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.page">
+				<source>Page</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.rating">
+				<source>Rating</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.votes">
+				<source>Votes</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.supported_languages">
+				<source>Supported Languages</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.related">
+				<source>Related</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.recommended">
+				<source>Recommended</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.app_provider">
+				<source>App Provider</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.tags">
+				<source>Tags</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.fe_group">
+				<source>Frontend User-Group</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.products">
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_faq">
+				<source>Faq</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_faq.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_faq.answer">
+				<source>Answer</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_faq.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_faq.inquirer">
+				<source>Inquirer</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_faq.responder">
+				<source>Responder</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_faq.app">
+				<source>App</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_provider">
+				<source>Provider</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_provider.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_provider.websites">
+				<source>Websites</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_tag">
+				<source>Tag</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_tag.title">
+				<source>Title</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

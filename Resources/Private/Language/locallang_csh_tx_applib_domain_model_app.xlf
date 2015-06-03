@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-04-23T10:02:10Z" product-name="app_library">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>The app title</source>
+			</trans-unit>
+			<trans-unit id="file_reference.description">
+				<source>Select the app file for download.</source>
+			</trans-unit>
+			<trans-unit id="external_url.description">
+				<source>Select the app URL for download.</source>
+			</trans-unit>
+			<trans-unit id="icon.description">
+				<source>An app icon to render, proportions may vary as included in fluid template (f:image).</source>
+			</trans-unit>
+			<trans-unit id="preview_images.description">
+				<source>Add some preview images for detail view.</source>
+			</trans-unit>
+			<trans-unit id="youtube_links.description">
+				<source>Youtube links, split with line breaks.</source>
+			</trans-unit>
+			<trans-unit id="file_size.description">
+				<source>File size, for external files.</source>
+			</trans-unit>
+			<trans-unit id="version.description">
+				<source>Specify app version.</source>
+			</trans-unit>
+			<trans-unit id="featured_until.description">
+				<source>Set a date until the app should be marked featured.</source>
+			</trans-unit>
+			<trans-unit id="features.description">
+				<source>Add features text block.</source>
+			</trans-unit>
+			<trans-unit id="description.description">
+				<source>Add description for generated detail page.</source>
+			</trans-unit>
+			<trans-unit id="system_requirements.description">
+				<source>Specify minimum system requirements.</source>
+			</trans-unit>
+			<trans-unit id="release_date.description">
+				<source>Set date of release.</source>
+			</trans-unit>
+			<trans-unit id="last_modified.description">
+				<source>Set date of last modification.</source>
+			</trans-unit>
+			<trans-unit id="supported_operating_systems.description">
+				<source>Select supported operating systems for filtering / views.</source>
+			</trans-unit>
+			<trans-unit id="views.description">
+				<source>The number of views for this app. Detail view only!</source>
+			</trans-unit>
+			<trans-unit id="downloads.description">
+				<source>Number of downloads for this app.</source>
+			</trans-unit>
+			<trans-unit id="settings.description">
+				<source>Miscellaneous settings, see labels.</source>
+			</trans-unit>
+			<trans-unit id="page.description">
+				<source>Link to detail page.</source>
+			</trans-unit>
+			<trans-unit id="rating.description">
+				<source>Rating, incrementally summed up, to be divided by votes.</source>
+			</trans-unit>
+			<trans-unit id="votes.description">
+				<source>Amount of people who rated this app.</source>
+			</trans-unit>
+			<trans-unit id="supported_languages.description">
+				<source>Select languages supported by app.</source>
+			</trans-unit>
+			<trans-unit id="related.description">
+				<source>Set related Apps. By default they´re fetched by keywords matching.</source>
+			</trans-unit>
+			<trans-unit id="recommended.description">
+				<source>Set recommended Apps.</source>
+			</trans-unit>
+			<trans-unit id="provider.description">
+				<source>The app provider / copyright holder.</source>
+			</trans-unit>
+			<trans-unit id="developer.description">
+				<source>The app developer.</source>
+			</trans-unit>
+			<trans-unit id="copyright_holder.description">
+				<source>The copyright holder.</source>
+			</trans-unit>
+			<trans-unit id="tags.description">
+				<source>Tag the app.</source>
+			</trans-unit>
+			<trans-unit id="fe_group.description">
+				<source>FE user-group restrictions.</source>
+			</trans-unit>
+			<trans-unit id="products.description">
+				<source>Products app is compatible with.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

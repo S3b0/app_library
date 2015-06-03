@@ -1,0 +1,105 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Plugin-Configuration</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<switchableControllerActions>
+						<TCEforms>
+							<label>LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib.mode.sidebar</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib_sidebar.mode.0</numIndex>
+										<numIndex index="1">App->subNavigationFeatured</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib_sidebar.mode.1</numIndex>
+										<numIndex index="1">App->subNavigationMostPopular</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib_sidebar.mode.2</numIndex>
+										<numIndex index="1">App->subNavigationLatest</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib_sidebar.mode.3</numIndex>
+										<numIndex index="1">App->subNavigationTopDownloads</numIndex>
+									</numIndex>
+									<numIndex index="4">
+										<numIndex index="0">LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib_sidebar.mode.4</numIndex>
+										<numIndex index="1">App->subNavigationTopRated</numIndex>
+									</numIndex>
+									<numIndex index="5">
+										<numIndex index="0">LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib_sidebar.mode.5</numIndex>
+										<numIndex index="1">App->subNavigationTagCloud</numIndex>
+									</numIndex>
+									<numIndex index="6">
+										<numIndex index="0">LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib_sidebar.mode.6</numIndex>
+										<numIndex index="1">App->subNavigationCategories</numIndex>
+									</numIndex>
+								</items>
+								<default>App->subNavigationFeatured</default>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>
+					<settings.page>
+						<TCEforms>
+							<label>LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib.page</label>
+							<config>
+								<type>input</type>
+								<size>5</size>
+								<eval>required,int</eval>
+								<default>0</default>
+								<wizards>
+									<link>
+										<type>popup</type>
+										<title>LLL:EXT:cms/locallang_ttc.xlf:header_link_formlabel</title>
+										<icon>link_popup.gif</icon>
+										<module>
+											<name>wizard_element_browser</name>
+											<urlParameters>
+												<mode>wizard</mode>
+											</urlParameters>
+										</module>
+										<JSopenParams>height=300,width=500,status=0,menubar=0,scrollbars=1</JSopenParams>
+										<params>
+											<blindLinkOptions>file, folder, mail, spec, url</blindLinkOptions>
+										</params>
+									</link>
+								</wizards>
+							</config>
+						</TCEforms>
+					</settings.page>
+					<settings.addListClass>
+						<TCEforms>
+							<label>LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib.add_list_class</label>
+							<config>
+								<type>input</type>
+								<size>5</size>
+								<eval>trim,lower</eval>
+							</config>
+						</TCEforms>
+					</settings.addListClass>
+					<settings.limit>
+						<TCEforms>
+							<label>LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib.limit</label>
+							<config>
+								<type>input</type>
+								<size>5</size>
+								<eval>int</eval>
+								<default>0</default>
+							</config>
+						</TCEforms>
+					</settings.limit>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

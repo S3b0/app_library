@@ -1,0 +1,182 @@
+<?php
+	/**
+	 * Created by PhpStorm.
+	 * User: S3b0
+	 * Date: 22/05/15
+	 * Time: 11:29
+	 */
+
+$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['app_library']);
+$rootCategory = \TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($extensionConfiguration['rootCatCategory']) ? (int)$extensionConfiguration['rootCatCategory'] : '0';
+
+return '<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Plugin-Configuration</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.limit>
+						<TCEforms>
+							<label>Limit (0 = no limit)</label>
+							<displayCond><![CDATA[FIELD:parentRec.tx_applib_mode:=:0]]></displayCond>
+							<config>
+								<type>input</type>
+								<size>5</size>
+								<eval>int</eval>
+								<default>0</default>
+							</config>
+						</TCEforms>
+					</settings.limit>
+					<settings.product>
+						<TCEforms>
+							<label>Product</label>
+							<displayCond><![CDATA[FIELD:parentRec.tx_applib_mode:=:1]]></displayCond>
+							<config>
+								<foreign_table>tx_ecomproducttools_domain_model_product</foreign_table>
+								<foreign_table_where>AND tx_ecomproducttools_domain_model_product.sys_language_uid IN (-1, 0) AND NOT tx_ecomproducttools_domain_model_product.deleted ORDER BY tx_ecomproducttools_domain_model_product.title ASC</foreign_table_where>
+								<maxitems>1</maxitems>
+								<items>
+									<numIndex>
+										<numIndex index="0">-- none --</numIndex>
+									</numIndex>
+								</items>
+								<type>select</type>
+							</config>
+						</TCEforms>
+					</settings.product>
+					<settings.categories>
+						<TCEforms>
+							<label>Categories</label>
+							<displayCond><![CDATA[FIELD:parentRec.tx_applib_mode:=:1]]></displayCond>
+							<config>
+								<foreign_table>sys_category</foreign_table>
+								<foreign_table_where>AND sys_category.parent=' . $rootCategory . ' AND sys_category.sys_language_uid IN (-1, 0) AND NOT sys_category.deleted ORDER BY sys_category.title ASC</foreign_table_where>
+								<maxitems>99999</maxitems>
+								<renderMode>checkbox</renderMode>
+								<size>10</size>
+								<type>select</type>
+							</config>
+						</TCEforms>
+					</settings.categories>
+					<settings.tags>
+						<TCEforms>
+							<label>Tags</label>
+							<displayCond><![CDATA[FIELD:parentRec.tx_applib_mode:=:1]]></displayCond>
+							<config>
+								<foreign_table>tx_applib_domain_model_tag</foreign_table>
+								<foreign_table_where>AND tx_applib_domain_model_tag.sys_language_uid IN (-1, 0) AND NOT tx_applib_domain_model_tag.deleted ORDER BY tx_applib_domain_model_tag.title ASC</foreign_table_where>
+								<maxitems>99999</maxitems>
+								<renderMode>checkbox</renderMode>
+								<size>10</size>
+								<type>select</type>
+							</config>
+						</TCEforms>
+					</settings.tags>
+					<settings.apps>
+						<TCEforms>
+							<label>Apps</label>
+							<displayCond><![CDATA[FIELD:parentRec.tx_applib_mode:=:2]]></displayCond>
+							<config>
+								<foreign_table>tx_applib_domain_model_app</foreign_table>
+								<foreign_table_where>AND tx_applib_domain_model_app.sys_language_uid IN (-1, 0) AND NOT tx_applib_domain_model_app.deleted ORDER BY tx_applib_domain_model_app.title ASC</foreign_table_where>
+								<maxitems>99999</maxitems>
+								<renderMode>checkbox</renderMode>
+								<size>10</size>
+								<type>select</type>
+							</config>
+						</TCEforms>
+					</settings.apps>
+					<settings.settings>
+						<TCEforms>
+							<label>General settings</label>
+							<config>
+								<type>check</type>
+								<items>
+									<numIndex>
+										<numIndex index="0">Hide category navigation (Stand Alone View)</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.settings>
+					<switchableControllerActions>
+						<TCEforms>
+							<label>Switchable Controller Actions</label>
+							<config>
+								<type>user</type>
+								<userFunc>S3b0\AppLibrary\Utility\ModifyTCA->clearFieldValue</userFunc>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>
+				</el>
+			</ROOT>
+		</sDEF>
+		<sWelcome>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Welcome</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<settings.welcome.header>
+						<TCEforms>
+							<label>Header</label>
+							<config>
+								<type>input</type>
+								<size>40</size>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.welcome.header>
+					<settings.welcome.header_type>
+						<TCEforms>
+							<label>Type</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0"><![CDATA[Heading 1 <h1>]]></numIndex>
+										<numIndex index="1">1</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0"><![CDATA[Heading 2 <h2>]]></numIndex>
+										<numIndex index="1">2</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0"><![CDATA[Heading 3 <h3>]]></numIndex>
+										<numIndex index="1">3</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0"><![CDATA[Heading 4 <h4>]]></numIndex>
+										<numIndex index="1">4</numIndex>
+									</numIndex>
+									<numIndex index="4">
+										<numIndex index="0"><![CDATA[Heading 5 <h5>]]></numIndex>
+										<numIndex index="1">5</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</settings.welcome.header_type>
+					<settings.welcome.text>
+						<TCEforms>
+							<label>Text</label>
+							<config>
+								<type>text</type>
+								<cols>40</cols>
+								<rows>10</rows>
+								<eval>trim</eval>
+							</config>
+						</TCEforms>
+					</settings.welcome.text>
+				</el>
+			</ROOT>
+		</sWelcome>
+	</sheets>
+</T3DataStructure>';

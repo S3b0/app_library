@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-04-13T10:18:34Z" product-name="app_library">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>The original question sent.</source>
+			</trans-unit>
+			<trans-unit id="answer.description">
+				<source>An answer from Support/AE.</source>
+			</trans-unit>
+			<trans-unit id="date.description">
+				<source>Date of inquiry.</source>
+			</trans-unit>
+			<trans-unit id="inquirer.description">
+				<source>Name of inquirer.</source>
+			</trans-unit>
+			<trans-unit id="responder.description">
+				<source>Name of responder.</source>
+			</trans-unit>
+			<trans-unit id="app.description">
+				<source>The app FAQ belongs to.</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

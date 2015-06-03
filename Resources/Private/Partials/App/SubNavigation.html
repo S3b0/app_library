@@ -1,0 +1,3 @@
+<ul class="{settings.addListClass}">
+	<f:for each="{apps}" as="app"><li><f:link.action action="show" pluginName="List" arguments="{app: app}" pageUid="{settings.page}">{app.title}</f:link.action></li></f:for>
+</ul>

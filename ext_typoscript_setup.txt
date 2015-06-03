@@ -1,0 +1,49 @@
+config.tx_extbase {
+	persistence {
+		classes {
+			In2\Femanagerextended\Domain\Model\User {
+				subclasses {
+					0 = S3b0\AppLibrary\Domain\Model\FrontendUser
+				}
+			}
+			S3b0\AppLibrary\Domain\Model\App {
+				mapping {
+					tableName = tx_applib_domain_model_app
+					columns {
+						sorting.mapOnProperty = sorting
+					}
+				}
+			}
+			S3b0\AppLibrary\Domain\Model\Faq {
+				mapping {
+					tableName = tx_applib_domain_model_faq
+				}
+			}
+			S3b0\AppLibrary\Domain\Model\Log {
+				mapping {
+					tableName = tx_applib_domain_model_log
+				}
+			}
+			S3b0\AppLibrary\Domain\Model\Provider {
+				mapping {
+					tableName = tx_applib_domain_model_provider
+				}
+			}
+			S3b0\AppLibrary\Domain\Model\Tag {
+				mapping {
+					tableName = tx_applib_domain_model_tag
+				}
+			}
+			S3b0\AppLibrary\Domain\Model\Category {
+				mapping {
+					tableName = sys_category
+				}
+			}
+			S3b0\AppLibrary\Domain\Model\FrontendUser {
+				mapping {
+					tableName = fe_users
+				}
+			}
+		}
+	}
+}

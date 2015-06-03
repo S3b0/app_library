@@ -1,0 +1,118 @@
+<!-- App icon -->
+<f:if condition="{app.icon}">
+	<f:image src="{app.icon.uid}" width="128m" height="128m" treatIdAsReference="1" />
+</f:if>
+<div class="clearfix app-lib-spacer-vt2"></div>
+
+<f:if condition="{settings.enableRating}">
+	<!-- Rating -->
+	<div class="clearfix app-lib-spacer-vt1"></div>
+	<div>
+		<div class="app-lib-score">{app.rating -> f:format.number(decimals: 1)}</div>
+		<div class="app-lib-stars-container">
+			<div class="app-lib-reason-set-star-rating">
+				<div class="app-lib-tiny-star app-lib-star-rating-non-editable-container" aria-label="{f:translate(id: 'views.detail.sidebar.ratedAL', arguments: '{0: \'{app.rating -> f:format.number(decimals: 1)}\'}')}">
+					<div class="app-lib-current-rating" style="width:{app.ratingPercentage}%;"></div>
+				</div>
+			</div>
+		</div>
+		({app.votes -> f:format.number(decimals: 0)} votes)
+	</div>
+</f:if>
+
+<f:if condition="{app.categories -> f:count()}">
+	<!-- Categories -->
+	<div class="clearfix app-lib-spacer-vt1"></div>
+	<span class="text-muted"><f:if condition="{app.categories -> f:count()} > 1"><f:then><f:translate id="views.detail.sidebar.categories" default="Categories" /></f:then><f:else><f:translate id="views.detail.sidebar.category" default="Category" /></f:else></f:if>:</span><br />{app.categories -> f:ecom.makeList(separator: ', ')}
+</f:if>
+
+<!-- Updated -->
+<div class="clearfix app-lib-spacer-vt1"></div>
+<span class="text-muted"><f:translate id="views.detail.sidebar.updateDate" default="Last modified" />:</span>
+<f:if condition="{app.lastModified}">
+	<f:then>{app.lastModified -> f:format.date(format: settings.dateFormat)}</f:then>
+	<f:else>{app.releaseDate -> f:format.date(format: settings.dateFormat)}</f:else>
+</f:if>
+
+<!-- Version -->
+<f:if condition="{app.version}">
+	<div class="clearfix app-lib-spacer-vt1"></div>
+	<span class="text-muted"><f:translate id="views.detail.sidebar.version" default="Version" />:</span> {app.version}
+</f:if>
+
+<!-- Filesize -->
+<div class="clearfix app-lib-spacer-vt1"></div>
+<span class="text-muted"><f:translate id="views.detail.sidebar.fileSize" default="Size" />:</span>
+<f:if condition="{app.fileReference}">
+	<f:then>
+		<f:if condition="{app.fileReference.originalResource.size} > 0">
+			<f:then>
+				<f:if condition="{app.fileReference.originalResource.size} > 1048576">
+					<f:then>{app.fileReference.originalResource.size -> f:ecom.format.bytes(decimals: 1, decimalSeparator: settings.decimalSeparator, thousandsSeparator: settings.thousandsSeparator)}</f:then>
+					<f:else>{app.fileReference.originalResource.size -> f:ecom.format.bytes(decimalSeparator: settings.decimalSeparator, thousandsSeparator: settings.thousandsSeparator)}</f:else>
+				</f:if>
+			</f:then>
+			<f:else>-</f:else>
+		</f:if>
+	</f:then>
+	<f:else>
+		<f:if condition="{app.fileSize}">
+			<f:then>
+				<f:if condition="{app.fileSize} > 1048576">
+					<f:then>{app.fileSize -> f:ecom.format.bytes(decimals: 1, decimalSeparator: settings.decimalSeparator, thousandsSeparator: settings.thousandsSeparator)}</f:then>
+					<f:else>{app.fileSize -> f:ecom.format.bytes(decimalSeparator: settings.decimalSeparator, thousandsSeparator: settings.thousandsSeparator)}</f:else>
+				</f:if>
+			</f:then>
+			<f:else>-</f:else>
+		</f:if>
+	</f:else>
+</f:if>
+
+<!-- Language(s) -->
+<f:if condition="{app.supportedLanguages -> f:count()}">
+	<div class="clearfix app-lib-spacer-vt1"></div>
+	<div><span class="text-muted"><f:if condition="{app.supportedLanguages -> f:count()} > 1"><f:then><f:translate id="views.detail.sidebar.languages" default="Languages" /></f:then><f:else><f:translate id="views.detail.sidebar.language" default="Language" /></f:else></f:if>:</span><br />{app.supportedLanguages -> f:ecom.makeList(separator: ', ')}</div>
+</f:if>
+
+<!-- Operating Systems -->
+<f:if condition="{app.supportedOperatingSystems -> f:count()}">
+	<div class="clearfix app-lib-spacer-vt1"></div>
+	<span class="text-muted"><f:translate id="views.detail.sidebar.compatibility" default="Compatibility" />:</span><br /><f:for each="{app.supportedOperatingSystems}" as="OS"><f:render partial="Misc/OS" arguments="{OS: OS}" /></f:for>
+</f:if>
+
+<!-- Costs -->
+<div class="clearfix app-lib-spacer-vt1"></div>
+<div>
+	<span class="text-muted"><f:translate id="views.detail.sidebar.costs" default="Costs" />:</span><br />
+	<f:if condition="{app.paidApp}">
+		<f:then><f:translate id="views.detail.sidebar.costs.paid" default="Subject to charge" /></f:then>
+		<f:else><f:translate id="views.detail.sidebar.costs.free" default="Free of charge" /></f:else>
+	</f:if>
+</div>
+
+<!-- Developer -->
+<f:if condition="{app.developer}">
+	<div class="clearfix app-lib-spacer-vt1"></div>
+	<div><span class="text-muted"><f:translate id="views.detail.sidebar.developer" default="Developer" />:</span><br />{app.developer.title}</div>
+</f:if>
+
+<!-- Download Button -->
+<div class="clearfix app-lib-spacer-vt2 hidden-xs hidden-sm"></div>
+<f:if condition="{app.externalUrl}">
+	<f:then>
+		<f:link.action action="download" class="btn btn-primary hidden-xs hidden-sm" target="_blank" arguments="{app: app}" title="{f:translate(id: 'LLL:EXT:rtehtmlarea/res/accessibilityicons/locallang.xlf:external_link_new_window_titleText')}"><i class="fa fa-external-link"></i> <f:translate id="attrTitle.download.external" default="Download from {app.provider.title}" arguments="{0: app.provider.title}" /></f:link.action>
+	</f:then>
+	<f:else>
+		<f:if condition="{app.fileReference}">
+			<f:link.action action="download" class="btn btn-primary hidden-xs hidden-sm" target="_blank" arguments="{app: app}" title="{f:translate(id: 'attrTitle.download.internal')}"><i class="fa fa-download"></i> <f:translate id="LLL:EXT:lang/locallang_common.xlf:download" default="Download" /></f:link.action>
+		</f:if>
+	</f:else>
+</f:if>
+
+<f:if condition="{app.showCopyright}">
+	<!-- Copyright -->
+	<div class="clearfix app-lib-spacer-vt2"></div>
+	<div class="text-muted">&copy; {app.copyrightDate} {app.copyrightHolder.title}</div>
+</f:if>
+
+<div class="clearfix app-lib-spacer-vt2 visible-xs visible-sm"></div>

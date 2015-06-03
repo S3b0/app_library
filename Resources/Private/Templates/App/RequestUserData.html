@@ -1,0 +1,103 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<f:flashMessages renderMode="div" />
+
+	<f:if condition="{settings.welcome.header}">
+		<h{settings.welcome.header_type}>{settings.welcome.header}</h{settings.welcome.header_type}>
+		<f:if condition="{settings.welcome.text}">
+			{settings.welcome.text -> f:format.html()}
+		</f:if>
+		<hr />
+	</f:if>
+
+	<f:form action="requestUserData" enctype="multipart/form-data" name="newLog" id="app-lib-register-download" object="{newLog}">
+		<div class="form-group">
+			<label for="name"><f:translate id="newLog.name" /> <span class="text-danger">*</span></label>
+			<f:form.textfield
+				id="name"
+				class="form-control"
+				type="input"
+				property="name"
+				additionalAttributes="{required: 'required', data-parsley-required: 'true'}" />
+		</div>
+		<div class="form-group">
+			<label for="email"><f:translate id="newLog.email" /> <span class="text-danger">*</span></label>
+			<f:form.textfield
+				id="email"
+				class="form-control"
+				type="email"
+				property="email"
+				additionalAttributes="{required: 'required', data-parsley-required: 'true'}" />
+		</div>
+		<div class="form-group">
+			<label for="company"><f:translate id="newLog.company" /> <span class="text-danger">*</span></label>
+			<f:form.textfield
+				id="company"
+				class="form-control"
+				type="input"
+				property="company"
+				additionalAttributes="{required: 'required', data-parsley-required: 'true'}" />
+		</div>
+		<div class="form-group">
+			<label for="address"><f:translate id="newLog.address" /> <span class="text-danger">*</span></label>
+			<f:form.textfield
+				id="address"
+				class="form-control"
+				type="input"
+				property="address"
+				additionalAttributes="{required: 'required', data-parsley-required: 'true'}" />
+		</div>
+		<div class="form-group">
+			<label for="zip"><f:translate id="newLog.zip" /> <span class="text-danger">*</span></label>
+			<f:form.textfield
+				id="zip"
+				class="form-control"
+				type="input"
+				property="zip"
+				additionalAttributes="{required: 'required', data-parsley-required: 'true'}" />
+		</div>
+		<div class="form-group">
+			<label for="city"><f:translate id="newLog.city" /> <span class="text-danger">*</span></label>
+			<f:form.textfield
+				id="city"
+				class="form-control"
+				type="input"
+				property="city"
+				additionalAttributes="{required: 'required', data-parsley-required: 'true'}" />
+		</div>
+		<div class="form-group" id="country-selector">
+			<label for="country"><f:translate id="newLog.country" /> <span class="text-danger">*</span></label>
+			<f:form.select
+				id="country"
+				class="form-control"
+				property="country"
+				options="{countries}"
+				optionLabelField="title"
+				prependOptionLabel=""
+				prependOptionValue=""
+				sortByOptionLabel="1"
+				additionalAttributes="{required: 'required', data-parsley-required: 'true'}" />
+		</div>
+		<div class="form-group" id="state-selector">
+			<label for="state"><f:translate id="newLog.state_province" /> <span class="text-danger" style="display: none">*</span></label>
+			<select class="form-control" id="state" name="tx_applibrary_list[newLog][stateProvince]" disabled>
+				<option value="0"></option>
+				<f:for each="{states}" as="state">
+					<option value="{state.uid}" data-country="{state.country.uid}">{state.title}</option>
+				</f:for>
+			</select>
+		</div>
+		<div class="checkbox">
+			<label>
+				<p><input type="checkbox" required="required" name="dps" data-parsley-multiple="dps" checked="checked" /> <f:translate id="newLog.dps_accept" arguments="{0: '{f:link.typolink(parameter: settings.dataProtectionStatement)}'}" /></p>
+			</label>
+		</div>
+		<p class="help-block"><f:translate id="newLog.mandatory" arguments="{0: '<span class=\'text-danger\'>*</span>'}" /></p>
+		<f:form.textfield type="hidden" property="app" value="{app}" />
+		<f:form.button type="submit" class="btn btn-primary"><f:translate id="newLog.submit" /></f:form.button>
+	</f:form>
+	<script src="{f:uri.resource(path: 'JavaScript/Libs/parsley.min.js')}"></script>
+	<f:if condition="{f:ecom.fileExists(file: '{f:uri.resource(path: \'JavaScript/Libs/parsley.l18n/{settings.locale}.js\')}')}"><script src="{f:uri.resource(path: 'JavaScript/Libs/parsley.l18n/{settings.locale}.js')}" type="text/javascript" language="JavaScript"></script></f:if>
+	<script src="{f:uri.resource(path: 'JavaScript/ccsr.js')}" type="text/javascript" language="JavaScript"></script>
+</f:section>
