@@ -20,6 +20,7 @@ return [
 		'transOrigPointerField' => 'l10n_parent',
 		'transOrigDiffSourceField' => 'l10n_diffsource',
 		'delete' => 'deleted',
+		'requestUpdate' => 'file_reference,external_url',
 		'enablecolumns' => [
 			'disabled' => 'hidden',
 			'starttime' => 'starttime',
@@ -68,6 +69,7 @@ return [
 			]
 		],
 		'l10n_diffsource' => [
+			'exclude' => 1,
 			'config' => [
 				'type' => 'passthrough'
 			]
@@ -280,8 +282,8 @@ return [
 			)
 		],
 		'youtube_links' => [
+			'exclude' => 1,
 			'l10n_mode' => 'exclude',
-			'exclude' => 0,
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.youtube_links',
 			'config' => [
 				'type' => 'text',
@@ -300,7 +302,8 @@ return [
 								'mode' => 'wizard'
 							]
 						],
-						'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1'
+						'JSopenParams' => 'height=300,width=500,status=0,menubar=0,scrollbars=1',
+						'params' => [ 'blindLinkOptions' => 'file, folder, mail, spec' ]
 					]
 				]
 			]
@@ -317,7 +320,7 @@ return [
 			]
 		],
 		'release_date' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.release_date',
 			'config' => [
@@ -344,7 +347,7 @@ return [
 			]
 		],
 		'description' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'prefixLangTitle',
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.description',
 			'config' => [
@@ -365,7 +368,7 @@ return [
 			]
 		],
 		'features' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'prefixLangTitle',
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.features',
 			'config' => [
@@ -386,7 +389,7 @@ return [
 			]
 		],
 		'system_requirements' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'prefixLangTitle',
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.system_requirements',
 			'config' => [
@@ -407,7 +410,7 @@ return [
 			]
 		],
 		'last_modified' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.last_modified',
 			'config' => [
@@ -420,7 +423,7 @@ return [
 			]
 		],
 		'supported_operating_systems' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems',
 			'config' => [
@@ -447,7 +450,7 @@ return [
 			]
 		],
 		'views' => [
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.views',
 			'config' => [
 				'readOnly' => 1,
@@ -457,7 +460,7 @@ return [
 			]
 		],
 		'downloads' => [
-			'exclude' => 0,
+			'exclude' => 1,
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.downloads',
 			'config' => [
 				'readOnly' => 1,
@@ -523,7 +526,7 @@ return [
 			]
 		],
 		'supported_languages' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.supported_languages',
 			'config' => [
@@ -588,7 +591,7 @@ return [
 			]
 		],
 		'provider' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.provider',
 			'config' => [
@@ -599,7 +602,7 @@ return [
 			]
 		],
 		'developer' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.developer',
 			'config' => [
@@ -611,7 +614,7 @@ return [
 			]
 		],
 		'copyright_holder' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.copyright_holder',
 			'config' => [
@@ -622,7 +625,7 @@ return [
 			]
 		],
 		'tags' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.tags',
 			'config' => [
@@ -644,7 +647,7 @@ return [
 			]
 		],
 		'products' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib_domain_model_app.products',
 			'config' => [
@@ -666,7 +669,7 @@ return [
 			]
 		],
 		'categories' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:lang/locallang_tca.xlf:sys_category.categories',
 			'config' => [

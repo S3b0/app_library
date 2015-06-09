@@ -2,8 +2,8 @@
 	<f:if condition="{app.featured}"><div class="app-lib-app-qv-featured-badge"></div></f:if>
 	<noscript>
 		<f:if condition="{app.page}">
-			<f:then><f:link.typolink parameter="{app.page}" title="{f:translate(id: 'views.list.detailLinkTitle')}" additionalAttributes="{style: inlineStlyeLink}"></f:link.typolink></f:then>
-			<f:else><f:link.action action="show" arguments="{app: app}" title="{f:translate(id: 'views.list.detailLinkTitle')}" additionalAttributes="{style: inlineStlyeLink}"></f:link.action></f:else>
+			<f:then><f:link.typolink parameter="{app.page}" additionalAttributes="{style: inlineStlyeLink}"></f:link.typolink></f:then>
+			<f:else><f:link.action action="show" arguments="{app: app}" additionalAttributes="{style: inlineStlyeLink}"></f:link.action></f:else>
 		</f:if>
 	</noscript>
 	<div class="app-lib-app-qv-card-content">
@@ -13,12 +13,12 @@
 				<div class="app-lib-app-qv-cover-inner-align">
 					<f:if condition="{app.icon}">
 						<f:then>
-							<f:image src="{app.icon.uid}" width="128m" height="128m" class="hidden-xs" treatIdAsReference="1" />
-							<f:image src="{app.icon.uid}" width="96m" height="96m" class="visible-xs" treatIdAsReference="1" />
+							<f:image src="{app.icon.uid}" width="128m" height="128m" class="hidden-xs" alt="{app.icon.originalResource.altText}" treatIdAsReference="1" />
+							<f:image src="{app.icon.uid}" width="96m" height="96m" class="visible-xs" alt="{app.icon.originalResource.altText}" treatIdAsReference="1" />
 						</f:then>
 						<f:else>
-							<f:image src="{f:uri.resource(path: 'Images/emptyapp.png')}" width="128m" height="128m" class="hidden-xs" />
-							<f:image src="{f:uri.resource(path: 'Images/emptyapp.png')}" width="96m" height="96m" class="visible-xs" />
+							<f:image src="{f:uri.resource(path: 'Images/emptyapp.png')}" width="128m" height="128m" alt="{app.icon.originalResource.altText}" class="hidden-xs" />
+							<f:image src="{f:uri.resource(path: 'Images/emptyapp.png')}" width="96m" height="96m" alt="{app.icon.originalResource.altText}" class="visible-xs" />
 						</f:else>
 					</f:if>
 				</div>
@@ -26,7 +26,12 @@
 		</div>
 		<!-- App Info: Title & Developer -->
 		<div class="app-lib-app-qv-details">
-			<h5>{app.title}</h5>
+			<h5>
+				<f:if condition="{app.page}">
+					<f:then><f:link.typolink parameter="{app.page}" additionalAttributes="{style: inlineStlyeLink}">{app.title}</f:link.typolink></f:then>
+					<f:else><f:link.action action="show" arguments="{app: app}" additionalAttributes="{style: inlineStlyeLink}">{app.title}</f:link.action></f:else>
+				</f:if>
+			</h5>
 			<f:if condition="{settings.enableRating}">
 				<span class="app-lib-stars-container">
 					<div class="app-lib-reason-set-star-rating">

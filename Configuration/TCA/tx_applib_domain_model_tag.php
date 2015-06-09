@@ -59,6 +59,7 @@ return [
 			]
 		],
 		'l10n_diffsource' => [
+			'exclude' => 1,
 			'config' => [
 				'type' => 'passthrough'
 			]

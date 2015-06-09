@@ -62,6 +62,7 @@ return [
 			]
 		],
 		'l10n_diffsource' => [
+			'exclude' => 1,
 			'config' => [
 				'type' => 'passthrough'
 			]
@@ -148,7 +149,7 @@ return [
 			]
 		],
 		'inquirer' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib_domain_model_faq.inquirer',
 			'config' => [
@@ -158,7 +159,7 @@ return [
 			]
 		],
 		'responder' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib_domain_model_faq.responder',
 			'config' => [
@@ -168,7 +169,7 @@ return [
 			]
 		],
 		'app' => [
-			'exclude' => 1,
+			'exclude' => 0,
 			'l10n_mode' => 'exclude',
 			'label' => 'LLL:EXT:app_library/Resources/Private/Language/locallang_db.xlf:tx_applib_domain_model_faq.app',
 			'config' => [
