@@ -5,45 +5,52 @@
 	<f:flashMessages renderMode="div" />
 
 	<div class="row">
-		<f:if condition="{settings.settings -> f:ecom.checkBit(bit: '1')} == 0">
-			<div class="col-sm-3 col-md-2">
-				<f:form id="app-lib-searchbox" additionalAttributes="{data-parsley-validate: 1}">
-					<div class="form-group">
-						<div class="input-group">
-							<f:form.textfield type="text" name="search" placeholder="Search for..." value="{search}" class="form-control" additionalAttributes="{minlength: 3, data-parsley-minlength: 3, required: 1, data-parsley-required: 1}" />
-							<span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></span>
-						</div>
+		<f:if condition="{apps -> f:count()}">
+			<f:then>
+				<f:if condition="{settings.settings -> f:ecom.checkBit(bit: '1')} == 0">
+					<div class="col-sm-3 col-md-2">
+						<f:form id="app-lib-searchbox" additionalAttributes="{data-parsley-validate: 1}">
+							<div class="form-group">
+								<div class="input-group">
+									<f:form.textfield type="text" name="search" placeholder="Search for..." value="{search}" class="form-control" additionalAttributes="{minlength: 3, data-parsley-minlength: 3, required: 1, data-parsley-required: 1}" />
+									<span class="input-group-btn"><button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button></span>
+								</div>
+							</div>
+						</f:form>
+						<f:if condition="{filterCategories -> f:count()} > 1">
+							<ul class="app-lib-filter-options nav nav-pills nav-stacked" role="tablist">
+								<li role="presentation" class="active" data-group="all"><a>[All]</a></li>
+								<f:for each="{filterCategories}" as="category" key="jsSelector">
+									<li role="presentation" data-group="{jsSelector}"><a>{category.title}</a></li>
+								</f:for>
+							</ul>
+							<div class="clearfix app-lib-spacer-vt2"></div>
+						</f:if>
 					</div>
-				</f:form>
-				<f:if condition="{filterCategories -> f:count()} > 1">
-					<ul class="app-lib-filter-options nav nav-pills nav-stacked" role="tablist">
-						<li role="presentation" class="active" data-group="all"><a>[All]</a></li>
-						<f:for each="{filterCategories}" as="category" key="jsSelector">
-							<li role="presentation" data-group="{jsSelector}"><a>{category.title}</a></li>
-						</f:for>
-					</ul>
-					<div class="clearfix app-lib-spacer-vt2"></div>
 				</f:if>
-			</div>
-		</f:if>
 
-		<div class="{f:if(condition: '{settings.settings -> f:ecom.checkBit(bit: \'1\')} == 0', then: 'col-sm-9 col-md-10', else: 'cold-md-12')}">
-			<f:if condition="{gridTitle}"><h2 class="app-lib-grid-title">{gridTitle}</h2></f:if>
-			<f:if condition="{search}">
-				<p><i class="fa fa-caret-right fa-fw"></i><f:if condition="{apps -> f:count()}">
-					<f:then>{apps -> f:count()} <f:translate id="LLL:typo3/sysext/indexed_search/Resources/Private/Language/locallang.xlf:result.ratingMatches" /> for "{search}"</f:then>
-					<f:else><f:translate id="LLL:typo3/sysext/indexed_search/Resources/Private/Language/locallang.xlf:result.noResult" /></f:else>
-				</f:if></p>
-				<f:if condition="{search -> f:countString()} < 3"><p><f:translate id="search.rule" /></p></f:if>
-			</f:if>
-			<f:render partial="App/Grid" arguments="{apps: apps}" />
-		</div>
+				<div class="{f:if(condition: '{settings.settings -> f:ecom.checkBit(bit: \'1\')} == 0', then: 'col-sm-9 col-md-10', else: 'cold-md-12')}">
+					<f:if condition="{gridTitle}"><h2 class="app-lib-grid-title">{gridTitle}</h2></f:if>
+					<f:if condition="{search}">
+						<p><i class="fa fa-caret-right fa-fw"></i><f:if condition="{apps -> f:count()}">
+							<f:then>{apps -> f:count()} <f:translate id="LLL:typo3/sysext/indexed_search/Resources/Private/Language/locallang.xlf:result.ratingMatches" /> for "{search}"</f:then>
+							<f:else><f:translate id="LLL:typo3/sysext/indexed_search/Resources/Private/Language/locallang.xlf:result.noResult" /></f:else>
+						</f:if></p>
+						<f:if condition="{search -> f:countString()} < 3"><p><f:translate id="search.rule" /></p></f:if>
+					</f:if>
+					<f:render partial="App/Grid" arguments="{apps: apps}" />
+				</div>
 
-		<f:if condition="{showLevelUpLink}">
-			<div class="clearfix app-lib-spacer-vt2"></div>
-			<div class="col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2">
-				<f:link.action>[ <f:translate id="LLL:typo3/sysext/lang/locallang_misc.xlf:liveSearch_showAllResults" /> ]</f:link.action>
-			</div>
+				<f:if condition="{showLevelUpLink}">
+					<div class="clearfix app-lib-spacer-vt2"></div>
+					<div class="col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2">
+						<f:link.action>[ <f:translate id="LLL:typo3/sysext/lang/locallang_misc.xlf:liveSearch_showAllResults" /> ]</f:link.action>
+					</div>
+				</f:if>
+			</f:then>
+			<f:else>
+				<f:translate id="LLL:typo3/sysext/indexed_search/Resources/Private/Language/locallang.xlf:result.noResult" />
+			</f:else>
 		</f:if>
 	</div>
 

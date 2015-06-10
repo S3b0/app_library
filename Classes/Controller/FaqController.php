@@ -43,15 +43,4 @@ class FaqController extends ExtensionController {
 		$this->view->assign('faqs', $faqs);
 	}
 
-	/**
-	 * action show
-	 *
-	 * @param \S3b0\AppLibrary\Domain\Model\Faq $faq
-	 *
-	 * @return void
-	 */
-	public function showAction(\S3b0\AppLibrary\Domain\Model\Faq $faq) {
-		$this->view->assign('faq', $faq);
-	}
-
 }

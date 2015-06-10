@@ -163,6 +163,11 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $page = '';
 
 	/**
+	 * @var string
+	 */
+	protected $realUrl = '';
+
+	/**
 	 * Rating, incrementally summed up, to be divided by votes.
 	 *
 	 * @var float
@@ -831,6 +836,44 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setPage($page) {
 		$this->page = $page;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getRealUrl() {
+		if ( $this->realUrl ) {
+			return $this->realUrl;
+		} else {
+			// Fetch character set
+			$charset = $GLOBALS['TYPO3_CONF_VARS']['BE']['forceCharset'] ? $GLOBALS['TYPO3_CONF_VARS']['BE']['forceCharset'] : $GLOBALS['TSFE']->defaultCharSet;
+			// Convert to lowercase
+			$processedTitle = $GLOBALS['TSFE']->csConvObj->conv_case($charset, $this->title, 'toLower');
+			// Strip tags
+			$processedTitle = strip_tags($processedTitle);
+			// Convert some special tokens to the space character
+			$processedTitle = preg_replace('/[ \-+_]+/', '-', $processedTitle); // convert spaces
+			// Convert extended letters to ascii equivalents
+			$processedTitle = $GLOBALS['TSFE']->csConvObj->specCharsToASCII($charset, $processedTitle);
+			// Strip the rest
+			if ( $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['realurl']['_DEFAULT']['init']['enableAllUnicodeLetters'] ) {
+				// Warning: slow!!!
+				$processedTitle = preg_replace('/[^\p{L}0-9-]/u', '', $processedTitle);
+			} else {
+				$processedTitle = preg_replace('/[^a-zA-Z0-9-]/', '', $processedTitle);
+			}
+			$processedTitle = preg_replace('/\\-{2,}/', '-', $processedTitle); // Convert multiple 'spaces' to a single one
+			$processedTitle = trim($processedTitle, '-');
+
+			return $processedTitle;
+		}
+	}
+
+	/**
+	 * @param string $realUrl
+	 */
+	public function setRealUrl($realUrl) {
+		$this->realUrl = $realUrl;
 	}
 
 	/**

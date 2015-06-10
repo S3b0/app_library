@@ -176,7 +176,7 @@ class AppRepository extends AbstractRepository {
 	 */
 	final public function findByTag(\S3b0\AppLibrary\Domain\Model\Tag $tag, $search = '', \S3b0\AppLibrary\Domain\Model\App $excludeApp = NULL, $limit = 0) {
 		$query = $this->createQuery();
-		$query->setQuerySettings( $query->getQuerySettings()->setRespectStoragePage( FALSE ) );
+		$this->ignoreSysLanguageUidOnQuery($query);
 		$constraint = $query->contains('tags', $tag);
 
 		if ( $excludeApp ) {
@@ -321,6 +321,7 @@ class AppRepository extends AbstractRepository {
 	 */
 	public function findFeatured($limit = 0) {
 		$query = $this->createQuery();
+		$this->ignoreSysLanguageUidOnQuery($query);
 		$this->setLimit($query, $limit);
 
 		return $query->matching( $query->greaterThanOrEqual('featured_until', time()) )->execute();
@@ -331,14 +332,15 @@ class AppRepository extends AbstractRepository {
 	 * This is used for requests that only differ in orderings of result (first arguments element represents SQL limit!)
 	 * All other functionality is exactly the same as findAll() method
 	 *
-	 * @param string $methodName The name of the magic method
+	 * @param string $method    The name of the magic method
 	 * @param string $arguments The arguments of the magic method
+	 *
 	 * @return mixed
 	 */
-	public function __call($methodName, $arguments) {
-		if ( \TYPO3\CMS\Core\Utility\GeneralUtility::inList($this->magicMethods, $methodName) ) {
+	public function __call($method, $arguments) {
+		if ( \TYPO3\CMS\Core\Utility\GeneralUtility::inList($this->magicMethods, $method) ) {
 			$orderings = $this->defaultOrderings;
-			switch ( $methodName ) {
+			switch ( $method ) {
 				case 'findMostPopular':
 				case 'findTopDownloads':
 					$orderings = [
@@ -356,11 +358,12 @@ class AppRepository extends AbstractRepository {
 			}
 
 			$query = $this->createQuery();
+			$this->ignoreSysLanguageUidOnQuery($query);
 			$this->setLimit($query, (int)$arguments[0]);
 
 			return $query->setOrderings( $orderings )->execute();
 		} else {
-			return call_user_func([get_parent_class($this), '__call'], $methodName, $arguments);
+			return call_user_func([get_parent_class($this), '__call'], $method, $arguments);
 		}
 	}
 

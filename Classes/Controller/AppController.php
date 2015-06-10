@@ -59,6 +59,9 @@ class AppController extends ExtensionController {
 	 */
 	protected $cookiesEnabled = TRUE;
 
+	/**
+	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentNameException
+	 */
 	public function initializeListAction() {
 		setcookie('cookieCheck', 1);
 		$this->cookiesEnabled = (bool) $_COOKIE['cookieCheck'];
@@ -150,49 +153,22 @@ class AppController extends ExtensionController {
 			$this->view->assign('gridTitle', \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('resultsFor', $this->extensionName, [ \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_applib_domain_model_tag', $this->extensionName), $tag->getTitle() ]));
 		}
 
-		$this->postProcessApps($apps);
-
-		$this->view->assignMultiple([
-			'apps' => $apps,
-			'search' => $search,
-			'arguments' => array_diff_key( $this->request->getArguments(), ['search' => 1] ),
-			'showLevelUpLink' => $search || $tag instanceof Tag || $category instanceof Category
-		]);
+		$this->processListAction($apps, $search, $search || $tag instanceof Tag || $category instanceof Category);
 	}
 
-	public function listByDeveloper(Provider $developer, $search = '') {
-		$apps = $this->appRepository->findByDeveloper($developer, $search);
+	/**
+	 * @param \TYPO3\CMS\Extbase\Persistence\QueryResultInterface|\TYPO3\CMS\Extbase\Persistence\ObjectStorage $apps
+	 * @param string                                                                                           $search
+	 * @param bool                                                                                             $showLevelUpLink
+	 */
+	public function processListAction($apps, $search = '', $showLevelUpLink = FALSE) {
 		$this->postProcessApps($apps);
 
 		$this->view->assignMultiple([
 			'apps' => $apps,
 			'search' => $search,
 			'arguments' => array_diff_key( $this->request->getArguments(), ['search' => 1] ),
-			'showLevelUpLink' => TRUE
-		]);
-	}
-
-	public function listByTag(Tag $tag, $search = '') {
-		$apps = $this->appRepository->findByTag($tag, $search);
-		$this->postProcessApps($apps);
-
-		$this->view->assignMultiple([
-			'apps' => $apps,
-			'search' => $search,
-			'arguments' => array_diff_key( $this->request->getArguments(), ['search' => 1] ),
-			'showLevelUpLink' => TRUE
-		]);
-	}
-
-	public function listByCategory(Category $category, $search = '') {
-		$apps = $this->appRepository->findByCategory($category, $search);
-		$this->postProcessApps($apps);
-
-		$this->view->assignMultiple([
-			'apps' => $apps,
-			'search' => $search,
-			'arguments' => array_diff_key( $this->request->getArguments(), ['search' => 1] ),
-			'showLevelUpLink' => TRUE
+			'showLevelUpLink' => $showLevelUpLink
 		]);
 	}
 
@@ -523,6 +499,19 @@ class AppController extends ExtensionController {
 			$this->appRepository->update( $app );
 		}
 		$this->feSession->store($this->extensionName . '.' . $app->getUid()  . '.' . $property . '.vote', 1);
+	}
+
+	/**
+	 * Magic methods
+	 *
+	 * @param $method
+	 * @param $arguments
+	 */
+	public function __call($method, $arguments) {
+		if ( substr($method, 0, 6) === 'listBy' && method_exists('S3b0\AppLibrary\Domain\Repository\AppRepository', 'findBy' . substr($method, 6)) || property_exists('S3b0\AppLibrary\Domain\Model\App', lcfirst(substr($method, 6))) ) {
+			$call = 'findBy' . substr($method, 6);
+			$this->processListAction($this->appRepository->{$call}($arguments[0], $arguments[1]), $arguments[1], TRUE); // $arguments[0] => {property} | $arguments[1] => {search}
+		}
 	}
 
 }

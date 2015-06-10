@@ -7,7 +7,7 @@ if (!defined('TYPO3_MODE')) {
 	$_EXTKEY,
 	'List',
 	'App Library - List',
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath( $_EXTKEY ) . 'ext_icon.png'
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath( $_EXTKEY ) . (version_compare(TYPO3_branch, '7.2', '>=') ? 'ext_icon.png' : 'ext_icon_16px.png')
 );
 
 $TCA['tt_content']['types']['list']['subtypes_addlist']['applibrary_list'] = 'tx_applib_mode, pi_flexform';
@@ -18,7 +18,7 @@ $TCA['tt_content']['types']['list']['subtypes_excludelist']['applibrary_list'] =
 	$_EXTKEY,
 	'SubNav',
 	'App Library - Sub Navigation',
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath( $_EXTKEY ) . 'ext_icon2.png'
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath( $_EXTKEY ) . (version_compare(TYPO3_branch, '7.2', '>=') ? 'ext2_icon.png' : 'ext_icon2_16px.png')
 );
 
 $TCA['tt_content']['types']['list']['subtypes_addlist']['applibrary_subnav'] = 'pi_flexform';
@@ -29,7 +29,7 @@ $TCA['tt_content']['types']['list']['subtypes_excludelist']['applibrary_subnav']
 	$_EXTKEY,
 	'Faq',
 	'App Library - FAQ',
-	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath( $_EXTKEY ) . 'ext_icon3.png'
+	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath( $_EXTKEY ) . (version_compare(TYPO3_branch, '7.2', '>=') ? 'ext_icon3.png' : 'ext_icon3_16px.png')
 );
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'App Library');

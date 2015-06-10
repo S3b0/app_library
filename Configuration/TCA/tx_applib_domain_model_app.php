@@ -696,6 +696,15 @@ return [
 					'parentField' => 'parent'
 				]
 			]
+		],
+		'tx_realurl_pathsegment' => [
+			'label' => 'LLL:EXT:realurl/locallang_db.xml:pages.tx_realurl_pathsegment',
+			'exclude' => 1,
+			'config' => [
+				'type' => 'input',
+				'max' => 255,
+				'eval' => 'trim,nospace,lower'
+			]
 		]
 
 	]

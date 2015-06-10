@@ -1,4 +1,11 @@
 #
+# Table structure for table 'sys_category'
+#
+CREATE TABLE sys_category (
+	tx_realurl_pathsegment VARCHAR(255) DEFAULT '' NOT NULL
+);
+
+#
 # Table structure for table 'tt_content'
 #
 CREATE TABLE tt_content (
@@ -44,6 +51,7 @@ CREATE TABLE tx_applib_domain_model_app (
 	fe_group varchar(100) NOT NULL default '0',
 	products int(11) unsigned NOT NULL default '0',
 	categories int(11) unsigned NOT NULL default '0',
+	tx_realurl_pathsegment VARCHAR(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned NOT NULL default '0',
 	crdate int(11) unsigned NOT NULL default '0',
@@ -133,6 +141,7 @@ CREATE TABLE tx_applib_domain_model_tag (
 	pid int(11) NOT NULL default '0',
 
 	title varchar(255) NOT NULL default '',
+	tx_realurl_pathsegment VARCHAR(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned NOT NULL default '0',
 	crdate int(11) unsigned NOT NULL default '0',

@@ -1,45 +1,19 @@
-
 <f:layout name="Default" />
 
-This Template is responsible for creating a table of domain objects.
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
-
 <f:section name="main">
-<h1>Listing for Faq</h1>
-
-<f:flashMessages renderMode="div" />
-
-<table  class="tx-app-library" >
-	<tr>
-		<th><f:translate id="tx_applib_domain_model_faq.title" /></th>
-		<th><f:translate id="tx_applib_domain_model_faq.answer" /></th>
-		<th><f:translate id="tx_applib_domain_model_faq.date" /></th>
-		<th><f:translate id="tx_applib_domain_model_faq.inquirer" /></th>
-		<th><f:translate id="tx_applib_domain_model_faq.responder" /></th>
-		<th> </th>
-		<th> </th>
-	</tr>
-
-	<f:for each="{faqs}" as="faq">
-		<tr>
-			<td><f:link.action action="show" arguments="{faq : faq}"> {faq.title}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{faq : faq}"> {faq.answer}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{faq : faq}"> {faq.date -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{faq : faq}"> {faq.inquirer}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{faq : faq}"> {faq.responder}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{faq : faq}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{faq : faq}">Delete</f:link.action></td>
-		</tr>
-	</f:for>
-</table>
-
-<f:link.action action="new">New Faq</f:link.action>
+	<f:if condition="{faqs -> f:count()}">
+		<!-- System Requirements -->
+		<div class="app-lib-app-dv-faq">
+			<h3><f:translate id="views.detail.faq" default="FAQ" /></h3>
+			<!--
+					<a class="expand-all" data-collapsible=".panel-collapse"><i class="fa fa-expand fa-fw fa-lg"></i> {f:translate(id: 'expandAll', default: 'Expand all')}</a>
+					<a class="collapse-all" data-collapsible=".panel-collapse"><i class="fa fa-compress fa-fw fa-lg"></i> {f:translate(id: 'collapseAll', default: 'Collapse all')}</a>
+			-->
+			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+				<f:for each="{faqs}" as="faq" iteration="iterator">
+					<f:render partial="Faq/AccordionElement" arguments="{faq: faq, i: iterator.index}" />
+				</f:for>
+			</div>
+		</div>
+	</f:if>
 </f:section>

@@ -11,6 +11,7 @@ config.tx_extbase {
 					tableName = tx_applib_domain_model_app
 					columns {
 						sorting.mapOnProperty = sorting
+						tx_realurl_pathsegment.mapOnProperty = realUrl
 					}
 				}
 			}

@@ -8,7 +8,7 @@ if (!defined('TYPO3_MODE')) {
 	'List',
 	[
 		'App' => 'list, show, requestUserData, download, startDownload',
-		'Faq' => 'list, show',
+		'Faq' => 'list',
 		'Provider' => 'list',
 		'Tag' => 'list'
 	],
@@ -31,5 +31,5 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
 	'S3b0.' . $_EXTKEY,
 	'Faq',
-	[ 'Faq' => 'list, show' ]
+	[ 'Faq' => 'list' ]
 );

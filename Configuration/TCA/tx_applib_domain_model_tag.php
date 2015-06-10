@@ -20,14 +20,14 @@ return [
 		'enablecolumns' => [
 			'disabled' => 'hidden',
 		],
-		'searchFields' => 'title,',
+		'searchFields' => 'title,tx_realurl_pathsegment,',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('app_library') . 'Resources/Public/Icons/tx_applib_domain_model_tag.png'
 	],
 	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title'
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, tx_realurl_pathsegment'
 	],
 	'types' => [
-		'1' => [ 'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime' ]
+		'1' => [ 'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, tx_realurl_pathsegment, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime' ]
 	],
 	'palettes' => [],
 	'columns' => [
@@ -81,6 +81,15 @@ return [
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim,required'
+			]
+		],
+		'tx_realurl_pathsegment' => [
+			'label' => 'LLL:EXT:realurl/locallang_db.xml:pages.tx_realurl_pathsegment',
+			'exclude' => 1,
+			'config' => [
+				'type' => 'input',
+				'max' => 255,
+				'eval' => 'trim,nospace,lower'
 			]
 		]
 
