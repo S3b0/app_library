@@ -36,6 +36,9 @@
 			<trans-unit id="tx_applib.category">
 				<source>Category</source>
 			</trans-unit>
+			<trans-unit id="tx_applib.add_list_class">
+				<source><![CDATA[Add CSS class(es) to list (<ul>)]]></source>
+			</trans-unit>
 			<trans-unit id="tx_applib_sidebar.mode.0">
 				<source>Featured</source>
 			</trans-unit>

@@ -128,7 +128,7 @@ class AppController extends ExtensionController {
 				$this->feSession->store($this->extensionName . '.hasRegistered', TRUE);
 			} else {
 				// Handle unregistered users, fetching some Marketing information ;)
-				$this->redirectToUri( $this->uriBuilder->uriFor('requestUserData') );
+				$this->forward('requestUserData');
 			}
 		}
 
@@ -283,12 +283,11 @@ class AppController extends ExtensionController {
 	 * action requestUserData
 	 *
 	 * @param \S3b0\AppLibrary\Domain\Model\Log $newLog
-	 * @param \S3b0\AppLibrary\Domain\Model\App $app
 	 *
 	 * @ignorevalidation $newLog
 	 * @return void
 	 */
-	public function requestUserDataAction(Log $newLog = NULL, App $app = NULL) {
+	public function requestUserDataAction(Log $newLog = NULL) {
 		if ( $newLog instanceof Log && $newLog->getName() && $newLog->getCompany() && $newLog->getEmail() && $newLog->getAddress() && $newLog->getCity() && $newLog->getZip() && $newLog->getCountry() instanceof Toolbox\Domain\Model\Region ) {
 			$this->feSession->store($this->extensionName . '.user', [
 				$newLog->getName(),
@@ -307,8 +306,7 @@ class AppController extends ExtensionController {
 		$this->view->assignMultiple([
 			'log' => $newLog,
 			'countries' => $this->regionRepository->findByType(0),
-			'states' => $this->stateRepository->findAll(),
-			'app' => $app
+			'states' => $this->stateRepository->findAll()
 		]);
 	}
 

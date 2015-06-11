@@ -82,7 +82,7 @@
 	<div class="app-lib-app-dv-tags">
 		<h4><f:translate id="tx_applib_domain_model_app.tags" default="Tags" /></h4>
 		<f:for each="{app.tags}" as="tag" iteration="iterator">
-			<f:link.action arguments="{tag: tag}">{tag.title}</f:link.action><f:if condition="{iterator.isLast} == 0"> / </f:if>
+			{tag.title}<f:if condition="{iterator.isLast} == 0"> / </f:if>
 		</f:for>
 	</div>
 </f:if>

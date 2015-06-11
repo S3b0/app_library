@@ -63,7 +63,7 @@ plugin.tx_applibrary {
 }
 
 page.includeCSS {
-	applib = EXT:app_library/Resources/Public/Stylesheets/applib.css
+	applib = EXT:app_library/Resources/Public/Stylesheets/applib.min.css
 }
 
 plugin.tx_applibrary._CSS_DEFAULT_STYLE (
