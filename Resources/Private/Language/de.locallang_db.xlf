@@ -1,250 +1,267 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-04-23T10:02:10Z" product-name="app_library">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-04-23T10:02:10Z" product-name="app_library">
 		<header/>
 		<body>
 			<trans-unit id="tabs.dates">
 				<source>Dates</source>
+				<target>Daten</target>
 			</trans-unit>
 			<trans-unit id="tabs.options">
 				<source>Options</source>
+				<target>Optionen</target>
 			</trans-unit>
 			<trans-unit id="tabs.relations">
 				<source>Relations</source>
+				<target>Verknüpfungen</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_mode">
 				<source>Plugin Mode</source>
+				<target>Plugin-Modus</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_mode.I.0">
 				<source>Select All</source>
+				<target>Alle auswählen</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_mode.I.1">
 				<source>Select by product</source>
+				<target>Nach Produkt auswählen</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_mode.I.2">
 				<source>Select list</source>
+				<target>Auswahl-Liste</target>
 			</trans-unit>
 			<trans-unit id="tx_applib.mode.sidebar">
 				<source>Orderings / Mode</source>
+				<target>Sortierung / Modus</target>
 			</trans-unit>
 			<trans-unit id="tx_applib.page">
 				<source>Detail Page</source>
+				<target>Detailseite</target>
 			</trans-unit>
 			<trans-unit id="tx_applib.limit">
 				<source>Record limit</source>
+				<target>Datensatzlimit</target>
 			</trans-unit>
 			<trans-unit id="tx_applib.category">
 				<source>Category</source>
+				<target>Kategorie</target>
 			</trans-unit>
 			<trans-unit id="tx_applib.add_list_class">
 				<source><![CDATA[Add CSS class(es) to list (<ul>)]]></source>
+				<target><![CDATA[CSS-Klasse(n) der Liste hinzufügen (<ul>)]]></target>
 			</trans-unit>
 			<trans-unit id="tx_applib_sidebar.mode.0">
 				<source>Featured</source>
+				<target>Gesponsert</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_sidebar.mode.1">
 				<source>Most popular</source>
+				<target>Beliebteste</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_sidebar.mode.2">
 				<source>Latest</source>
+				<target>Neueste</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_sidebar.mode.3">
 				<source>Top Downloads</source>
+				<target>Top Downloads</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_sidebar.mode.4">
 				<source>Top Rated</source>
+				<target>Top Bewertet</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_sidebar.mode.5">
 				<source>Tag cloud</source>
+				<target>Tag-Wolke</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_sidebar.mode.6">
 				<source>Categories</source>
+				<target>Kategorien</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app">
 				<source>App</source>
+				<target>App</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.title">
 				<source>Title</source>
+				<target>Titel</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.file_reference">
 				<source>File Reference</source>
+				<target>Dateiverweis</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.file_size">
 				<source>File size in KB</source>
+				<target>Dateigröße in KB</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.external_url">
 				<source>External URL</source>
+				<target>Externe URL</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.icon">
 				<source>Icon</source>
+				<target>Icon</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.preview_images">
 				<source>Preview Images</source>
+				<target>Vorschaubilder</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.version">
 				<source>Version</source>
+				<target>Version</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.youtube_links">
 				<source>Youtube Video(s)</source>
+				<target>Youtube Video(s)</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.featured_until">
 				<source>Featured Until</source>
+				<target>Gesponsert bis</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.features">
 				<source>Features</source>
+				<target>Charakteristika</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.description">
 				<source>Description</source>
+				<target>Beschreibung</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.system_requirements">
 				<source>System Requirements</source>
+				<target>Systemanforderungen</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.release_date">
 				<source>Release Date</source>
+				<target>Veröffentlichungsdatum</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.last_modified">
 				<source>Last Modified</source>
+				<target>Zuletzt aktualisiert</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems">
 				<source>Supported Operating Systems</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.0">
-				<source>iOS</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.1">
-				<source>Android</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.2">
-				<source>Mac OSX</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.3">
-				<source>Windows</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.4">
-				<source>Linux</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.5">
-				<source>Chrome OS</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.6">
-				<source>Firefox OS</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.7">
-				<source>Be OS</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.8">
-				<source>Redhat</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.9">
-				<source>Suse</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.10">
-				<source>Unix</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.11">
-				<source>Symbian</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.12">
-				<source>DOS</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.13">
-				<source>Free Bsd</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.14">
-				<source>Mandriva</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.15">
-				<source>OS2</source>
+				<target>Unterstützte Betriebssysteme</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.views">
 				<source>Views</source>
+				<target>Impressionen</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.downloads">
 				<source>Downloads</source>
+				<target>Downloads</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.settings">
 				<source>Settings</source>
+				<target>Einstellungen</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.settings.I.0">
 				<source>Allow direct D/L</source>
+				<target>Direkten Download erlauben</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.settings.I.1">
 				<source>Paid App</source>
+				<target>Bezahlte App</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.settings.I.2">
 				<source>Show Copyright Information</source>
+				<target>Urheberrechtsinformationen anzeigen</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.page">
 				<source>Page</source>
+				<target>Seite</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.rating">
 				<source>Rating</source>
+				<target>Bewertung</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.votes">
 				<source>Votes</source>
+				<target>Stimmen</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_languages">
 				<source>Supported Languages</source>
+				<target>Unterstützte Sprachen</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.related">
 				<source>Related</source>
+				<target>Verwandte</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.recommended">
 				<source>Recommended</source>
+				<target>Empfohlene</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.provider">
 				<source>App Provider</source>
+				<target>App Anbieter</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.developer">
 				<source>Developer</source>
+				<target>Entwickler</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.copyright_holder">
 				<source>Copyright Holder</source>
+				<target>Urheberrechtsinhaber</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.tags">
 				<source>Tags</source>
+				<target>Tags</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.fe_group">
 				<source>Frontend User-Group</source>
+				<target>Frontend Nutzergruppe</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.products">
 				<source>Products</source>
+				<target>Produkte</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_faq">
 				<source>FAQ</source>
+				<target>FAQ</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_faq.title">
 				<source>Question</source>
+				<target>Frage</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_faq.answer">
 				<source>Answer</source>
+				<target>Antwort</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_faq.date">
 				<source>Date</source>
+				<target>Datum</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_faq.inquirer">
 				<source>Inquirer</source>
+				<target>Anfragender</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_faq.responder">
 				<source>Responder</source>
+				<target>Antwortender</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_faq.app">
 				<source>App</source>
+				<target>App</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_provider">
 				<source>Provider | Developer</source>
+				<target>Anbieter | Entwickler</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_provider.title">
 				<source>Title</source>
+				<target>Titel</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_provider.websites">
 				<source>Websites</source>
+				<target>Webseiten</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_tag">
 				<source>Tag</source>
+				<target>Tag</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_tag.title">
 				<source>Title</source>
+				<target>Titel</target>
 			</trans-unit>
 		</body>
 	</file>

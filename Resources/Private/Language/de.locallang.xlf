@@ -1,186 +1,176 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2015-04-23T10:02:10Z" product-name="app_library">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2015-04-23T10:02:10Z" product-name="app_library">
 		<header/>
 		<body>
 
 			<!-- GENERAL -->
 			<trans-unit id="attrTitle.download.internal">
 				<source></source>
+				<target></target>
 			</trans-unit>
 			<trans-unit id="attrTitle.download.external">
 				<source>Download from %s</source>
+				<target>Von %s herunterladen</target>
 			</trans-unit>
 			<trans-unit id="search.rule">
 				<source>The search term has to be at least 3 characters long.</source>
+				<target>Der Suchbegriff muss mindestens 3 Zeichen enthalten.</target>
 			</trans-unit>
 			<trans-unit id="resultsFor">
 				<source>Displaying results for %1$s "%2$s"</source>
+				<target>Zeige Ergebnisse für %1$s "%2$s"</target>
 			</trans-unit>
 
 			<!-- LIST VIEW -->
 			<trans-unit id="views.list.providerLinkTitle">
 				<source>Display all apps by %s »</source>
+				<target>Zeige alle Apps von %s »</target>
 			</trans-unit>
 			<trans-unit id="views.list.detailLinkTitle">
 				<source>Click for details</source>
+				<target>Für Details klicken</target>
 			</trans-unit>
 
 			<!-- DETAIL VIEW -->
 			<trans-unit id="views.detail.sidebar.ratedAL">
 				<source>Rated %s out of five stars</source>
+				<target>Mit %s von fünf Sternen bewertet.</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.votes">
 				<source>votes</source>
+				<target>Stimmen</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.categories">
 				<source>Categories</source>
+				<target>Kategorien</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.category">
 				<source>Category</source>
+				<target>Kategorie</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.updateDate">
 				<source>Updated</source>
+				<target>Aktualisiert</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.fileSize">
 				<source>Size</source>
+				<target>Größe</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.version">
 				<source>Version</source>
+				<target>Version</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.languages">
 				<source>Languages</source>
+				<target>Sprachen</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.language">
 				<source>Language</source>
+				<target>Sprache</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.compatibility">
 				<source>Operating Systems</source>
+				<target>Betriebssysteme</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.developer">
 				<source>Developer</source>
+				<target>Entwickler</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.costs">
 				<source>Costs</source>
+				<target>Kosten</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.costs.paid">
 				<source>Subject to charge</source>
+				<target>kostenpflichtig</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sidebar.costs.free">
 				<source>Free of charge</source>
+				<target>kostenlos</target>
 			</trans-unit>
 			<trans-unit id="views.detail.features">
 				<source>Features</source>
+				<target>Features</target>
 			</trans-unit>
 			<trans-unit id="views.detail.description">
 				<source>Description</source>
+				<target>Beschreibung</target>
 			</trans-unit>
 			<trans-unit id="views.detail.sysReq">
 				<source>System Requirements</source>
+				<target>Systemanforderungen</target>
 			</trans-unit>
 			<trans-unit id="views.detail.faq">
 				<source>Frequently Asked Questions</source>
+				<target>Häufig gestellte Fragen</target>
 			</trans-unit>
 			<trans-unit id="views.detail.tags">
 				<source>Tags</source>
+				<target>Tags</target>
 			</trans-unit>
 
 			<!-- DOWNLOAD REQUEST -->
 			<trans-unit id="newLog.name">
 				<source>Name</source>
+				<target>Name</target>
 			</trans-unit>
 			<trans-unit id="newLog.email">
 				<source>E-Mail address</source>
+				<target>E-Mail Adresse</target>
 			</trans-unit>
 			<trans-unit id="newLog.company">
 				<source>Company</source>
+				<target>Unternehmen</target>
 			</trans-unit>
 			<trans-unit id="newLog.address">
 				<source>Address</source>
+				<target>Adresse</target>
 			</trans-unit>
 			<trans-unit id="newLog.zip">
 				<source>Postal Code</source>
+				<target>Postleitzahl</target>
 			</trans-unit>
 			<trans-unit id="newLog.city">
 				<source>City</source>
+				<target>Stadt</target>
 			</trans-unit>
 			<trans-unit id="newLog.country">
 				<source>Country</source>
+				<target>Land</target>
 			</trans-unit>
 			<trans-unit id="newLog.state_province">
 				<source>State / Province</source>
+				<target>Bundesland / Provinz</target>
 			</trans-unit>
 			<trans-unit id="newLog.dps_accept">
 				<source>I herewith declare my express agreement to the %s of ecom instruments GmbH.</source>
+				<target>Hiermit stimme ich den %s der ecom instruments GmbH ausdrücklich zu.</target>
 			</trans-unit>
 			<trans-unit id="newLog.mandatory">
 				<source>Fields marked with %s are mandatory.</source>
+				<target>Die mit %s gekennzeichneten Felder sind Pflichtangaben.</target>
 			</trans-unit>
 			<trans-unit id="newLog.submit">
 				<source>Submit</source>
-			</trans-unit>
-
-			<!-- OPERATING SYSTEMS TOOLTIP TEXT -->
-			<trans-unit id="supportedOS.0">
-				<source>iOS</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.1">
-				<source>Android</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.2">
-				<source>Mac OSX</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.3">
-				<source>Windows</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.4">
-				<source>Linux</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.5">
-				<source>Chrome OS</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.6">
-				<source>Firefox OS</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.7">
-				<source>Be OS</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.8">
-				<source>Redhat</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.9">
-				<source>Suse</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.10">
-				<source>Unix</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.11">
-				<source>Symbian</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.12">
-				<source>DOS</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.13">
-				<source>Free Bsd</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.14">
-				<source>Mandriva</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.15">
-				<source>OS2</source>
+				<target>Abschicken</target>
 			</trans-unit>
 
 			<trans-unit id="expandAll">
 				<source>Expand all</source>
+				<target>Alle aufklappen</target>
 			</trans-unit>
 			<trans-unit id="collapseAll">
 				<source>Collapse all</source>
+				<target>Alle einklappen</target>
 			</trans-unit>
 			<trans-unit id="askedBy">
 				<source>Question:</source>
+				<target>Frage:</target>
 			</trans-unit>
 			<trans-unit id="answeredBy">
 				<source>Answer:</source>
+				<target>Antwort:</target>
 			</trans-unit>
 		</body>
 	</file>
