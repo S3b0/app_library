@@ -100,12 +100,12 @@
 				<target>Externe URL</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.icon">
-				<source>Icon</source>
-				<target>Icon</target>
+				<source>Icon (minimum: 128x128 pixels)</source>
+				<target>Icon (Minimum: 128x128 Pixel)</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.preview_images">
-				<source>Preview Images</source>
-				<target>Vorschaubilder</target>
+				<source>Preview Images (minimum height: 250px)</source>
+				<target>Vorschaubilder (minimale Höhe: 250px)</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.version">
 				<source>Version</source>
@@ -116,20 +116,20 @@
 				<target>Youtube Video(s)</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.featured_until">
-				<source>Featured Until</source>
-				<target>Gesponsert bis</target>
+				<source>Sponsored Until (Affects sorting! All sponsored apps are listed above others. The longer an app is sponsored, the more prominent position it gets.)</source>
+				<target>Gesponsert bis (Beeinflusst die Sortierung! Alle gesponsorten Apps werden vor allen Anderen aufgeführt. Je länger eine App gesponsort ist, desto prominenter wird diese positioniert.)</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.features">
-				<source>Features</source>
-				<target>Charakteristika</target>
+				<source>Features (listing)</source>
+				<target>Features (Aufzählung)</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.description">
 				<source>Description</source>
 				<target>Beschreibung</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.system_requirements">
-				<source>System Requirements</source>
-				<target>Systemanforderungen</target>
+				<source>System Requirements (listing)</source>
+				<target>Systemanforderungen (Aufzählung)</target>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.release_date">
 				<source>Release Date</source>

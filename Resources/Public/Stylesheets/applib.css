@@ -252,6 +252,13 @@ form input.parsley-error, form textarea.parsley-error, form .parsley-error {
 	text-align: center;
 }
 
+.app-lib-app-dsb-os-card {
+	float: left;
+	font-size: 8pt;
+	margin: 5px 5px 5px 0;
+	text-align: center;
+}
+
 /**
  * Responsive styles
  */

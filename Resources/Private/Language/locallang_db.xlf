@@ -76,10 +76,10 @@
 				<source>External URL</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.icon">
-				<source>Icon</source>
+				<source>Icon (minimum: 128x128 pixels)</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.preview_images">
-				<source>Preview Images</source>
+				<source>Preview Images (minimum height: 250px)</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.version">
 				<source>Version</source>
@@ -88,16 +88,16 @@
 				<source>Youtube Video(s)</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.featured_until">
-				<source>Featured Until</source>
+				<source>Sponsored Until (Affects sorting! All sponsored apps are listed above others. The longer an app is sponsored, the more prominent position it gets.)</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.features">
-				<source>Features</source>
+				<source>Features (listing)</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.description">
 				<source>Description</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.system_requirements">
-				<source>System Requirements</source>
+				<source>System Requirements (listing)</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.release_date">
 				<source>Release Date</source>
@@ -109,51 +109,60 @@
 				<source>Supported Operating Systems</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.0">
-				<source>iOS</source>
-			</trans-unit>
-			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.1">
 				<source>Android</source>
 			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.1">
+				<source>iOS</source>
+			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.2">
-				<source>Mac OSX</source>
+				<source>Windows Mobile</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.3">
-				<source>Windows</source>
+				<source>Windows Phone®</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.4">
-				<source>Linux</source>
+				<source>Nucleus</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.5">
-				<source>Chrome OS</source>
+				<source>Linux</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.6">
-				<source>Firefox OS</source>
+				<source>Other</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.7">
-				<source>Be OS</source>
+				<source>Mac OSX</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.8">
-				<source>Redhat</source>
+				<source>Chrome OS</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.9">
-				<source>Suse</source>
+				<source>Firefox OS</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.10">
-				<source>Unix</source>
+				<source>Be OS</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.11">
-				<source>Symbian</source>
+				<source>RedHat</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.12">
-				<source>DOS</source>
+				<source>Suse</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.13">
-				<source>Free Bsd</source>
+				<source>Unix</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.14">
-				<source>Mandriva</source>
+				<source>Symbian</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.15">
+				<source>DOS</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.16">
+				<source>Free Bsd</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.17">
+				<source>Mandriva</source>
+			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.18">
 				<source>OS2</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.views">

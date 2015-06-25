@@ -122,51 +122,60 @@
 
 			<!-- OPERATING SYSTEMS TOOLTIP TEXT -->
 			<trans-unit id="supportedOS.0">
-				<source>iOS</source>
-			</trans-unit>
-			<trans-unit id="supportedOS.1">
 				<source>Android</source>
 			</trans-unit>
+			<trans-unit id="supportedOS.1">
+				<source>iOS</source>
+			</trans-unit>
 			<trans-unit id="supportedOS.2">
-				<source>Mac OSX</source>
+				<source>Windows Mobile</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.3">
-				<source>Windows</source>
+				<source>Windows Phone®</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.4">
-				<source>Linux</source>
+				<source>Nucleus</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.5">
-				<source>Chrome OS</source>
+				<source>Linux</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.6">
-				<source>Firefox OS</source>
+				<source>Other</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.7">
-				<source>Be OS</source>
+				<source>Mac OSX</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.8">
-				<source>Redhat</source>
+				<source>Chrome OS</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.9">
-				<source>Suse</source>
+				<source>Firefox OS</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.10">
-				<source>Unix</source>
+				<source>Be OS</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.11">
-				<source>Symbian</source>
+				<source>RedHat</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.12">
-				<source>DOS</source>
+				<source>Suse</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.13">
-				<source>Free Bsd</source>
+				<source>Unix</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.14">
-				<source>Mandriva</source>
+				<source>Symbian</source>
 			</trans-unit>
 			<trans-unit id="supportedOS.15">
+				<source>DOS</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.16">
+				<source>Free Bsd</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.17">
+				<source>Mandriva</source>
+			</trans-unit>
+			<trans-unit id="supportedOS.18">
 				<source>OS2</source>
 			</trans-unit>
 
