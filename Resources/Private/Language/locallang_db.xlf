@@ -88,7 +88,7 @@
 				<source>Youtube Video(s)</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.featured_until">
-				<source>Sponsored Until (Affects sorting! All sponsored apps are listed above others. The longer an app is sponsored, the more prominent position it gets.)</source>
+				<source>Sponsored Until (Affects sorting! Sponsored apps are listed above regular apps. The longer an app is sponsored, the more prominent position it gets.)</source>
 			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.features">
 				<source>Features (listing)</source>

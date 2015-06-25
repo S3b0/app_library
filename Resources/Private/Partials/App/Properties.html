@@ -7,7 +7,7 @@
 	<div class="owl-carousel">
 		<f:if condition="{app.youtubeLinks -> f:count()}">
 			<f:for each="{app.youtubeLinks}" as="ytLink">
-				<div class="video"><a href="{ytLink.0}" class="fancybox.iframe lightbox app-lib-video-preview-link">
+				<div class="video"><a href="{ytLink.0}" class="fancybox.iframe lightbox app-lib-video-preview-link" data-fancybox-group="lightbox{app.uid}">
 					<img src="{f:uri.resource(path: 'Images/owl.video.play.png', extensionName: 'app_library')}" class="app-lib-video-preview-overlay" />
 					<f:image src="uploads/tx_applibrary/ytp_{ytLink.1}.jpg" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" />
 				</a></div>
@@ -15,7 +15,7 @@
 		</f:if>
 		<f:if condition="{app.previewImages -> f:count()}">
 			<f:for each="{app.previewImages}" as="previewImage">
-				<div><a href="{previewImage.originalResource.publicUrl}" class="lightbox">
+				<div><a href="{previewImage.originalResource.publicUrl}" class="lightbox" data-fancybox-group="lightbox{app.uid}">
 					<f:image src="{previewImage.uid}" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" treatIdAsReference="1" />
 				</a></div>
 			</f:for>
@@ -27,31 +27,34 @@
 <f:if condition="{app.description}">
 	<!-- Description -->
 	<div class="app-lib-app-dv-desc">
-		<h3><f:translate id="views.detail.description" default="Description" /></h3>
+		<h2><f:translate id="views.detail.description" default="Description" /></h2>
 		{app.description -> f:format.html()}
 	</div>
+	<div class="clearfix app-lib-spacer-vt2"></div>
 </f:if>
 
 <f:if condition="{app.features}">
 	<!-- Features -->
 	<div class="app-lib-app-dv-features">
-		<h3><f:translate id="views.detail.features" default="Features" /></h3>
+		<h2><f:translate id="views.detail.features" default="Features" /></h2>
 		{app.features -> f:format.html()}
 	</div>
+	<div class="clearfix app-lib-spacer-vt2"></div>
 </f:if>
 
 <f:if condition="{app.systemRequirements}">
 	<!-- System Requirements -->
 	<div class="app-lib-app-dv-sysreq">
-		<h3><f:translate id="views.detail.sysReq" default="System Requirements" /></h3>
+		<h2><f:translate id="views.detail.sysReq" default="System Requirements" /></h2>
 		{app.systemRequirements -> f:format.html()}
 	</div>
+	<div class="clearfix app-lib-spacer-vt2"></div>
 </f:if>
 
 <f:if condition="{app.faq -> f:count()}">
 	<!-- System Requirements -->
 	<div class="app-lib-app-dv-faq">
-		<h3><f:translate id="views.detail.faq" default="FAQ" /></h3>
+		<h2><f:translate id="views.detail.faq" default="FAQ" /></h2>
 <!--
 		<a class="expand-all" data-collapsible=".panel-collapse"><i class="fa fa-expand fa-fw fa-lg"></i> {f:translate(id: 'expandAll', default: 'Expand all')}</a>
 		<a class="collapse-all" data-collapsible=".panel-collapse"><i class="fa fa-compress fa-fw fa-lg"></i> {f:translate(id: 'collapseAll', default: 'Collapse all')}</a>
@@ -80,7 +83,7 @@
 <f:if condition="{app.tags -> f:count()}">
 	<!-- Tag List -->
 	<div class="app-lib-app-dv-tags">
-		<h4><f:translate id="tx_applib_domain_model_app.tags" default="Tags" /></h4>
+		<h3><f:translate id="tx_applib_domain_model_app.tags" default="Tags" /></h3>
 		<f:for each="{app.tags}" as="tag" iteration="iterator">
 			{tag.title}<f:if condition="{iterator.isLast} == 0"> / </f:if>
 		</f:for>

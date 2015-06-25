@@ -534,7 +534,7 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return string
 	 */
 	public function getDescriptionTeaser() {
-		preg_match('/^.{1,90}\b/s', $this->description, $match);
+		preg_match('/^.{1,90}\b/s', strip_tags($this->description), $match);
 		return $match[0] . '...';
 	}
 

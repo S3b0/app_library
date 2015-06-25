@@ -42,13 +42,9 @@
 
 .app-lib-app-qv-card .app-lib-app-qv-featured-badge {
 	background: transparent url("../Images/ftbdgb.png") 0 0 no-repeat scroll;
-	height: 64px;
+	height: 80px;
 	position: absolute;
-	width: 64px;
-	-webkit-filter: drop-shadow(1px 1px 25px rgba(0,0,0,0.5));
-	filter: url("data:image/svg+xml;utf8,<svg height='0' xmlns='http://www.w3.org/2000/svg'><filter id='drop-shadow'><feGaussianBlur in='SourceAlpha' stdDeviation='4'/><feOffset dx='1' dy='1' result='offsetblur'/><feFlood flood-color='rgba(0,0,0,0.5)'/><feComposite in2='offsetblur' operator='in'/><feMerge><feMergeNode/><feMergeNode in='SourceGraphic'/></feMerge></filter></svg>#drop-shadow");
-	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=1, OffY=1, Color='#444')";
-	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=1, OffY=1, Color='#444')";
+	width: 80px;
 	z-index: 1000;
 }
 
