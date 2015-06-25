@@ -1,6 +1,7 @@
 <?php
 namespace S3b0\AppLibrary\Domain\Model;
 
+require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('app_library') . 'Classes/User/TranslateBits.php');
 
 /***************************************************************
  *
@@ -622,106 +623,7 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return array $list
 	 */
 	public function getSupportedOperatingSystems() {
-		$list = [];
-
-		if ( $this->supportedOperatingSystems & 1 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.0', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/iOS.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 2 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.1', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/AndroidOS.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 4 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.2', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/MacOS.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 8 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.3', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/Windows8.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 16 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.4', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/Linux.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 32 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.5', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/Chrome.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 64 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.6', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/Firefox.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 128 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.7', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/BeOS.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 256 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.8', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/RedHat.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 512 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.9', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/Suse.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 1024 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.10', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/Unix.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 2048 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.11', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/Symbian.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 4096 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.12', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/DOS.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 8192 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.13', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/FreeBsd.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 16384 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.14', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/Mandriva.png'
-			];
-		}
-		if ( $this->supportedOperatingSystems & 32768 ) {
-			$list[] = [
-				'title' => \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('supportedOS.15', 'appLibrary'),
-				'publicUrl' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( 'app_library' ) . 'Resources/Public/Images/OS/' . $this->osIconColor . '/' . $this->osIconSize . '/OS2.png'
-			];
-		}
-
-		return $list;
+		return \S3b0\AppLibrary\User\TranslateBits::getSupportedOperatingSystems($this->supportedOperatingSystems, $this->osIconSize, $this->osIconColor);
 	}
 
 	/**

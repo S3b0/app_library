@@ -27,17 +27,32 @@ return [
 			'endtime' => 'endtime',
 			'fe_group' => 'fe_group'
 		],
-		'searchFields' => 'title,file_reference,external_url,icon,preview_images,youtube_links,file_size,featured_until,features,description,system_requirements,keywords,version,release_date,last_modified,supported_operating_systems,views,downloads,settings,page,rating,votes,supported_languages,related,recommended,provider,developer,copyright_holder,tags,products,',
+		'searchFields' => 'title,file_reference,external_url,icon,preview_images,youtube_links,file_size,features,description,system_requirements,keywords,version,release_date,last_modified,featured_until,supported_operating_systems,views,downloads,settings,page,rating,votes,supported_languages,related,recommended,provider,developer,copyright_holder,tags,products,',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('app_library') . 'Resources/Public/Icons/tx_applib_domain_model_app.gif'
 	],
 	'interface' => [
 		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, file_reference, external_url, icon, preview_images, youtube_links, file_size, featured_until, description, features, system_requirements, version, release_date, last_modified, supported_operating_systems, views, downloads, settings, page, rating, votes, supported_languages, related, recommended, provider, developer, copyright_holder, tags, products'
 	],
 	'types' => [
-		'1' => [ 'showitem' => '--palette--;;basic, file_reference, external_url, file_size, icon, preview_images, youtube_links, page, tags, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.text, description;;;richtext:rte_transform[flag=rte_enabled|mode=ts_css], features;;;richtext:rte_transform[flag=rte_enabled|mode=ts_css], system_requirements;;;richtext:rte_transform[flag=rte_enabled|mode=ts_css], --div--;' . $l10nPrefix . 'tabs.dates, release_date, featured_until, last_modified, --div--;' . $l10nPrefix . 'tabs.options, supported_operating_systems, supported_languages, settings, --div--;' . $l10nPrefix . 'tabs.relations, related, recommended, categories, products, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access, --div--;LLL:EXT:lang/locallang_core.xlf:labels._LOCALIZATION_, sys_language_uid, l10n_parent, l10n_diffsource' ]
+		'1' => version_compare(TYPO3_branch, '7.3', '>=') ? [
+			'showitem' => '--palette--;;basic, file_reference, external_url, file_size, icon, preview_images, youtube_links, page, tags, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.text, description, features, system_requirements, --div--;' . $l10nPrefix . 'tabs.dates, release_date, last_modified, featured_until, --div--;' . $l10nPrefix . 'tabs.options, supported_operating_systems, supported_languages, settings, --div--;' . $l10nPrefix . 'tabs.relations, related, recommended, categories, products, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access, --div--;LLL:EXT:lang/locallang_core.xlf:labels._LOCALIZATION_, sys_language_uid, l10n_parent, l10n_diffsource',
+			'columnsOverrides' => [
+				'description' => [
+					'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+				],
+				'features' => [
+					'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+				],
+				'system_requirements' => [
+					'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
+				]
+			]
+		] : [
+			'showitem' => '--palette--;;basic, file_reference, external_url, file_size, icon, preview_images, youtube_links, page, tags, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.text, description;;;richtext:rte_transform[mode=ts_css], features;;;richtext:rte_transform[mode=ts_css], system_requirements;;;richtext:rte_transform[mode=ts_css], --div--;' . $l10nPrefix . 'tabs.dates, release_date, last_modified, featured_until, --div--;' . $l10nPrefix . 'tabs.options, supported_operating_systems, supported_languages, settings, --div--;' . $l10nPrefix . 'tabs.relations, related, recommended, categories, products, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access, --div--;LLL:EXT:lang/locallang_core.xlf:labels._LOCALIZATION_, sys_language_uid, l10n_parent, l10n_diffsource',
+		]
 	],
 	'palettes' => [
-		'basic' => [ 'showitem' => 'title, version, developer, provider, copyright_holder, hidden', 'canNotCollapse' => 1 ],
+		'basic' => [ 'showitem' => 'title, version, --linebreak--, developer, provider, copyright_holder, hidden', 'canNotCollapse' => 1 ],
 		'access' => [ 'showitem' => 'starttime;LLL:EXT:cms/locallang_ttc.xlf:starttime_formlabel, --linebreak--, endtime;LLL:EXT:cms/locallang_ttc.xlf:endtime_formlabel, --linebreak--, fe_group;LLL:EXT:cms/locallang_ttc.xlf:fe_group_formlabel', 'canNotCollapse' => 1 ]
 	],
 	'columns' => [
@@ -332,6 +347,19 @@ return [
 				'default' => '0000-00-00'
 			]
 		],
+		'last_modified' => [
+			'exclude' => 0,
+			'l10n_mode' => 'exclude',
+			'label' => $l10nPrefix . 'tx_applib_domain_model_app.last_modified',
+			'config' => [
+				'dbType' => 'date',
+				'type' => 'input',
+				'size' => 7,
+				'eval' => 'date',
+				'checkbox' => 0,
+				'default' => '0000-00-00'
+			]
+		],
 		'featured_until' => [
 			'exclude' => 1,
 			'l10n_mode' => 'exclude',
@@ -354,17 +382,7 @@ return [
 				'type' => 'text',
 				'cols' => 40,
 				'rows' => 15,
-				'eval' => 'trim',
-				'wizards' => [
-					'RTE' => [
-						'icon' => 'wizard_rte2.gif',
-						'notNewRecords'=> 1,
-						'RTEonly' => 1,
-						'script' => 'wizard_rte.php',
-						'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
-						'type' => 'script'
-					]
-				]
+				'eval' => 'trim'
 			]
 		],
 		'features' => [
@@ -375,17 +393,7 @@ return [
 				'type' => 'text',
 				'cols' => 40,
 				'rows' => 15,
-				'eval' => 'trim',
-				'wizards' => [
-					'RTE' => [
-						'icon' => 'wizard_rte2.gif',
-						'notNewRecords'=> 1,
-						'RTEonly' => 1,
-						'script' => 'wizard_rte.php',
-						'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
-						'type' => 'script'
-					]
-				]
+				'eval' => 'trim'
 			]
 		],
 		'system_requirements' => [
@@ -396,30 +404,7 @@ return [
 				'type' => 'text',
 				'cols' => 40,
 				'rows' => 15,
-				'eval' => 'trim',
-				'wizards' => [
-					'RTE' => [
-						'icon' => 'wizard_rte2.gif',
-						'notNewRecords'=> 1,
-						'RTEonly' => 1,
-						'script' => 'wizard_rte.php',
-						'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
-						'type' => 'script'
-					]
-				]
-			]
-		],
-		'last_modified' => [
-			'exclude' => 0,
-			'l10n_mode' => 'exclude',
-			'label' => $l10nPrefix . 'tx_applib_domain_model_app.last_modified',
-			'config' => [
-				'dbType' => 'date',
-				'type' => 'input',
-				'size' => 7,
-				'eval' => 'date',
-				'checkbox' => 0,
-				'default' => '0000-00-00'
+				'eval' => 'trim'
 			]
 		],
 		'supported_operating_systems' => [
@@ -435,7 +420,7 @@ return [
 					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.3' ],
 					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.4' ],
 					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.5' ],
-					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.6' ],
+					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.6' ]/*,
 					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.7' ],
 					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.8' ],
 					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.9' ],
@@ -444,7 +429,10 @@ return [
 					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.12' ],
 					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.13' ],
 					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.14' ],
-					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.15' ]
+					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.15' ],
+					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.16' ],
+					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.17' ],
+					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.18' ]*/
 				],
 				'cols' => 4
 			]
@@ -479,7 +467,8 @@ return [
 					[ $l10nPrefix . 'tx_applib_domain_model_app.settings.I.1' ],
 					[ $l10nPrefix . 'tx_applib_domain_model_app.settings.I.2' ]
 				],
-				'cols' => 4
+				'cols' => 4,
+				'default' => 1
 			]
 		],
 		'page' => [
@@ -532,6 +521,7 @@ return [
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'tx_ecomtoolbox_domain_model_language',
+				'foreign_table_where' => ' AND tx_ecomtoolbox_domain_model_language.uid NOT IN (6,7,8,9) ORDER BY tx_ecomtoolbox_domain_model_language.title ASC',
 				'MM' => 'tx_applib_app_language_mm',
 				'size' => 10,
 				'autoSizeMax' => 30,
@@ -543,7 +533,8 @@ return [
 						'type' => 'suggest',
 						'default' => [ 'searchWholePhrase' => 1 ]
 					]
-				]
+				],
+				'default' => 33
 			]
 		],
 		'related' => [
