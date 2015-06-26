@@ -31,7 +31,7 @@
 }
 
 .app-lib-app-qv-card {
-	background: #fafafa;
+	background: #fff;
 	float: left;
 	margin: 0 1em 1em 0;
 	overflow: hidden;
@@ -199,8 +199,7 @@ form input.parsley-error, form textarea.parsley-error, form .parsley-error {
 	z-index: 1;
 }
 
-.app-lib-owl-nav-prv,
-.app-lib-owl-nav-nxt {
+.app-lib-owl-nav {
 	cursor: pointer;
 	display: block;
 	float: left;
@@ -211,13 +210,11 @@ form input.parsley-error, form textarea.parsley-error, form .parsley-error {
 	z-index: 10;
 }
 
-.app-lib-owl-nav-nxt {
-	float: right;
-	margin: 0 0 0 1em;
+.app-lib-owl-nav:hover > i {
+	font-weight: bold;
 }
 
-.app-lib-owl-nav-prv > i,
-.app-lib-owl-nav-nxt > i {
+.app-lib-owl-nav > i {
 	bottom: 0;
 	display: block;
 	height: 0.75em;
@@ -227,6 +224,11 @@ form input.parsley-error, form textarea.parsley-error, form .parsley-error {
 	right: 0;
 	top: 0;
 	width: 1em;
+}
+
+.app-lib-owl-nav-nxt {
+	float: right;
+	margin: 0 0 0 1em;
 }
 
 .app-lib-app-dv-faq-date {
@@ -253,6 +255,20 @@ form input.parsley-error, form textarea.parsley-error, form .parsley-error {
 	font-size: 8pt;
 	margin: 5px 5px 5px 0;
 	text-align: center;
+}
+
+ul.app-lib-filter-options li {
+	cursor: pointer;
+}
+
+ul.app-lib-filter-options li.active {
+	cursor: default;
+}
+
+.app-lib-carousel-wrapper {
+	background: #e7e7e7;
+	border: 1px solid #ccc;
+	padding: .5em .2em 0;
 }
 
 /**

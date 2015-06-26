@@ -534,7 +534,7 @@ return [
 						'default' => [ 'searchWholePhrase' => 1 ]
 					]
 				],
-				'default' => 33
+				'default' => 15
 			]
 		],
 		'related' => [
