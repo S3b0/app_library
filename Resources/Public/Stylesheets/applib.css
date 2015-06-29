@@ -45,7 +45,7 @@
 	height: 80px;
 	position: absolute;
 	width: 80px;
-	z-index: 1000;
+	z-index: 10;
 }
 
 .app-lib-app-qv-card .paragraph-end {
@@ -69,6 +69,7 @@
 	position: absolute;
 	top: 0;
 	width: 100%;
+	z-index: 20;
 }
 
 .app-lib-app-qv-card-overlay.even {
