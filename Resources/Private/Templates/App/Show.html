@@ -13,7 +13,8 @@
 	<script type="text/javascript" language="JavaScript">
 		$(function () {
 			var owl = $('#app-lib-owl-carousel'),
-				cards = $('.app-lib-app-qv-card');
+				cards = $('.app-lib-app-qv-card'),
+				fancybox = $('#applib-gallery a[class*=fancybox],#applib-gallery a[rel*=fancybox]').fancybox();
 			owl.owlCarousel({autoWidth: true, lazyLoad: true, loop: true, margin: 10, nav: true, video: true});
 
 			cards.on('mouseover', function() {
@@ -23,9 +24,20 @@
 			cards.on('mouseout', function() {
 				$('.app-lib-app-qv-card-overlay').stop(true, false).slideUp(100);
 			});
-			owl.on('initialized.owl.carousel', function() {
-				$('.app-lib .owl-item').not('.cloned').find('a[class*=fancybox],a[rel*=fancybox]').fancybox();
+
+			loadFancybox();
+			owl.on('translated.owl.carousel', function() {
+				loadFancybox();
 			});
+
+			function loadFancybox() {
+				$('.fancybox-trigger').on('click', function(e) {
+					index = $(this).data('item-uid');
+					console.log(index);
+					e.preventDefault();
+					$("a#" + index).trigger('click');
+				});
+			}
 			/*
 			 $('a.expand-all').on('click', function() { $($(this).data('collapsible') + ':not(".in")').collapse('show'); });
 			 $('a.collapse-all').on('click', function() { $($(this).data('collapsible') + '.in').collapse('hide'); });
