@@ -23,7 +23,9 @@
 			cards.on('mouseout', function() {
 				$('.app-lib-app-qv-card-overlay').stop(true, false).slideUp(100);
 			});
-			$('.app-lib .owl-item').not('.cloned').find('a[class*=lightbox],a[rel*=lightbox]').fancybox();
+			owl.on('initialized.owl.carousel', function() {
+				$('.app-lib .owl-item').not('.cloned').find('a[class*=lightbox],a[rel*=lightbox]').fancybox();
+			});
 			/*
 			 $('a.expand-all').on('click', function() { $($(this).data('collapsible') + ':not(".in")').collapse('show'); });
 			 $('a.collapse-all').on('click', function() { $($(this).data('collapsible') + '.in').collapse('hide'); });
