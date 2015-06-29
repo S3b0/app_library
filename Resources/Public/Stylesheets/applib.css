@@ -266,9 +266,9 @@ ul.app-lib-filter-options li.active {
 }
 
 .app-lib-carousel-wrapper {
-	background: #e7e7e7;
+	background: #fff;
 	border: 1px solid #ccc;
-	padding: .5em 1em;
+	padding: 1em;
 }
 
 /**
