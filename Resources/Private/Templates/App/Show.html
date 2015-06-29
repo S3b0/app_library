@@ -13,12 +13,8 @@
 	<script type="text/javascript" language="JavaScript">
 		$(function () {
 			var owl = $('#app-lib-owl-carousel'),
-				cards = $('.app-lib-app-qv-card'),
-				prevButton = $('.app-lib-owl-nav-prv'),
-				nextButton = $('.app-lib-owl-nav-nxt');
-			owl.owlCarousel({autoWidth: true, dots: false, lazyLoad: true, loop: true, margin: 10, video: true});
-			prevButton.on('click', function() { owl.trigger('prev.owl.carousel') });
-			nextButton.on('click', function() { owl.trigger('next.owl.carousel') });
+				cards = $('.app-lib-app-qv-card');
+			owl.owlCarousel({autoWidth: true, lazyLoad: true, loop: true, margin: 10, nav: true, video: true});
 
 			cards.on('mouseover', function() {
 				$('.app-lib-app-qv-card-overlay').stop(true, false).slideUp(100);
@@ -27,6 +23,7 @@
 			cards.on('mouseout', function() {
 				$('.app-lib-app-qv-card-overlay').stop(true, false).slideUp(100);
 			});
+			$('.app-lib .owl-item').not('.cloned').find('a[class*=lightbox],a[rel*=lightbox]').not('.cloned').fancybox();
 			/*
 			 $('a.expand-all').on('click', function() { $($(this).data('collapsible') + ':not(".in")').collapse('show'); });
 			 $('a.collapse-all').on('click', function() { $($(this).data('collapsible') + '.in').collapse('hide'); });
