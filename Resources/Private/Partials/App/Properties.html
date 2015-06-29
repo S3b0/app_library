@@ -4,7 +4,7 @@
 		<div id="app-lib-owl-carousel">
 			<f:if condition="{app.youtubeLinks -> f:count()}">
 				<f:for each="{app.youtubeLinks}" as="ytLink">
-					<div class="video"><a href="{ytLink.0}" class="fancybox.iframe lightbox app-lib-video-preview-link" rel="lightbox-{app.uid}">
+					<div class="video"><a href="{ytLink.0}" class="fancybox.iframe fancybox app-lib-video-preview-link" rel="fancybox-{app.uid}">
 						<img src="{f:uri.resource(path: 'Images/owl.video.play.png', extensionName: 'app_library')}" class="app-lib-video-preview-overlay" />
 						<f:image src="uploads/tx_applibrary/ytp_{ytLink.1}.jpg" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" />
 					</a></div>
@@ -12,7 +12,7 @@
 			</f:if>
 			<f:if condition="{app.previewImages -> f:count()}">
 				<f:for each="{app.previewImages}" as="previewImage">
-					<div><a href="{previewImage.originalResource.publicUrl}" class="lightbox" rel="lightbox-{app.uid}">
+					<div><a href="{previewImage.originalResource.publicUrl}" class="fancybox" rel="fancybox-{app.uid}">
 						<f:image src="{previewImage.uid}" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" treatIdAsReference="1" />
 					</a></div>
 				</f:for>

@@ -24,7 +24,7 @@
 				$('.app-lib-app-qv-card-overlay').stop(true, false).slideUp(100);
 			});
 			owl.on('initialized.owl.carousel', function() {
-				$('.app-lib .owl-item').not('.cloned').find('a[class*=lightbox],a[rel*=lightbox]').fancybox();
+				$('.app-lib .owl-item').not('.cloned').find('a[class*=fancybox],a[rel*=fancybox]').fancybox();
 			});
 			/*
 			 $('a.expand-all').on('click', function() { $($(this).data('collapsible') + ':not(".in")').collapse('show'); });
