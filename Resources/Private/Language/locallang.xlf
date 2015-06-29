@@ -84,6 +84,15 @@
 			<trans-unit id="views.detail.tags">
 				<source>Tags</source>
 			</trans-unit>
+			<trans-unit id="views.detail.compatible_products">
+				<source>Compatible with following products</source>
+			</trans-unit>
+			<trans-unit id="views.detail.related_apps">
+				<source>Related Apps</source>
+			</trans-unit>
+			<trans-unit id="views.detail.recommended_apps">
+				<source>Recommended Apps</source>
+			</trans-unit>
 
 			<!-- DOWNLOAD REQUEST -->
 			<trans-unit id="newLog.name">

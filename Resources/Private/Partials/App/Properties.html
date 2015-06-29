@@ -110,10 +110,25 @@
 </f:if>
 
 <!-- Related/Recommended Apps and Products -->
-<div class="clearfix app-lib-spacer-vt2"></div>
 <f:if condition="{app.products -> f:count()}">
-	<h4>Compatible with following products</h4>
+	<div class="clearfix app-lib-spacer-vt1"></div>
+	<hr />
+	<div class="clearfix app-lib-spacer-vt1"></div>
+	<h4><f:translate id="views.detail.compatible_products" default="Compatible with following products" /></h4>
 	<f:for each="{app.products}" as="product" iteration="iterator"><f:render partial="Misc/ProductCard" arguments="{product: product, iterator: iterator}" /></f:for>
 </f:if>
+
+<f:if condition="{app.related -> f:count()}">
+	<div class="clearfix app-lib-spacer-vt1"></div>
+	<h4><f:translate id="views.detail.related_apps" default="Related Apps" /></h4>
+	<f:for each="{app.related}" as="related" iteration="iterator"><f:render partial="App/Card" arguments="{app: related, iterator: iterator}" /></f:for>
+</f:if>
+
+<f:if condition="{app.recommended -> f:count()}">
+	<div class="clearfix app-lib-spacer-vt1"></div>
+	<h4><f:translate id="views.detail.recommended_apps" default="Recommended Apps" /></h4>
+	<f:for each="{app.recommended}" as="recommended" iteration="iterator"><f:render partial="App/Card" arguments="{app: recommended, iterator: iterator}" /></f:for>
+</f:if>
+
 <div class="clearfix app-lib-spacer-vt2"></div>
 <f:comment>Views: {app.views} | Downloads: {app.downloads}</f:comment>

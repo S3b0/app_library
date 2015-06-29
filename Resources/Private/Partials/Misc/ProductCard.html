@@ -17,7 +17,10 @@
 		</div>
 		<!-- App Info: Title & Developer -->
 		<div class="app-lib-app-qv-details">
-			<h5>{product.title}</h5>
+			<f:if condition="{product.linkToPage}">
+				<f:then><h5><a href="{f:uri.typolink(parameter: product.linkToPage)}">{product.title}</a></h5></f:then>
+				<f:else><h5>{product.title}</h5></f:else>
+			</f:if>
 		</div>
 	</div>
 	<div class="app-lib-app-qv-card-overlay {f:if(condition: iterator.isEven, then: 'even', else: 'odd')}" style="{inlineStlye}">

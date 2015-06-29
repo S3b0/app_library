@@ -109,6 +109,18 @@
 				<source>Tags</source>
 				<target>Tags</target>
 			</trans-unit>
+			<trans-unit id="views.detail.compatible_products">
+				<source>Compatible with following products</source>
+				<target>Kompatibel mit folgenden Produkten</target>
+			</trans-unit>
+			<trans-unit id="views.detail.related_apps">
+				<source>Related Apps</source>
+				<target>Ähnliche Apps</target>
+			</trans-unit>
+			<trans-unit id="views.detail.recommended_apps">
+				<source>Recommended Apps</source>
+				<target>Empfohlene Apps</target>
+			</trans-unit>
 
 			<!-- DOWNLOAD REQUEST -->
 			<trans-unit id="newLog.name">

@@ -123,6 +123,8 @@
 .app-lib-app-qv-details h5, .app-lib-app-qv-subtitle-container {
 	color: #393f43;
 	display: inline-block;
+	height: 1.5em;
+	margin: 0;
 	position: relative;
 	white-space: nowrap;
 	width: 100%;

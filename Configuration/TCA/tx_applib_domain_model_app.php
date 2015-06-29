@@ -290,8 +290,7 @@ return [
 								--palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
 								--palette--;;filePalette'
 						]
-					],
-					'minitems' => 1
+					]
 				],
 				$GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
 			)

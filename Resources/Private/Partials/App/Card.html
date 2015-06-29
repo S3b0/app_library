@@ -26,12 +26,10 @@
 		</div>
 		<!-- App Info: Title & Developer -->
 		<div class="app-lib-app-qv-details">
-			<h5>
-				<f:if condition="{app.page}">
-					<f:then><f:link.typolink parameter="{app.page}" additionalAttributes="{style: inlineStlyeLink}">{app.title}</f:link.typolink></f:then>
-					<f:else><f:link.action action="show" arguments="{app: app}" additionalAttributes="{style: inlineStlyeLink}">{app.title}</f:link.action></f:else>
-				</f:if>
-			</h5>
+			<f:if condition="{app.page}">
+				<f:then><h5><f:link.typolink parameter="{app.page}" additionalAttributes="{style: inlineStlyeLink}">{app.title}</f:link.typolink></h5></f:then>
+				<f:else><h5><f:link.action action="show" arguments="{app: app}" additionalAttributes="{style: inlineStlyeLink}">{app.title}</f:link.action></h5></f:else>
+			</f:if>
 			<f:if condition="{settings.enableRating}">
 				<span class="app-lib-stars-container">
 					<div class="app-lib-reason-set-star-rating">
