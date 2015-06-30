@@ -28,7 +28,7 @@
 
 <!-- Updated -->
 <div class="clearfix app-lib-spacer-vt1"></div>
-<span class="text-muted"><f:translate id="views.detail.sidebar.updateDate" default="Last modified" />:</span>
+<span class="text-muted"><f:translate id="views.detail.sidebar.updateDate" default="Last modified" />:</span>&nbsp;
 <f:if condition="{app.lastModified}">
 	<f:then>{app.lastModified -> f:format.date(format: settings.dateFormat)}</f:then>
 	<f:else>{app.releaseDate -> f:format.date(format: settings.dateFormat)}</f:else>
@@ -42,7 +42,7 @@
 
 <!-- Filesize -->
 <div class="clearfix app-lib-spacer-vt1"></div>
-<span class="text-muted"><f:translate id="views.detail.sidebar.fileSize" default="Size" />:</span>
+<span class="text-muted"><f:translate id="views.detail.sidebar.fileSize" default="Size" />:</span>&nbsp;
 <f:if condition="{app.fileReference}">
 	<f:then>
 		<f:if condition="{app.fileReference.originalResource.size} > 0">

@@ -588,6 +588,7 @@ return [
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'tx_applib_domain_model_provider',
+				'foreign_table_where' => ' ORDER BY tx_applib_domain_model_provider.title',
 				'items' => [ [] ],
 				'maxitems' => 1
 			]
@@ -599,6 +600,7 @@ return [
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'tx_applib_domain_model_provider',
+				'foreign_table_where' => ' ORDER BY tx_applib_domain_model_provider.title',
 				'items' => [ [] ],
 				'minitems' => 1,
 				'maxitems' => 1
@@ -611,6 +613,7 @@ return [
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'tx_applib_domain_model_provider',
+				'foreign_table_where' => ' ORDER BY tx_applib_domain_model_provider.title',
 				'items' => [ [] ],
 				'maxitems' => 1
 			]

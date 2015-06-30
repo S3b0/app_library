@@ -122,7 +122,7 @@
 	width: auto;
 }
 
-.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(4n + 4) {
+.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(4n+1) {
 	clear: left;
 }
 
@@ -326,10 +326,10 @@ ul.app-lib-filter-options li.active {
 		width: 18.5%;
 		margin: 0.5%;
 	}
-	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(4n + 4) {
-		clear: none;
+	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(4n+1) {
+		clear: unset;
 	}
-	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(5n + 1) {
+	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(5n+1) {
 		clear: left;
 	}
 }
@@ -341,9 +341,9 @@ ul.app-lib-filter-options li.active {
 		margin: 1%;
 	}
 	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(5n+1) {
-		clear: none;
+		clear: unset;
 	}
-	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(2n + 2) {
+	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(2n+1) {
 		clear: left;
 	}
 }
