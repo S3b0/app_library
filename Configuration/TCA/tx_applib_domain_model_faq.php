@@ -41,7 +41,7 @@ return [
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'sys_language',
-				'foreign_table_where' => 'ORDER BY sys_language.title',
+				'foreign_table_where' => ' ORDER BY sys_language.title',
 				'items' => [
 					['LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1],
 					['LLL:EXT:lang/locallang_general.xlf:LGL.default_value', 0]
@@ -58,7 +58,7 @@ return [
 					[ '', 0 ]
 				],
 				'foreign_table' => 'tx_applib_domain_model_faq',
-				'foreign_table_where' => 'AND tx_applib_domain_model_faq.pid=###CURRENT_PID### AND tx_applib_domain_model_faq.sys_language_uid IN (-1,0)'
+				'foreign_table_where' => ' AND tx_applib_domain_model_faq.pid=###CURRENT_PID### AND tx_applib_domain_model_faq.sys_language_uid IN (-1,0)'
 			]
 		],
 		'l10n_diffsource' => [
@@ -175,7 +175,7 @@ return [
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'tx_applib_domain_model_app',
-				'foreign_table_where' => 'AND tx_applib_domain_model_app.sys_language_uid IN (-1,0) ORDER BY tx_applib_domain_model_app.title',
+				'foreign_table_where' => ' AND tx_applib_domain_model_app.sys_language_uid IN (-1,0) ORDER BY tx_applib_domain_model_app.title',
 				'MM' => 'tx_applib_faq_app_mm',
 				'size' => 10,
 				'autoSizeMax' => 30,

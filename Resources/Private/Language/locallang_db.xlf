@@ -183,6 +183,9 @@
 			<trans-unit id="tx_applib_domain_model_app.settings.I.2">
 				<source>Show Copyright Information</source>
 			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.settings.I.3">
+				<source>Disable Lightbox</source>
+			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.page">
 				<source>Page</source>
 			</trans-unit>

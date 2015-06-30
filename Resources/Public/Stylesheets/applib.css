@@ -113,6 +113,19 @@
 	vertical-align: middle;
 }
 
+.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item {
+	width: 23.5%;
+	margin: 0.5%;
+}
+
+.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item .app-lib-app-qv-cover {
+	width: auto;
+}
+
+.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(4n + 4) {
+	clear: left;
+}
+
 .app-lib-app-qv-details {
 	margin: auto;
 	overflow: hidden;
@@ -305,4 +318,32 @@ ul.app-lib-filter-options li.active {
 
 /* Large devices (large desktops, 1200px and up) */
 @media screen and (min-width: 1200px) {
+}
+
+/** Visible Small and Down **/
+@media  (max-width: 991px) {
+	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item {
+		width: 18.5%;
+		margin: 0.5%;
+	}
+	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(4n + 4) {
+		clear: none;
+	}
+	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(5n + 1) {
+		clear: left;
+	}
+}
+
+/** Visible XtraSmall and down */
+@media  (max-width: 767px) {
+	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item {
+		width: 47%;
+		margin: 1%;
+	}
+	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(5n+1) {
+		clear: none;
+	}
+	.app-lib-detail-grids .app-lib-app-qv-card.app-lib-grid-item:nth-child(2n + 2) {
+		clear: left;
+	}
 }

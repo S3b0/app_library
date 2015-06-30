@@ -1307,6 +1307,20 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function isLightboxEnabled() {
+		return !$this->returnBool($this->settings & 4);
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getCountCarouselItems() {
+		return count($this->getYoutubeLinks()) + $this->previewImages->count();
+	}
+
+	/**
 	 * @param $value
 	 * @return bool
 	 */

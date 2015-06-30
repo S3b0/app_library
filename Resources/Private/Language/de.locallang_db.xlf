@@ -167,6 +167,10 @@
 				<source>Show Copyright Information</source>
 				<target>Urheberrechtsinformationen anzeigen</target>
 			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.settings.I.3">
+				<source>Disable Lightbox</source>
+				<target>Lightbox deaktivieren</target>
+			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.page">
 				<source>Page</source>
 				<target>Seite</target>

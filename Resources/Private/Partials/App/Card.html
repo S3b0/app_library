@@ -14,11 +14,11 @@
 					<f:if condition="{app.icon}">
 						<f:then>
 							<f:image src="{app.icon.uid}" width="128m" height="128m" class="hidden-xs" alt="{app.icon.originalResource.altText}" treatIdAsReference="1" />
-							<f:image src="{app.icon.uid}" width="96m" height="96m" class="visible-xs" alt="{app.icon.originalResource.altText}" treatIdAsReference="1" />
+							<f:image src="{app.icon.uid}" width="96m" height="96m" class="visible-xs-inline" alt="{app.icon.originalResource.altText}" treatIdAsReference="1" />
 						</f:then>
 						<f:else>
 							<f:image src="{f:uri.resource(path: 'Images/emptyapp.png')}" width="128m" height="128m" alt="{app.icon.originalResource.altText}" class="hidden-xs" />
-							<f:image src="{f:uri.resource(path: 'Images/emptyapp.png')}" width="96m" height="96m" alt="{app.icon.originalResource.altText}" class="visible-xs" />
+							<f:image src="{f:uri.resource(path: 'Images/emptyapp.png')}" width="96m" height="96m" alt="{app.icon.originalResource.altText}" class="visible-xs-inline" />
 						</f:else>
 					</f:if>
 				</div>

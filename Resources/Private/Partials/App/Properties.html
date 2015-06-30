@@ -4,7 +4,47 @@
 		<div id="app-lib-owl-carousel">
 			<f:if condition="{app.youtubeLinks -> f:count()}">
 				<f:for each="{app.youtubeLinks}" as="ytLink" iteration="iterator">
-					<div class="video"><a href="{ytLink.0}" data-item-uid="yt-{iterator.cycle}" class="fancybox-trigger app-lib-video-preview-link">
+					<f:if condition="{app.lightboxEnabled}">
+						<f:then>
+							<div class="video preview-item"><a href="{ytLink.0}" data-item-uid="yt-{iterator.cycle}" class="fancybox-trigger app-lib-video-preview-link">
+								<img src="{f:uri.resource(path: 'Images/owl.video.play.png', extensionName: 'app_library')}" class="app-lib-video-preview-overlay" />
+								<f:image src="uploads/tx_applibrary/ytp_{ytLink.1}.jpg" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" />
+							</a></div>
+						</f:then>
+						<f:else>
+							<div class="video preview-item">
+								<img src="{f:uri.resource(path: 'Images/owl.video.play.png', extensionName: 'app_library')}" class="app-lib-video-preview-overlay" />
+								<f:image src="uploads/tx_applibrary/ytp_{ytLink.1}.jpg" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" />
+							</div>
+						</f:else>
+					</f:if>
+				</f:for>
+			</f:if>
+			<f:if condition="{app.previewImages -> f:count()}">
+				<f:for each="{app.previewImages}" as="previewImage">
+					<f:if condition="{app.lightboxEnabled}">
+						<f:then>
+							<div class="preview-item"><a href="{previewImage.originalResource.publicUrl}" data-item-uid="img-{previewImage.uid}" class="fancybox-trigger">
+								<f:image src="{previewImage.uid}" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" treatIdAsReference="1" />
+							</a></div>
+						</f:then>
+						<f:else>
+							<div class="preview-item">
+								<f:image src="{previewImage.uid}" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" treatIdAsReference="1" />
+							</div>
+						</f:else>
+					</f:if>
+				</f:for>
+			</f:if>
+		</div>
+	</div>
+
+	<f:if condition="{app.lightboxEnabled}">
+		<!-- Lightbox Gallery -->
+		<div id="applib-gallery" class="hidden" aria-hidden="true">
+			<f:if condition="{app.youtubeLinks -> f:count()}">
+				<f:for each="{app.youtubeLinks}" as="ytLink" iteration="iterator">
+					<div class="video"><a href="{ytLink.0}" id="yt-{iterator.cycle}" class="fancybox.iframe fancybox app-lib-video-preview-link" rel="applib-preview">
 						<img src="{f:uri.resource(path: 'Images/owl.video.play.png', extensionName: 'app_library')}" class="app-lib-video-preview-overlay" />
 						<f:image src="uploads/tx_applibrary/ytp_{ytLink.1}.jpg" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" />
 					</a></div>
@@ -12,32 +52,13 @@
 			</f:if>
 			<f:if condition="{app.previewImages -> f:count()}">
 				<f:for each="{app.previewImages}" as="previewImage">
-					<div><a href="{previewImage.originalResource.publicUrl}" data-item-uid="img-{previewImage.uid}" class="fancybox-trigger">
+					<div><a href="{previewImage.originalResource.publicUrl}" id="img-{previewImage.uid}" class="fancybox" rel="applib-preview">
 						<f:image src="{previewImage.uid}" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" treatIdAsReference="1" />
 					</a></div>
 				</f:for>
 			</f:if>
 		</div>
-	</div>
-
-	<!-- Fancybox Gallery -->
-	<div id="applib-gallery" class="hidden" aria-hidden="true">
-		<f:if condition="{app.youtubeLinks -> f:count()}">
-			<f:for each="{app.youtubeLinks}" as="ytLink" iteration="iterator">
-				<div class="video"><a href="{ytLink.0}" id="yt-{iterator.cycle}" class="fancybox.iframe fancybox app-lib-video-preview-link" rel="applib-preview">
-					<img src="{f:uri.resource(path: 'Images/owl.video.play.png', extensionName: 'app_library')}" class="app-lib-video-preview-overlay" />
-					<f:image src="uploads/tx_applibrary/ytp_{ytLink.1}.jpg" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" />
-				</a></div>
-			</f:for>
-		</f:if>
-		<f:if condition="{app.previewImages -> f:count()}">
-			<f:for each="{app.previewImages}" as="previewImage">
-				<div><a href="{previewImage.originalResource.publicUrl}" id="img-{previewImage.uid}" class="fancybox" rel="applib-preview">
-					<f:image src="{previewImage.uid}" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" treatIdAsReference="1" />
-				</a></div>
-			</f:for>
-		</f:if>
-	</div>
+	</f:if>
 
 	<div class="clearfix app-lib-spacer-vt2"></div>
 </f:if>
@@ -115,19 +136,25 @@
 	<hr />
 	<div class="clearfix app-lib-spacer-vt1"></div>
 	<h4><f:translate id="views.detail.compatible_products" default="Compatible with following products" /></h4>
-	<f:for each="{app.products}" as="product" iteration="iterator"><f:render partial="Misc/ProductCard" arguments="{product: product, iterator: iterator}" /></f:for>
+	<div class="app-lib-detail-grids">
+		<f:for each="{app.products}" as="product" iteration="iterator"><f:render partial="Misc/ProductCard" arguments="{product: product, iterator: iterator}" /></f:for>
+	</div>
 </f:if>
 
 <f:if condition="{app.related -> f:count()}">
 	<div class="clearfix app-lib-spacer-vt1"></div>
 	<h4><f:translate id="views.detail.related_apps" default="Related Apps" /></h4>
-	<f:for each="{app.related}" as="related" iteration="iterator"><f:render partial="App/Card" arguments="{app: related, iterator: iterator}" /></f:for>
+	<div class="app-lib-detail-grids">
+		<f:for each="{app.related}" as="related" iteration="iterator"><f:render partial="App/Card" arguments="{app: related, iterator: iterator}" /></f:for>
+	</div>
 </f:if>
 
 <f:if condition="{app.recommended -> f:count()}">
 	<div class="clearfix app-lib-spacer-vt1"></div>
 	<h4><f:translate id="views.detail.recommended_apps" default="Recommended Apps" /></h4>
-	<f:for each="{app.recommended}" as="recommended" iteration="iterator"><f:render partial="App/Card" arguments="{app: recommended, iterator: iterator}" /></f:for>
+	<div class="app-lib-detail-grids">
+		<f:for each="{app.recommended}" as="recommended" iteration="iterator"><f:render partial="App/Card" arguments="{app: recommended, iterator: iterator}" /></f:for>
+	</div>
 </f:if>
 
 <div class="clearfix app-lib-spacer-vt2"></div>

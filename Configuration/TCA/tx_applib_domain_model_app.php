@@ -63,7 +63,7 @@ return [
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'sys_language',
-				'foreign_table_where' => 'ORDER BY sys_language.title',
+				'foreign_table_where' => ' ORDER BY sys_language.title',
 				'items' => [
 					['LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1],
 					['LLL:EXT:lang/locallang_general.xlf:LGL.default_value', 0]
@@ -80,7 +80,7 @@ return [
 					[ '', 0 ]
 				],
 				'foreign_table' => 'tx_applib_domain_model_app',
-				'foreign_table_where' => 'AND tx_applib_domain_model_app.pid=###CURRENT_PID### AND tx_applib_domain_model_app.sys_language_uid IN (-1,0)'
+				'foreign_table_where' => ' AND tx_applib_domain_model_app.pid=###CURRENT_PID### AND tx_applib_domain_model_app.sys_language_uid IN (-1,0)'
 			]
 		],
 		'l10n_diffsource' => [
@@ -140,7 +140,7 @@ return [
 				],
 				'exclusiveKeys' => '-1,-2',
 				'foreign_table' => 'fe_groups',
-				'foreign_table_where' => 'ORDER BY fe_groups.title'
+				'foreign_table_where' => ' ORDER BY fe_groups.title'
 			]
 		],
 
@@ -464,7 +464,8 @@ return [
 				'type' => 'check',
 				'items' => [
 					[ $l10nPrefix . 'tx_applib_domain_model_app.settings.I.1' ],
-					[ $l10nPrefix . 'tx_applib_domain_model_app.settings.I.2' ]
+					[ $l10nPrefix . 'tx_applib_domain_model_app.settings.I.2' ],
+					[ $l10nPrefix . 'tx_applib_domain_model_app.settings.I.3' ]
 				],
 				'cols' => 4,
 				'default' => 1
@@ -543,7 +544,7 @@ return [
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'tx_applib_domain_model_app',
-				'foreign_table_where' => 'AND NOT tx_applib_domain_model_app.uid=###THIS_UID### AND tx_applib_domain_model_app.sys_language_uid IN (-1,0) ORDER BY tx_applib_domain_model_app.title',
+				'foreign_table_where' => ' AND tx_applib_domain_model_app.uid!=###THIS_UID### AND tx_applib_domain_model_app.sys_language_uid IN (-1,0) ORDER BY tx_applib_domain_model_app.title',
 				'MM' => 'tx_applib_app_app_mm',
 				'size' => 10,
 				'autoSizeMax' => 30,
@@ -565,7 +566,7 @@ return [
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'tx_applib_domain_model_app',
-				'foreign_table_where' => 'AND NOT tx_applib_domain_model_app.uid=###THIS_UID### AND tx_applib_domain_model_app.sys_language_uid IN (-1,0) ORDER BY tx_applib_domain_model_app.title',
+				'foreign_table_where' => ' AND tx_applib_domain_model_app.uid!=###THIS_UID### AND tx_applib_domain_model_app.sys_language_uid IN (-1,0) ORDER BY tx_applib_domain_model_app.title',
 				'MM' => 'tx_applib_app_recommended_app_mm',
 				'size' => 10,
 				'autoSizeMax' => 30,
@@ -621,7 +622,7 @@ return [
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'tx_applib_domain_model_tag',
-				'foreign_table_where' => 'AND tx_applib_domain_model_tag.sys_language_uid IN (-1,0) ORDER BY tx_applib_domain_model_tag.title',
+				'foreign_table_where' => ' AND tx_applib_domain_model_tag.sys_language_uid IN (-1,0) ORDER BY tx_applib_domain_model_tag.title',
 				'MM' => 'tx_applib_app_tag_mm',
 				'size' => 10,
 				'autoSizeMax' => 30,
@@ -643,7 +644,7 @@ return [
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'tx_ecomproducttools_domain_model_product',
-				'foreign_table_where' => 'AND tx_ecomproducttools_domain_model_product.sys_language_uid IN (-1,0) ORDER BY tx_ecomproducttools_domain_model_product.title',
+				'foreign_table_where' => ' AND tx_ecomproducttools_domain_model_product.sys_language_uid IN (-1,0) ORDER BY tx_ecomproducttools_domain_model_product.title',
 				'MM' => 'tx_applib_app_product_mm',
 				'size' => 10,
 				'autoSizeMax' => 30,
