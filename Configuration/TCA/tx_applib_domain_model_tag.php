@@ -69,7 +69,7 @@ return [
 			'exclude' => 1,
 			'label' => 'LLL:EXT:cms/locallang_ttc.xlf:hidden.I.0',
 			'config' => [
-				'type' => 'check',
+				'type' => 'check'
 			]
 		],
 

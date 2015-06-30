@@ -73,6 +73,7 @@ return [
 			'label' => 'LLL:EXT:cms/locallang_ttc.xlf:hidden.I.0',
 			'config' => [
 				'type' => 'check',
+				'default' => 1
 			]
 		],
 		'starttime' => [
