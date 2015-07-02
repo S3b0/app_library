@@ -258,10 +258,11 @@ class AppRepository extends AbstractRepository {
 	 * @param string                                      $search
 	 * @param array                                       $advancedFilter
 	 * @param \S3b0\AppLibrary\Domain\Model\App           $excludeApp
+	 * @param int                                         $limit
 	 *
 	 * @return null|\TYPO3\CMS\Extbase\Persistence\ObjectStorage
 	 */
-	public function findByProductAdvanced(\S3b0\EcomProductTools\Domain\Model\Product $product, $search = '', array $advancedFilter = [], \S3b0\AppLibrary\Domain\Model\App $excludeApp = NULL) {
+	public function findByProductAdvanced(\S3b0\EcomProductTools\Domain\Model\Product $product, $search = '', array $advancedFilter = [], \S3b0\AppLibrary\Domain\Model\App $excludeApp = NULL, $limit = 0) {
 		$query = $this->createQuery();
 		$this->ignoreSysLanguageUidOnQuery($query);
 

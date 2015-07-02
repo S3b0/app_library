@@ -30,7 +30,7 @@
 					</div>
 				</f:if>
 
-				<div class="{f:if(condition: '{settings.settings -> f:ecom.checkBit(bit: \'1\')} == 0', then: 'col-sm-9 col-md-10', else: 'cold-md-12')}">
+				<div class="{f:if(condition: '{settings.settings -> f:ecom.checkBit(bit: \'1\')} == 0', then: 'col-sm-9 col-md-10', else: 'col-md-12')}">
 					<f:if condition="{gridTitle}"><h2 class="app-lib-grid-title">{gridTitle}</h2></f:if>
 					<f:if condition="{search}">
 						<p><i class="fa fa-caret-right fa-fw"></i><f:if condition="{apps -> f:count()}">

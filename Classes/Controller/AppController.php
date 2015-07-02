@@ -140,7 +140,7 @@ class AppController extends ExtensionController {
 
 		if ( $product instanceof Product ) {
 			$apps = $this->appRepository->findByProductAdvanced($product, $search, ['categories' => $categories, 'tags' => $tags]);
-		} elseif ( preg_match('/^[0-9,]*$/i', $categories) ) {
+		} elseif ( $categories !== '' && preg_match('/^[0-9,]*$/i', $categories) ) {
 			$apps = $this->appRepository->findByCategories($categories);
 		}
 
