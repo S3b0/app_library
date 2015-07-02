@@ -24,6 +24,9 @@
 			<trans-unit id="tx_applib_mode.I.2">
 				<source>Select list</source>
 			</trans-unit>
+			<trans-unit id="tx_applib_mode.I.3">
+				<source>Select by categories</source>
+			</trans-unit>
 			<trans-unit id="tx_applib.mode.sidebar">
 				<source>Orderings / Mode</source>
 			</trans-unit>

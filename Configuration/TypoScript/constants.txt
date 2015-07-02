@@ -9,7 +9,7 @@ plugin.tx_applibrary {
 		layoutRootPath = EXT:app_library/Resources/Private/Layouts/
 	}
 	persistence {
-		# cat=plugin.tx_applibrary//a; type=string; label=Default storage PID
+		# cat=plugin.tx_applibrary//a; type=int+; label=Default storage PID
 		storagePid =
 	}
 	settings {
@@ -17,5 +17,7 @@ plugin.tx_applibrary {
 		enableRating = 0
 		# cat=plugin.tx_applibrary//11; type=int+; label=Data Protection Statement PID
 		dataProtectionStatement = 0
+		# cat=plugin.tx_applibrary//11; type=int+; label=Main Library PID
+		mainLibrary = 0
 	}
 }

@@ -258,11 +258,10 @@ class AppRepository extends AbstractRepository {
 	 * @param string                                      $search
 	 * @param array                                       $advancedFilter
 	 * @param \S3b0\AppLibrary\Domain\Model\App           $excludeApp
-	 * @param int                                         $limit
 	 *
 	 * @return null|\TYPO3\CMS\Extbase\Persistence\ObjectStorage
 	 */
-	public function findByProductAdvanced(\S3b0\EcomProductTools\Domain\Model\Product $product, $search = '', array $advancedFilter = [], \S3b0\AppLibrary\Domain\Model\App $excludeApp = NULL, $limit = 0) {
+	public function findByProductAdvanced(\S3b0\EcomProductTools\Domain\Model\Product $product, $search = '', array $advancedFilter = [], \S3b0\AppLibrary\Domain\Model\App $excludeApp = NULL) {
 		$query = $this->createQuery();
 		$this->ignoreSysLanguageUidOnQuery($query);
 
@@ -295,7 +294,7 @@ class AppRepository extends AbstractRepository {
 
 				/** Tags */
 				if ( $advancedFilter['tags'] !== '' && preg_match('/^[0-9,]*$/i', $advancedFilter['tags']) && $app->getTags()->count() ) {
-						/** @var \S3b0\AppLibrary\Domain\Model\Tag $tag */
+					/** @var \S3b0\AppLibrary\Domain\Model\Tag $tag */
 					foreach ( $app->getTags() as $tag ) {
 						if ( \TYPO3\CMS\Core\Utility\GeneralUtility::inList($advancedFilter['tags'], $tag->getUid()) ) {
 							$keepApp = TRUE;
@@ -305,6 +304,36 @@ class AppRepository extends AbstractRepository {
 
 				if ( $keepApp ) {
 					$return->attach($app);
+				}
+			}
+
+			return $return;
+		} else {
+			return NULL;
+		}
+	}
+
+	/**
+	 * @param string                            $categories
+	 *
+	 * @return null|\TYPO3\CMS\Extbase\Persistence\ObjectStorage
+	 */
+	public function findByCategories($categories) {
+		$query = $this->createQuery();
+		$this->ignoreSysLanguageUidOnQuery($query);
+
+		if ( $apps = $query->execute() ) {
+			$return = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+
+			/** @var \S3b0\AppLibrary\Domain\Model\App $app */
+			foreach ( $apps as $app ) {
+				if ( $categories !== '' && preg_match('/^[0-9,]*$/i', $categories) && $app->getCategories()->count() ) {
+					/** @var \S3b0\AppLibrary\Domain\Model\Category $category */
+					foreach ( $app->getCategories() as $category ) {
+						if ( \TYPO3\CMS\Core\Utility\GeneralUtility::inList($categories, $category->getUid()) ) {
+							$return->attach($app);
+						}
+					}
 				}
 			}
 

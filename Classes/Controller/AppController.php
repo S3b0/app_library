@@ -73,6 +73,9 @@ class AppController extends ExtensionController {
 			case 2:
 				$this->settings['limit'] = $this->settings['product'] = $this->settings['categories'] = $this->settings['tags'] = 0;
 				break;
+			case 3:
+				$this->settings['limit'] = $this->settings['product'] = $this->settings['apps'] = $this->settings['tags'] = 0;
+				break;
 			default:
 				$this->settings['product'] = $this->settings['categories'] = $this->settings['tags'] = $this->settings['apps'] = 0;
 		}
@@ -137,6 +140,8 @@ class AppController extends ExtensionController {
 
 		if ( $product instanceof Product ) {
 			$apps = $this->appRepository->findByProductAdvanced($product, $search, ['categories' => $categories, 'tags' => $tags]);
+		} elseif ( preg_match('/^[0-9,]*$/i', $categories) ) {
+			$apps = $this->appRepository->findByCategories($categories);
 		}
 
 		if ( $appList ) {

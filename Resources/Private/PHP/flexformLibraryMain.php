@@ -53,7 +53,7 @@ return '<T3DataStructure>
 					<settings.categories>
 						<TCEforms>
 							<label>Categories</label>
-							<displayCond><![CDATA[FIELD:parentRec.tx_applib_mode:=:1]]></displayCond>
+							<displayCond><![CDATA[FIELD:parentRec.tx_applib_mode:IN:1,3]]></displayCond>
 							<config>
 								<foreign_table>sys_category</foreign_table>
 								<foreign_table_where>AND sys_category.parent=' . $rootCategory . ' AND sys_category.sys_language_uid IN (-1, 0) AND NOT sys_category.deleted ORDER BY sys_category.title ASC</foreign_table_where>

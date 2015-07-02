@@ -31,6 +31,10 @@
 				<source>Select list</source>
 				<target>Auswahl-Liste</target>
 			</trans-unit>
+			<trans-unit id="tx_applib_mode.I.3">
+				<source>Select by categories</source>
+				<target>Nach Kategorien auswählen</target>
+			</trans-unit>
 			<trans-unit id="tx_applib.mode.sidebar">
 				<source>Orderings / Mode</source>
 				<target>Sortierung / Modus</target>

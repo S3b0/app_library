@@ -55,6 +55,7 @@ plugin.tx_applibrary {
 	settings {
 		enableRating = {$plugin.tx_applibrary.settings.enableRating}
 		dataProtectionStatement = {$plugin.tx_applibrary.settings.dataProtectionStatement}
+		mainLibrary = {$plugin.tx_applibrary.settings.mainLibrary}
 		decimalSeparator = .
 		thousandsSeparator = ,
 		dateFormat = j F Y

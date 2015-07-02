@@ -18,6 +18,7 @@
 							</div>
 						</f:form>
 						<f:if condition="{filterCategories -> f:count()} > 1">
+							<p><f:translate id="views.detail.sidebar.categories" default="Categories" /></p>
 							<ul class="app-lib-filter-options nav nav-pills nav-stacked" role="tablist">
 								<li role="presentation" class="active" data-group="all"><a>[All]</a></li>
 								<f:for each="{filterCategories}" as="category" key="jsSelector">
