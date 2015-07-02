@@ -67,13 +67,13 @@ class AppController extends ExtensionController {
 		$this->cookiesEnabled = (bool) $_COOKIE['cookieCheck'];
 
 		switch ( (int)$this->configurationManager->getContentObject()->data['tx_applib_mode'] ) {
-			case 1:
+			case 1: // List by product
 				$this->settings['limit'] = $this->settings['apps'] = 0;
 				break;
-			case 2:
+			case 2: // List selected
 				$this->settings['limit'] = $this->settings['product'] = $this->settings['categories'] = $this->settings['tags'] = 0;
 				break;
-			case 3:
+			case 3: // List by categories
 				$this->settings['limit'] = $this->settings['product'] = $this->settings['apps'] = $this->settings['tags'] = 0;
 				break;
 			default:
@@ -140,7 +140,7 @@ class AppController extends ExtensionController {
 
 		if ( $product instanceof Product ) {
 			$apps = $this->appRepository->findByProductAdvanced($product, $search, ['categories' => $categories, 'tags' => $tags]);
-		} elseif ( $categories !== '' && preg_match('/^[0-9,]*$/i', $categories) ) {
+		} elseif ( $categories !== '' && $categories !== '0' && preg_match('/^[0-9,]*$/i', $categories) ) {
 			$apps = $this->appRepository->findByCategories($categories);
 		}
 
