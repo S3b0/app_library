@@ -67,6 +67,24 @@ class AppRepository extends AbstractRepository {
 	protected $magicMethods = 'findLatest,findMostPopular,findTopDownloads,findTopRated';
 
 	/**
+	 * Returns a query for objects of this repository
+	 *
+	 * @return \TYPO3\CMS\Extbase\Persistence\QueryInterface
+	 * @api
+	 */
+	public function createQuery() {
+		$query = parent::createQuery();
+
+		if ( \Ecom\EcomToolbox\Security\Backend::isAuthenticated() ) {
+			$query->setQuerySettings(
+				$query->getQuerySettings()->setEnableFieldsToBeIgnored([ 'disabled' ])->setIgnoreEnableFields(TRUE)
+			);
+		}
+
+		return $query;
+	}
+
+	/**
 	 * @param string $search
 	 * @param int    $limit
 	 *
