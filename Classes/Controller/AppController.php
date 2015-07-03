@@ -60,6 +60,21 @@ class AppController extends ExtensionController {
 	protected $cookiesEnabled = TRUE;
 
 	/**
+	 * Initializes the controller before invoking an action method.
+	 *
+	 * Override this method to solve tasks which all actions have in
+	 * common.
+	 *
+	 * @return void
+	 * @api
+	 */
+	public function initializeAction() {
+		if ( \Ecom\EcomToolbox\Security\Backend::isAuthenticated() ) {
+			$GLOBALS['TSFE']->showHiddenRecords = TRUE;
+		}
+	}
+
+	/**
 	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentNameException
 	 */
 	public function initializeListAction() {

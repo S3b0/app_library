@@ -35,6 +35,11 @@ require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('app_li
 class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 
 	/**
+	 * @var bool
+	 */
+	protected $hidden = FALSE;
+
+	/**
 	 * @var int
 	 */
 	protected $sorting = 0;
@@ -304,6 +309,13 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$this->tags = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->feGroup = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		$this->products = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
+	}
+
+	/**
+	 * @return boolean
+	 */
+	public function isHidden() {
+		return $this->hidden;
 	}
 
 	/**
