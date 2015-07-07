@@ -263,10 +263,10 @@ class AppController extends ExtensionController {
 		if ( !$log instanceof Log ) {
 			$log = new Log();
 			$userData = $this->feSession->get($this->extensionName . '.user');
-			/** @var \Ecom\EcomToolbox\Domain\Model\Region $country */
-			$country = $this->regionRepository->findOneByTitle($userData[6]);
+			/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
+			$country = Utility\MathUtility::canBeInterpretedAsInteger($userData[6]) && $userData[6] > 0 ? $this->regionRepository->findOneByTitle($userData[6]) : NULL;
 			$state = NULL;
-			if ( $userData[7] ) {
+			if ( Utility\MathUtility::canBeInterpretedAsInteger($userData[7]) && $userData[7] > 0 ) {
 				/** @var \Ecom\EcomToolbox\Domain\Model\State $state */
 				$state = $this->stateRepository->findOneByAbbreviation($userData[7]);
 			}
@@ -319,6 +319,7 @@ class AppController extends ExtensionController {
 				$newLog->getStateProvince() instanceof \Ecom\EcomToolbox\Domain\Model\State ? $newLog->getStateProvince()->getAbbreviation() : ''
 			]);
 			$this->feSession->store($this->extensionName . '.hasRegistered', TRUE);
+			$this->writeLog();
 			$this->redirectToUri( $this->uriBuilder->build() );
 		}
 
