@@ -276,7 +276,7 @@ class AppController extends ExtensionController {
 				/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
 				$country = $userData[6] ? $this->regionRepository->findOneByTitle($userData[6]) : NULL;
 				$state = NULL;
-				if ( Utility\MathUtility::canBeInterpretedAsInteger($userData[7]) && $userData[7] > 0 ) {
+				if ( $userData[7] ) {
 					/** @var \Ecom\EcomToolbox\Domain\Model\State $state */
 					$state = $this->stateRepository->findOneByAbbreviation($userData[7]);
 				}
