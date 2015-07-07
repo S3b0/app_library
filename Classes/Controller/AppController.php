@@ -274,7 +274,7 @@ class AppController extends ExtensionController {
 				$frontendUser = $GLOBALS['TSFE']->loginUser ? $this->frontendUserRepository->findByUid((int) $GLOBALS['TSFE']->fe_user->user['uid']) : NULL;
 				$userData = $this->feSession->get($this->extensionName . '.user');
 				/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
-				$country = Utility\MathUtility::canBeInterpretedAsInteger($userData[6]) && $userData[6] > 0 ? $this->regionRepository->findOneByTitle($userData[6]) : NULL;
+				$country = $userData[6] ? $this->regionRepository->findOneByTitle($userData[6]) : NULL;
 				$state = NULL;
 				if ( Utility\MathUtility::canBeInterpretedAsInteger($userData[7]) && $userData[7] > 0 ) {
 					/** @var \Ecom\EcomToolbox\Domain\Model\State $state */
