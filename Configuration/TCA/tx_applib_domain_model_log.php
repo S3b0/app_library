@@ -106,7 +106,8 @@ return [
 			'config' => [
 				'readOnly' => TRUE,
 				'type' => 'select',
-				'foreign_table' => 'tx_applib_domain_model_app'
+				'foreign_table' => 'tx_applib_domain_model_app',
+				'items' => [['']]
 			]
 		]
 	]

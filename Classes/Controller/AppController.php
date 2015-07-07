@@ -78,7 +78,15 @@ class AppController extends ExtensionController {
 	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentNameException
 	 */
 	public function initializeListAction() {
-		$this->cookiesEnabled = !empty($_COOKIE);
+		/** Cookie check */
+		if ( !Utility\GeneralUtility::_GET('cc') && !isset($_COOKIE['cookieCheck']) ) {
+			setcookie('cookieCheck', 1);
+			$this->redirectToUri($this->uriBuilder->setArguments([
+				strtolower('tx_' . $this->extensionName . '_' . $this->request->getPluginName()) => $this->request->getArguments(),
+				'cc' => 1
+			])->build());
+		}
+		$this->cookiesEnabled = isset($_COOKIE['cookieCheck']);
 
 		switch ( (int)$this->configurationManager->getContentObject()->data['tx_applib_mode'] ) {
 			case 1: // List by product
@@ -254,14 +262,15 @@ class AppController extends ExtensionController {
 	 *
 	 * @param \S3b0\AppLibrary\Domain\Model\App          $app
 	 * @param \S3b0\AppLibrary\Domain\Model\Log          $log
-	 * @param \S3b0\AppLibrary\Domain\Model\FrontendUser $frontendUser
 	 *
 	 * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
 	 * @return void
 	 */
-	public function writeLog(App $app = NULL, Log $log = NULL, FrontendUser $frontendUser = NULL) {
+	public function writeLog(App $app = NULL, Log $log = NULL) {
 		if ( !$log instanceof Log ) {
 			$log = new Log();
+			/** @var \S3b0\AppLibrary\Domain\Model\FrontendUser|NULL $feUser */
+			$frontendUser = $GLOBALS['TSFE']->loginUser ? $this->frontendUserRepository->findByUid((int) $GLOBALS['TSFE']->fe_user->user['uid']) : NULL;
 			$userData = $this->feSession->get($this->extensionName . '.user');
 			/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
 			$country = Utility\MathUtility::canBeInterpretedAsInteger($userData[6]) && $userData[6] > 0 ? $this->regionRepository->findOneByTitle($userData[6]) : NULL;
