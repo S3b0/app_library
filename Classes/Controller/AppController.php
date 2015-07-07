@@ -267,36 +267,38 @@ class AppController extends ExtensionController {
 	 * @return void
 	 */
 	public function writeLog(App $app = NULL, Log $log = NULL) {
-		if ( !$log instanceof Log ) {
-			$log = new Log();
-			/** @var \S3b0\AppLibrary\Domain\Model\FrontendUser|NULL $feUser */
-			$frontendUser = $GLOBALS['TSFE']->loginUser ? $this->frontendUserRepository->findByUid((int) $GLOBALS['TSFE']->fe_user->user['uid']) : NULL;
-			$userData = $this->feSession->get($this->extensionName . '.user');
-			/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
-			$country = Utility\MathUtility::canBeInterpretedAsInteger($userData[6]) && $userData[6] > 0 ? $this->regionRepository->findOneByTitle($userData[6]) : NULL;
-			$state = NULL;
-			if ( Utility\MathUtility::canBeInterpretedAsInteger($userData[7]) && $userData[7] > 0 ) {
-				/** @var \Ecom\EcomToolbox\Domain\Model\State $state */
-				$state = $this->stateRepository->findOneByAbbreviation($userData[7]);
+		if ( !Toolbox\Security\Backend::isAuthenticated() ) {
+			if ( !$log instanceof Log ) {
+				$log = new Log();
+				/** @var \S3b0\AppLibrary\Domain\Model\FrontendUser|NULL $feUser */
+				$frontendUser = $GLOBALS['TSFE']->loginUser ? $this->frontendUserRepository->findByUid((int) $GLOBALS['TSFE']->fe_user->user['uid']) : NULL;
+				$userData = $this->feSession->get($this->extensionName . '.user');
+				/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
+				$country = Utility\MathUtility::canBeInterpretedAsInteger($userData[6]) && $userData[6] > 0 ? $this->regionRepository->findOneByTitle($userData[6]) : NULL;
+				$state = NULL;
+				if ( Utility\MathUtility::canBeInterpretedAsInteger($userData[7]) && $userData[7] > 0 ) {
+					/** @var \Ecom\EcomToolbox\Domain\Model\State $state */
+					$state = $this->stateRepository->findOneByAbbreviation($userData[7]);
+				}
+				$log->setPid(0)
+					->setName($userData[0])
+					->setCompany($userData[1])
+					->setEmail($userData[2])
+					->setAddress($userData[3])
+					->setCity($userData[4])
+					->setZip($userData[5])
+					->setCountry($country)
+					->setStateProvince($state)
+					->setFeUser($frontendUser)
+					->setApp($app);
 			}
-			$log->setPid(0)
-				->setName($userData[0])
-				->setCompany($userData[1])
-				->setEmail($userData[2])
-				->setAddress($userData[3])
-				->setCity($userData[4])
-				->setZip($userData[5])
-				->setCountry($country)
-				->setStateProvince($state)
-				->setFeUser($frontendUser)
-				->setApp($app);
-		}
 
-		$this->logRepository->add($log);
-		/** @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager $persistenceManager */
-		$persistenceManager = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
-		$persistenceManager->add($log);
-		$persistenceManager->persistAll();
+			$this->logRepository->add($log);
+			/** @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager $persistenceManager */
+			$persistenceManager = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+			$persistenceManager->add($log);
+			$persistenceManager->persistAll();
+		}
 	}
 
 	/**
