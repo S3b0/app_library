@@ -78,7 +78,7 @@ class AppController extends ExtensionController {
 	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentNameException
 	 */
 	public function initializeListAction() {
-		$this->cookiesEnabled = isset($_COOKIE);
+		$this->cookiesEnabled = !empty($_COOKIE);
 
 		switch ( (int)$this->configurationManager->getContentObject()->data['tx_applib_mode'] ) {
 			case 1: // List by product
