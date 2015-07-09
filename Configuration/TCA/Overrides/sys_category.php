@@ -14,7 +14,7 @@ $GLOBALS['TCA']['sys_category']['columns']['tx_applib_hashval'] = [
 	'config' => [
 		'type' => 'input',
 		'size' => 30,
-		'eval' => 'trim,nospace,lower,required,unique'
+		'eval' => 'alphanum,lower,unique,required'
 	]
 ];
 

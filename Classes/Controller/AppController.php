@@ -55,11 +55,6 @@ class AppController extends ExtensionController {
 	protected $categoryRepository;
 
 	/**
-	 * @var bool
-	 */
-	protected $cookiesEnabled = TRUE;
-
-	/**
 	 * Initializes the controller before invoking an action method.
 	 *
 	 * Override this method to solve tasks which all actions have in
@@ -72,22 +67,23 @@ class AppController extends ExtensionController {
 		if ( \Ecom\EcomToolbox\Security\Backend::isAuthenticated() ) {
 			$GLOBALS['TSFE']->showHiddenRecords = TRUE;
 		}
+		if ( in_array($this->request->getControllerActionName(), ['list', 'show']) ) {
+			/** Cookie check */
+			if ( !Utility\GeneralUtility::_GET('cc') && !isset($_COOKIE['cookieCheck']) ) {
+				setcookie('cookieCheck', 1);
+				$this->redirectToUri($this->uriBuilder->setArguments([
+					strtolower('tx_' . $this->extensionName . '_' . $this->request->getPluginName()) => $this->request->getArguments(),
+					'cc' => 1
+				])->build());
+			}
+			$this->forceRegistration(isset($_COOKIE['cookieCheck']));
+		}
 	}
 
 	/**
 	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentNameException
 	 */
 	public function initializeListAction() {
-		/** Cookie check */
-		if ( !Utility\GeneralUtility::_GET('cc') && !isset($_COOKIE['cookieCheck']) ) {
-			setcookie('cookieCheck', 1);
-			$this->redirectToUri($this->uriBuilder->setArguments([
-				strtolower('tx_' . $this->extensionName . '_' . $this->request->getPluginName()) => $this->request->getArguments(),
-				'cc' => 1
-			])->build());
-		}
-		$this->cookiesEnabled = isset($_COOKIE['cookieCheck']);
-
 		switch ( (int)$this->configurationManager->getContentObject()->data['tx_applib_mode'] ) {
 			case 1: // List by product
 				$this->settings['limit'] = $this->settings['apps'] = 0;
@@ -135,28 +131,6 @@ class AppController extends ExtensionController {
 	 * @return void
 	 */
 	public function listAction($search = '', Product $product = NULL, $categories = '', $tags = '', $appList = '', Category $category = NULL, Tag $tag = NULL, $limit = 0) {
-		if ( $this->cookiesEnabled && !$this->feSession->get($this->extensionName . '.hasRegistered') && !Toolbox\Security\Backend::isAuthenticated() ) {
-			// For logged in users redirect them directly, write data to log
-			if ( $GLOBALS['TSFE']->loginUser ) {
-				/** @var \S3b0\AppLibrary\Domain\Model\FrontendUser $feUser */
-				$feUser = $this->frontendUserRepository->findByUid((int) $GLOBALS['TSFE']->fe_user->user['uid']);
-				$this->feSession->store($this->extensionName . '.user', [
-					$feUser->getName(),
-					$feUser->getCompany(),
-					$feUser->getEmail(),
-					$feUser->getAddress(),
-					$feUser->getCity(),
-					$feUser->getZip(),
-					$feUser->getEcomToolboxCountry()->getTitle(),
-					$feUser->getEcomToolboxState()->getAbbreviation()
-				]);
-				$this->feSession->store($this->extensionName . '.hasRegistered', TRUE);
-			} else {
-				// Handle unregistered users, fetching some Marketing information ;)
-				$this->forward('requestUserData');
-			}
-		}
-
 		// Actual listAction
 		$apps = $this->appRepository->findAll($search, $limit);
 
@@ -211,6 +185,37 @@ class AppController extends ExtensionController {
 		$this->raiseOrLowerProperty($app, 'views');
 		$this->postProcessApp($app, $tmp = FALSE);
 		$this->view->assign('app', $app);
+	}
+
+	/**
+	 * Force unknown users to register for current session
+	 *
+	 * @param bool $cookiesEnabled
+	 *
+	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+	 */
+	private function forceRegistration($cookiesEnabled = FALSE) {
+		if ( $cookiesEnabled && !$this->feSession->get($this->extensionName . '.hasRegistered') && !Toolbox\Security\Backend::isAuthenticated() ) {
+			// For logged in users redirect them directly, write data to log
+			if ( $GLOBALS['TSFE']->loginUser ) {
+				/** @var \S3b0\AppLibrary\Domain\Model\FrontendUser $feUser */
+				$feUser = $this->frontendUserRepository->findByUid((int) $GLOBALS['TSFE']->fe_user->user['uid']);
+				$this->feSession->store($this->extensionName . '.user', [
+					$feUser->getName(),
+					$feUser->getCompany(),
+					$feUser->getEmail(),
+					$feUser->getAddress(),
+					$feUser->getCity(),
+					$feUser->getZip(),
+					$feUser->getEcomToolboxCountry()->getTitle(),
+					$feUser->getEcomToolboxState()->getAbbreviation()
+				]);
+				$this->feSession->store($this->extensionName . '.hasRegistered', TRUE);
+			} else {
+				// Handle unregistered users, fetching some Marketing information ;)
+				$this->forward('requestUserData');
+			}
+		}
 	}
 
 	/**
