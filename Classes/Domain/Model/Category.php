@@ -34,6 +34,25 @@ namespace S3b0\AppLibrary\Domain\Model;
 class Category extends \TYPO3\CMS\Extbase\Domain\Model\Category {
 
 	/**
+	 * @var string
+	 */
+	protected $urlHash = '';
+
+	/**
+	 * @return string
+	 */
+	public function getUrlHash() {
+		return $this->urlHash;
+	}
+
+	/**
+	 * @param string $urlHash
+	 */
+	public function setUrlHash($urlHash) {
+		$this->urlHash = $urlHash;
+	}
+
+	/**
 	 * @return string
 	 */
 	public function getJsSelector() {

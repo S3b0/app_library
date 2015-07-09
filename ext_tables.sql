@@ -2,7 +2,7 @@
 # Table structure for table 'sys_category'
 #
 CREATE TABLE sys_category (
-	tx_realurl_pathsegment VARCHAR(255) DEFAULT '' NOT NULL
+	tx_applib_hashval varchar(255) NOT NULL default '',
 );
 
 #

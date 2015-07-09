@@ -180,6 +180,7 @@ class AppController extends ExtensionController {
 			$this->view->assign('gridTitle', \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('resultsFor', $this->extensionName, [ \TYPO3\CMS\Extbase\Utility\LocalizationUtility::translate('tx_applib_domain_model_tag', $this->extensionName), $tag->getTitle() ]));
 		}
 
+		$this->view->assign('translateHashToCategory', '{}');
 		$this->processListAction($apps, $search, $search || $tag instanceof Tag || $category instanceof Category);
 	}
 
@@ -435,10 +436,7 @@ class AppController extends ExtensionController {
 	 * @return void
 	 */
 	public function subNavigationCategoriesAction() {
-		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['app_library']);
-		/** @var \Ecom\EcomToolbox\Domain\Model\Category $rootCategory */
-		$rootCategory = $this->categoryRepository->findByUid((int)$extConf['rootCatCategory']);
-		$this->view->assign('categories', $this->categoryRepository->findByParent($rootCategory));
+		$this->view->assign('categories', $this->categoryRepository->findByTxExtType('app_library'));
 	}
 
 	/**
@@ -451,9 +449,13 @@ class AppController extends ExtensionController {
 
 		if ( $apps instanceof \Countable && $apps->count() || ( is_array($apps) && count($apps) ) ) {
 			$requestReload = FALSE;
+			$translateHashToCategory = [ ];
 			/** @var \S3b0\AppLibrary\Domain\Model\App $app */
 			foreach ( $apps as $app ) {
-				$this->postProcessApp($app, $requestReload, $filterCategories);
+				$this->postProcessApp($app, $requestReload, $filterCategories, $translateHashToCategory);
+			}
+			if ( count($translateHashToCategory) ) {
+				$this->view->assign('translateHashToCategory', '{' . implode(', ', $translateHashToCategory) . '}');
 			}
 			if ( $requestReload ) {
 				$this->redirectToUri( $this->uriBuilder->uriFor($this->request->getControllerActionName(), $this->request->getArguments()) );
@@ -468,10 +470,11 @@ class AppController extends ExtensionController {
 	 * @param \S3b0\AppLibrary\Domain\Model\App $app
 	 * @param bool                              $requestReload
 	 * @param null|array                        $filterCategories
+	 * @param null|array                        $translateHashToCategory
 	 *
 	 * @return void
 	 */
-	final private function postProcessApp(App $app, &$requestReload, &$filterCategories = NULL) {
+	final private function postProcessApp(App $app, &$requestReload, &$filterCategories = NULL, &$translateHashToCategory = NULL) {
 		/** Check for outdated featured apps and reset corresponding property */
 		if ( $app->getFeaturedUntil() && $app->getFeaturedUntil() < new \DateTime() ) {
 			$app->setFeaturedUntil();
@@ -499,6 +502,7 @@ class AppController extends ExtensionController {
 						'title' => $category->getTitle(),
 						'appCount' => 1
 					];
+					$translateHashToCategory[] = $category->getUrlHash() . ': \'' . $category->getJsSelector() . '\'';
 				} else {
 					$filterCategories[ $category->getJsSelector() ]['appCount']++;
 				}

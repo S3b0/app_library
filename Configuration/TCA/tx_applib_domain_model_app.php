@@ -108,8 +108,7 @@ return [
 				'max' => 20,
 				'eval' => 'datetime',
 				'checkbox' => 0,
-				'default' => 0,
-				'range' => [ 'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y')) ],
+				'default' => 0
 			]
 		],
 		'endtime' => [
@@ -670,7 +669,7 @@ return [
 			'config' => [
 				'type' => 'select',
 				'foreign_table' => 'sys_category',
-				'foreign_table_where' => ' AND (sys_category.uid=' . (\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($extensionConfiguration['rootCatCategory']) ? (int)$extensionConfiguration['rootCatCategory'] : '0') . ' OR sys_category.parent=' . (\TYPO3\CMS\Core\Utility\MathUtility::canBeInterpretedAsInteger($extensionConfiguration['rootCatCategory']) ? (int)$extensionConfiguration['rootCatCategory'] : '0') . ') AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC',
+				'foreign_table_where' => ' AND sys_category.tx_ext_type=\'app_library\' AND sys_category.sys_language_uid IN (-1, 0) ORDER BY sys_category.title ASC',
 				'minitems' => 1,
 				'maxitems' => 9999,
 				'autoSizeMax' => 50,
@@ -680,7 +679,7 @@ return [
 					'tablenames' => 'tx_applib_domain_model_app'
 				],
 				'MM_opposite_field' => 'items',
-				'renderMode' => 'tree',
+				'renderMode' => 'checkbox',
 				'size' => 10,
 				'treeConfig' => [
 					'appearance' => [

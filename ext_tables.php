@@ -12,7 +12,7 @@ if (!defined('TYPO3_MODE')) {
 
 $TCA['tt_content']['types']['list']['subtypes_addlist']['applibrary_list'] = 'tx_applib_mode, pi_flexform';
 $TCA['tt_content']['types']['list']['subtypes_excludelist']['applibrary_list'] = 'select_key';
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('applibrary_list', require_once(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath( $_EXTKEY ) . 'Resources/Private/PHP/flexformLibraryMain.php'));
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('applibrary_list', 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_applibrary_list.xml');
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
 	$_EXTKEY,

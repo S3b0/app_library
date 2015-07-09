@@ -39,6 +39,9 @@ plugin.tx_applibrary {
 			S3b0\AppLibrary\Domain\Model\Category {
 				mapping {
 					tableName = sys_category
+					columns {
+						tx_applib_hashval.mapOnProperty = urlHash
+					}
 				}
 			}
 			S3b0\AppLibrary\Domain\Model\FrontendUser {
