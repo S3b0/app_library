@@ -276,13 +276,29 @@ class AppController extends ExtensionController {
 				$log = new Log();
 				/** @var \S3b0\AppLibrary\Domain\Model\FrontendUser|NULL $feUser */
 				$frontendUser = $GLOBALS['TSFE']->loginUser ? $this->frontendUserRepository->findByUid((int) $GLOBALS['TSFE']->fe_user->user['uid']) : NULL;
-				$userData = $this->feSession->get($this->extensionName . '.user');
-				/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
-				$country = $userData[6] ? $this->regionRepository->findOneByTitle($userData[6]) : NULL;
-				$state = NULL;
-				if ( $userData[7] ) {
-					/** @var \Ecom\EcomToolbox\Domain\Model\State $state */
-					$state = $this->stateRepository->findOneByAbbreviation($userData[7]);
+				if ( $frontendUser instanceof \S3b0\AppLibrary\Domain\Model\FrontendUser ) {
+					$userData = [
+						$frontendUser->getName(),
+						$frontendUser->getCompany(),
+						$frontendUser->getEmail(),
+						$frontendUser->getAddress(),
+						$frontendUser->getCity(),
+						$frontendUser->getZip(),
+						$frontendUser->getEcomToolboxCountry()->getTitle(),
+						$frontendUser->getEcomToolboxState()->getAbbreviation()
+					];
+					/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
+					$country = $frontendUser->getEcomToolboxCountry();
+					$state = $frontendUser->getEcomToolboxState();
+				} else {
+					$userData = $this->feSession->get($this->extensionName . '.user');
+					/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
+					$country = $userData[6] ? $this->regionRepository->findOneByTitle($userData[6]) : NULL;
+					$state = NULL;
+					if ( $userData[7] ) {
+						/** @var \Ecom\EcomToolbox\Domain\Model\State $state */
+						$state = $this->stateRepository->findOneByAbbreviation($userData[7]);
+					}
 				}
 				$log->setPid(0)
 					->setName($userData[0])
