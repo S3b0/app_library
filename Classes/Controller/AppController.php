@@ -227,9 +227,7 @@ class AppController extends ExtensionController {
 	 */
 	public function downloadAction(\S3b0\AppLibrary\Domain\Model\App $app) {
 		$this->raiseOrLowerProperty($app, 'downloads');
-		if ( !\Ecom\EcomToolbox\Security\Backend::isAuthenticated() ) {
-			$this->writeLog($app);
-		}
+		$this->writeLog($app);
 
 		if ( $app->getExternalUrl() ) {
 			/** @var \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer $contentObject */
