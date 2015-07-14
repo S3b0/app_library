@@ -6,7 +6,7 @@
 				<f:for each="{app.youtubeLinks}" as="ytLink" iteration="iterator">
 					<f:if condition="{app.lightboxEnabled}">
 						<f:then>
-							<div class="video preview-item"><a href="{ytLink.0}" data-item-uid="yt-{iterator.cycle}" class="fancybox-trigger app-lib-video-preview-link">
+							<div class="video preview-item"><a href="{ytLink.0}" data-item-uid="yt-{iterator.cycle}" class="fancybox-trigger app-lib-video-preview-link iframe">
 								<img src="{f:uri.resource(path: 'Images/owl.video.play.png', extensionName: 'app_library')}" class="app-lib-video-preview-overlay" />
 								<f:image src="uploads/tx_applibrary/ytp_{ytLink.1}.jpg" width="{f:if(condition: settings.images.preview.maxW, then: '{settings.images.preview.maxW}m', else: '600m')}" height="{f:if(condition: settings.images.preview.maxH, then: '{settings.images.preview.maxH}m', else: '250m')}" />
 							</a></div>
