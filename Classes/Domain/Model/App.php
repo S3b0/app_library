@@ -422,8 +422,8 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$links = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(PHP_EOL, $this->youtubeLinks, TRUE);
 		foreach ( $links as &$link ) {
 			$tmp = \TYPO3\CMS\Core\Utility\GeneralUtility::unQuoteFilenames($link, TRUE);
-			$valid = preg_match('/\/([0-9a-z]+)$/i', $tmp[0], $matches);
-			if ( !$valid || file_exists('uploads/tx_applibrary/ytp_' . $matches[1] . '.jpg') ) {
+			$videoId = preg_match('/\/([0-9a-z]+)$/i', $tmp[0], $matches);
+			if ( !$videoId || file_exists('uploads/tx_applibrary/ytp_' . $matches[1] . '.jpg') ) {
 				continue;
 			}
 			/** @var string $imgResource Default preview image */
@@ -441,17 +441,7 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 			} elseif ( \TYPO3\CMS\Core\Utility\GeneralUtility::getUrl('https://img.youtube.com/vi/' . $matches[1] . '/sddefault.jpg') !== FALSE ) {
 				$imgResource = 'https://img.youtube.com/vi/' . $matches[1] . '/sddefault.jpg';
 			}
-			/**
-			 * @todo: strip context on going live!
-			 */
-			$aContext = [
-				'http' => [
-					'proxy' => 'tcp://proxy:8080',
-					'request_fulluri' => true,
-				],
-			];
-			$cxContext = stream_context_create($aContext);
-			copy($imgResource, PATH_site . 'uploads/tx_applibrary/ytp_' . $matches[1] . '.jpg', $cxContext);
+			copy($imgResource, PATH_site . 'uploads/tx_applibrary/ytp_' . $matches[1] . '.jpg');
 		}
 	}
 
