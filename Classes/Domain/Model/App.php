@@ -408,7 +408,7 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$links = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(PHP_EOL, $this->youtubeLinks, TRUE);
 		foreach ( $links as $k => &$link ) {
 			$tmp = \TYPO3\CMS\Core\Utility\GeneralUtility::unQuoteFilenames($link, TRUE);
-			if ( preg_match('/\/([0-9a-z]+)$/i', $tmp[0], $matches) ) {
+			if ( preg_match('/\/([0-9a-z\_\-]+)$/i', $tmp[0], $matches) ) {
 				$link = [ $tmp[0], $matches[1] ];
 			} else {
 				unset($links[$k]); // Remove invalid links
@@ -422,7 +422,7 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		$links = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(PHP_EOL, $this->youtubeLinks, TRUE);
 		foreach ( $links as &$link ) {
 			$tmp = \TYPO3\CMS\Core\Utility\GeneralUtility::unQuoteFilenames($link, TRUE);
-			$videoId = preg_match('/\/([0-9a-z]+)$/i', $tmp[0], $matches);
+			$videoId = preg_match('/\/([0-9a-z\_\-]+)$/i', $tmp[0], $matches);
 			if ( !$videoId || file_exists('uploads/tx_applibrary/ytp_' . $matches[1] . '.jpg') ) {
 				continue;
 			}
