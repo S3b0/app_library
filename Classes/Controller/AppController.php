@@ -207,8 +207,8 @@ class AppController extends ExtensionController {
 					$feUser->getAddress(),
 					$feUser->getCity(),
 					$feUser->getZip(),
-					$feUser->getEcomToolboxCountry()->getTitle(),
-					$feUser->getEcomToolboxState()->getAbbreviation()
+					$feUser->getEcomToolboxCountry() instanceof \Ecom\EcomToolbox\Domain\Model\Region ? $feUser->getEcomToolboxCountry()->getTitle() : NULL,
+					$feUser->getEcomToolboxState() instanceof \Ecom\EcomToolbox\Domain\Model\State  ? $feUser->getEcomToolboxState()->getAbbreviation() : NULL
 				]);
 				$this->feSession->store($this->extensionName . '.hasRegistered', TRUE);
 			} else {
@@ -284,8 +284,8 @@ class AppController extends ExtensionController {
 						$frontendUser->getAddress(),
 						$frontendUser->getCity(),
 						$frontendUser->getZip(),
-						$frontendUser->getEcomToolboxCountry()->getTitle(),
-						$frontendUser->getEcomToolboxState()->getAbbreviation()
+						$frontendUser->getEcomToolboxCountry() instanceof \Ecom\EcomToolbox\Domain\Model\Region ? $frontendUser->getEcomToolboxCountry()->getTitle() : '',
+						$frontendUser->getEcomToolboxState() instanceof \Ecom\EcomToolbox\Domain\Model\State ? $frontendUser->getEcomToolboxState()->getAbbreviation() : ''
 					];
 					/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
 					$country = $frontendUser->getEcomToolboxCountry();
@@ -346,7 +346,7 @@ class AppController extends ExtensionController {
 				$newLog->getAddress(),
 				$newLog->getCity(),
 				$newLog->getZip(),
-				$newLog->getCountry()->getTitle(),
+				$newLog->getCountry() instanceof \Ecom\EcomToolbox\Domain\Model\Region ? $newLog->getCountry()->getTitle() : '',
 				$newLog->getStateProvince() instanceof \Ecom\EcomToolbox\Domain\Model\State ? $newLog->getStateProvince()->getAbbreviation() : ''
 			]);
 			$this->feSession->store($this->extensionName . '.hasRegistered', TRUE);
