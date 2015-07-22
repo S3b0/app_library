@@ -180,7 +180,6 @@ return [
 				'MM' => 'tx_applib_faq_app_mm',
 				'size' => 10,
 				'autoSizeMax' => 30,
-				'minitems' => 1,
 				'maxitems' => 9999,
 				'multiple' => 0,
 				'wizards' => [

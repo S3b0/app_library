@@ -39,7 +39,7 @@ class FaqController extends ExtensionController {
 	 * @return void
 	 */
 	public function listAction() {
-		$faqs = $this->faqRepository->findAll();
+		$faqs = \TYPO3\CMS\Core\Utility\GeneralUtility::_GP('tx_applibrary_list') ? NULL : $this->faqRepository->findByApp();
 		$this->view->assign('faqs', $faqs);
 	}
 

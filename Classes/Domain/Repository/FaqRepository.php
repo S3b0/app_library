@@ -39,11 +39,11 @@ class FaqRepository extends AbstractRepository {
 	 *
 	 * @return array|\TYPO3\CMS\Extbase\Persistence\QueryResultInterface
 	 */
-	public function findByApp(\S3b0\AppLibrary\Domain\Model\App $app) {
+	public function findByApp(\S3b0\AppLibrary\Domain\Model\App $app = NULL) {
 		$query = $this->createQuery();
 
 		return $query->matching(
-			$query->contains('app', $app)
+			$app instanceof \S3b0\AppLibrary\Domain\Model\App ? $query->contains('app', $app) : $query->equals('app', 0)
 		)->execute();
 	}
 

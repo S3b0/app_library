@@ -195,7 +195,7 @@ class AppController extends ExtensionController {
 	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
 	 */
 	private function forceRegistration($cookiesEnabled = FALSE) {
-		if ( $cookiesEnabled && !$this->feSession->get($this->extensionName . '.hasRegistered') && !Toolbox\Security\Backend::isAuthenticated() ) {
+		if ( $cookiesEnabled && !$this->feSession->get($this->extensionName . '.hasRegistered') && !Toolbox\Security\Backend::isAuthenticated() && \TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()->isProduction() ) {
 			// For logged in users redirect them directly, write data to log
 			if ( $GLOBALS['TSFE']->loginUser ) {
 				/** @var \S3b0\AppLibrary\Domain\Model\FrontendUser $feUser */
@@ -265,53 +265,52 @@ class AppController extends ExtensionController {
 	 * Log downloads!
 	 *
 	 * @param \S3b0\AppLibrary\Domain\Model\App          $app
-	 * @param \S3b0\AppLibrary\Domain\Model\Log          $log
 	 *
 	 * @throws \TYPO3\CMS\Extbase\Persistence\Exception\IllegalObjectTypeException
 	 * @return void
 	 */
-	public function writeLog(App $app = NULL, Log $log = NULL) {
+	public function writeLog(App $app = NULL) {
+		/** Log FE-users only */
 		if ( !Toolbox\Security\Backend::isAuthenticated() ) {
-			if ( !$log instanceof Log ) {
-				$log = new Log();
-				/** @var \S3b0\AppLibrary\Domain\Model\FrontendUser|NULL $feUser */
-				$frontendUser = $GLOBALS['TSFE']->loginUser ? $this->frontendUserRepository->findByUid((int) $GLOBALS['TSFE']->fe_user->user['uid']) : NULL;
-				if ( $frontendUser instanceof \S3b0\AppLibrary\Domain\Model\FrontendUser ) {
-					$userData = [
-						$frontendUser->getName(),
-						$frontendUser->getCompany(),
-						$frontendUser->getEmail(),
-						$frontendUser->getAddress(),
-						$frontendUser->getCity(),
-						$frontendUser->getZip(),
-						$frontendUser->getEcomToolboxCountry() instanceof \Ecom\EcomToolbox\Domain\Model\Region ? $frontendUser->getEcomToolboxCountry()->getTitle() : '',
-						$frontendUser->getEcomToolboxState() instanceof \Ecom\EcomToolbox\Domain\Model\State ? $frontendUser->getEcomToolboxState()->getAbbreviation() : ''
-					];
-					/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
-					$country = $frontendUser->getEcomToolboxCountry();
-					$state = $frontendUser->getEcomToolboxState();
-				} else {
-					$userData = $this->feSession->get($this->extensionName . '.user');
-					/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
-					$country = $userData[6] ? $this->regionRepository->findOneByTitle($userData[6]) : NULL;
-					$state = NULL;
-					if ( $userData[7] ) {
-						/** @var \Ecom\EcomToolbox\Domain\Model\State $state */
-						$state = $this->stateRepository->findOneByAbbreviation($userData[7]);
-					}
+			$log = new Log();
+			/** @var \S3b0\AppLibrary\Domain\Model\FrontendUser|NULL $feUser */
+			$frontendUser = $GLOBALS['TSFE']->loginUser ? $this->frontendUserRepository->findByUid((int) $GLOBALS['TSFE']->fe_user->user['uid']) : NULL;
+			// Set user data depending on registered user or not
+			if ( $frontendUser instanceof \S3b0\AppLibrary\Domain\Model\FrontendUser ) {
+				$userData = [
+					$frontendUser->getName(),
+					$frontendUser->getCompany(),
+					$frontendUser->getEmail(),
+					$frontendUser->getAddress(),
+					$frontendUser->getCity(),
+					$frontendUser->getZip(),
+					$frontendUser->getEcomToolboxCountry() instanceof \Ecom\EcomToolbox\Domain\Model\Region ? $frontendUser->getEcomToolboxCountry()->getTitle() : '',
+					$frontendUser->getEcomToolboxState() instanceof \Ecom\EcomToolbox\Domain\Model\State ? $frontendUser->getEcomToolboxState()->getAbbreviation() : ''
+				];
+				/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
+				$country = $frontendUser->getEcomToolboxCountry();
+				$state = $frontendUser->getEcomToolboxState();
+			} else {
+				$userData = $this->feSession->get($this->extensionName . '.user');
+				/** @var \Ecom\EcomToolbox\Domain\Model\Region|NULL $country */
+				$country = $userData[6] ? $this->regionRepository->findOneByTitle($userData[6]) : NULL;
+				$state = NULL;
+				if ( $userData[7] ) {
+					/** @var \Ecom\EcomToolbox\Domain\Model\State $state */
+					$state = $this->stateRepository->findOneByAbbreviation($userData[7]);
 				}
-				$log->setPid(0)
-					->setName($userData[0])
-					->setCompany($userData[1])
-					->setEmail($userData[2])
-					->setAddress($userData[3])
-					->setCity($userData[4])
-					->setZip($userData[5])
-					->setCountry($country)
-					->setStateProvince($state)
-					->setFeUser($frontendUser)
-					->setApp($app);
 			}
+			$log->setPid(0)
+				->setName($userData[0])
+				->setCompany($userData[1])
+				->setEmail($userData[2])
+				->setAddress($userData[3])
+				->setCity($userData[4])
+				->setZip($userData[5])
+				->setCountry($country)
+				->setStateProvince($state)
+				->setFeUser($frontendUser)
+				->setApp($app);
 
 			$this->logRepository->add($log);
 			/** @var \TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager $persistenceManager */

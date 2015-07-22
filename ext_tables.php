@@ -32,7 +32,7 @@ $TCA['tt_content']['types']['list']['subtypes_excludelist']['applibrary_subnav']
 	\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath( $_EXTKEY ) . (version_compare(TYPO3_branch, '7.2', '>=') ? 'ext_icon3.png' : 'ext_icon3_16px.png')
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'App Library');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile($_EXTKEY, 'Resources/Private/TypoScript', 'App Library');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_applib_domain_model_app', 'EXT:app_library/Resources/Private/Language/locallang_csh_tx_applib_domain_model_app.xlf');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_applib_domain_model_faq', 'EXT:app_library/Resources/Private/Language/locallang_csh_tx_applib_domain_model_faq.xlf');
