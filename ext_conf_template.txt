@@ -1,0 +1,2 @@
+#cat=security//10;type=string;label=IP list: IPs excluded from registration and logs
+ipList = 80.150.99.114,85.10.214.214,217.86.226.80,91.117.105.162

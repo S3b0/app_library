@@ -195,7 +195,7 @@ class AppController extends ExtensionController {
 	 * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
 	 */
 	private function forceRegistration($cookiesEnabled = FALSE) {
-		if ( $cookiesEnabled && !$this->feSession->get($this->extensionName . '.hasRegistered') && !Toolbox\Security\Backend::isAuthenticated() && \TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()->isProduction() ) {
+		if ( $cookiesEnabled && !$this->feSession->get($this->extensionName . '.hasRegistered') && !Toolbox\Security\Backend::isAuthenticated() && !$this->ipCheck() && \TYPO3\CMS\Core\Utility\GeneralUtility::getApplicationContext()->isProduction() ) {
 			// For logged in users redirect them directly, write data to log
 			if ( $GLOBALS['TSFE']->loginUser ) {
 				/** @var \S3b0\AppLibrary\Domain\Model\FrontendUser $feUser */
@@ -271,7 +271,7 @@ class AppController extends ExtensionController {
 	 */
 	public function writeLog(App $app = NULL) {
 		/** Log FE-users only */
-		if ( !Toolbox\Security\Backend::isAuthenticated() ) {
+		if ( !Toolbox\Security\Backend::isAuthenticated() && !$this->ipCheck() ) {
 			$log = new Log();
 			/** @var \S3b0\AppLibrary\Domain\Model\FrontendUser|NULL $feUser */
 			$frontendUser = $GLOBALS['TSFE']->loginUser ? $this->frontendUserRepository->findByUid((int) $GLOBALS['TSFE']->fe_user->user['uid']) : NULL;
@@ -545,11 +545,23 @@ class AppController extends ExtensionController {
 			&& method_exists( $app, 'raise' . ucfirst( $property ) )
 			&& method_exists( $app, 'lower' . ucfirst( $property ) )
 			&& !$this->feSession->get($this->extensionName . '.' . $app->getUid()  . '.' . $property . '.vote')
+			&& !\Ecom\EcomToolbox\Security\Backend::isAuthenticated()
+			&& !$this->ipCheck()
 		) {
 			call_user_func( [ $app, ( $decrease ? 'lower' : 'raise' ) . ucfirst( $property ) ] );
 			$this->appRepository->update( $app );
 		}
 		$this->feSession->store($this->extensionName . '.' . $app->getUid()  . '.' . $property . '.vote', 1);
+	}
+
+	/**
+	 * Check for IP
+	 *
+	 * @return bool
+	 */
+	private function ipCheck() {
+		$settings = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][ Utility\GeneralUtility::camelCaseToLowerCaseUnderscored($this->extensionName) ]);
+		return Utility\GeneralUtility::inList($settings['ipList'], Utility\GeneralUtility::getIndpEnv('REMOTE_ADDR'));
 	}
 
 	/**
