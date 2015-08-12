@@ -191,6 +191,10 @@
 				<source>Supported Languages</source>
 				<target>Unterstützte Sprachen</target>
 			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.prize">
+				<source>Prize (optional)</source>
+				<target>Preis (optional)</target>
+			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.related">
 				<source>Related</source>
 				<target>Verwandte</target>

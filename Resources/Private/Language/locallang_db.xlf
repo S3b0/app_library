@@ -168,6 +168,9 @@
 			<trans-unit id="tx_applib_domain_model_app.supported_operating_systems.I.18">
 				<source>OS2</source>
 			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.prize">
+				<source>Prize (optional)</source>
+			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.views">
 				<source>Views</source>
 			</trans-unit>

@@ -141,6 +141,13 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $supportedOperatingSystems = 0;
 
 	/**
+	 * Specify your very own prize
+	 *
+	 * @var string
+	 */
+	protected $prize = '';
+
+	/**
 	 * The number of views for this app. Detail view only!
 	 *
 	 * @var int
@@ -636,6 +643,24 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setSupportedOperatingSystems($supportedOperatingSystems) {
 		$this->supportedOperatingSystems = $supportedOperatingSystems;
+	}
+
+	/**
+	 * Returns the prize
+	 *
+	 * @return string
+	 */
+	public function getPrize() {
+		return $this->prize;
+	}
+
+	/**
+	 * Sets the prize
+	 *
+	 * @param string $prize
+	 */
+	public function setPrize($prize) {
+		$this->prize = $prize;
 	}
 
 	/**

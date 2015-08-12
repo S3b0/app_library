@@ -27,15 +27,15 @@ return [
 			'endtime' => 'endtime',
 			'fe_group' => 'fe_group'
 		],
-		'searchFields' => 'title,file_reference,external_url,icon,preview_images,youtube_links,file_size,features,description,system_requirements,keywords,version,release_date,last_modified,featured_until,supported_operating_systems,views,downloads,settings,page,rating,votes,supported_languages,related,recommended,provider,developer,copyright_holder,tags,products,',
+		'searchFields' => 'title,file_reference,external_url,icon,preview_images,youtube_links,file_size,features,description,system_requirements,keywords,version,release_date,last_modified,featured_until,supported_operating_systems,prize,views,downloads,settings,page,rating,votes,supported_languages,related,recommended,provider,developer,copyright_holder,tags,products,',
 		'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('app_library') . 'Resources/Public/Icons/tx_applib_domain_model_app.gif'
 	],
 	'interface' => [
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, file_reference, external_url, icon, preview_images, youtube_links, file_size, featured_until, description, features, system_requirements, version, release_date, last_modified, supported_operating_systems, views, downloads, settings, page, rating, votes, supported_languages, related, recommended, provider, developer, copyright_holder, tags, products'
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, file_reference, external_url, icon, preview_images, youtube_links, file_size, featured_until, description, features, system_requirements, version, release_date, last_modified, supported_operating_systems, prize, views, downloads, settings, page, rating, votes, supported_languages, related, recommended, provider, developer, copyright_holder, tags, products'
 	],
 	'types' => [
 		'1' => version_compare(TYPO3_branch, '7.3', '>=') ? [
-			'showitem' => '--palette--;;basic, file_reference, external_url, file_size, icon, preview_images, youtube_links, page, tags, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.text, description, features, system_requirements, --div--;' . $l10nPrefix . 'tabs.dates, release_date, last_modified, featured_until, --div--;' . $l10nPrefix . 'tabs.options, supported_operating_systems, supported_languages, settings, --div--;' . $l10nPrefix . 'tabs.relations, related, recommended, categories, products, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access, --div--;LLL:EXT:lang/locallang_core.xlf:labels._LOCALIZATION_, sys_language_uid, l10n_parent, l10n_diffsource',
+			'showitem' => '--palette--;;basic, file_reference, external_url, file_size, icon, preview_images, youtube_links, page, tags, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.text, description, features, system_requirements, --div--;' . $l10nPrefix . 'tabs.dates, release_date, last_modified, featured_until, --div--;' . $l10nPrefix . 'tabs.options, supported_operating_systems, supported_languages, settings, prize, --div--;' . $l10nPrefix . 'tabs.relations, related, recommended, categories, products, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access, --div--;LLL:EXT:lang/locallang_core.xlf:labels._LOCALIZATION_, sys_language_uid, l10n_parent, l10n_diffsource',
 			'columnsOverrides' => [
 				'description' => [
 					'defaultExtras' => 'richtext:rte_transform[mode=ts_css]'
@@ -48,7 +48,7 @@ return [
 				]
 			]
 		] : [
-			'showitem' => '--palette--;;basic, file_reference, external_url, file_size, icon, preview_images, youtube_links, page, tags, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.text, description;;;richtext:rte_transform[mode=ts_css], features;;;richtext:rte_transform[mode=ts_css], system_requirements;;;richtext:rte_transform[mode=ts_css], --div--;' . $l10nPrefix . 'tabs.dates, release_date, last_modified, featured_until, --div--;' . $l10nPrefix . 'tabs.options, supported_operating_systems, supported_languages, settings, --div--;' . $l10nPrefix . 'tabs.relations, related, recommended, categories, products, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access, --div--;LLL:EXT:lang/locallang_core.xlf:labels._LOCALIZATION_, sys_language_uid, l10n_parent, l10n_diffsource',
+			'showitem' => '--palette--;;basic, file_reference, external_url, file_size, icon, preview_images, youtube_links, page, tags, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.text, description;;;richtext:rte_transform[mode=ts_css], features;;;richtext:rte_transform[mode=ts_css], system_requirements;;;richtext:rte_transform[mode=ts_css], --div--;' . $l10nPrefix . 'tabs.dates, release_date, last_modified, featured_until, --div--;' . $l10nPrefix . 'tabs.options, supported_operating_systems, supported_languages, settings, prize, --div--;' . $l10nPrefix . 'tabs.relations, related, recommended, categories, products, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, --palette--;LLL:EXT:cms/locallang_ttc.xlf:palette.access;access, --div--;LLL:EXT:lang/locallang_core.xlf:labels._LOCALIZATION_, sys_language_uid, l10n_parent, l10n_diffsource',
 		]
 	],
 	'palettes' => [
@@ -434,6 +434,16 @@ return [
 					[ $l10nPrefix . 'tx_applib_domain_model_app.supported_operating_systems.I.18' ]*/
 				],
 				'cols' => 4
+			]
+		],
+		'prize' => [
+			'displayCond' => 'FIELD:settings:BIT:1',
+			'exclude' => 1,
+			'label' => $l10nPrefix . 'tx_applib_domain_model_app.prize',
+			'config' => [
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
 			]
 		],
 		'views' => [

@@ -85,7 +85,12 @@
 <div>
 	<span class="text-muted"><f:translate id="views.detail.sidebar.costs" default="Costs" />:</span><br />
 	<f:if condition="{app.paidApp}">
-		<f:then><f:translate id="views.detail.sidebar.costs.paid" default="Subject to charge" /></f:then>
+		<f:then>
+			<f:if condition="{app.prize}">
+				<f:then>{app.prize -> f:format.html()}</f:then>
+				<f:else><f:translate id="views.detail.sidebar.costs.paid" default="Subject to charge" /></f:else>
+			</f:if>
+		</f:then>
 		<f:else><f:translate id="views.detail.sidebar.costs.free" default="Free of charge" /></f:else>
 	</f:if>
 </div>
