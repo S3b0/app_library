@@ -87,7 +87,7 @@
 	<f:if condition="{app.paidApp}">
 		<f:then>
 			<f:if condition="{app.prize}">
-				<f:then>{app.prize -> f:format.html()}</f:then>
+				<f:then>{app.prize -> f:format.nl2br()}</f:then>
 				<f:else><f:translate id="views.detail.sidebar.costs.paid" default="Subject to charge" /></f:else>
 			</f:if>
 		</f:then>

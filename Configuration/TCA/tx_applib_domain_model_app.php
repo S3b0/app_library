@@ -441,8 +441,7 @@ return [
 			'exclude' => 1,
 			'label' => $l10nPrefix . 'tx_applib_domain_model_app.prize',
 			'config' => [
-				'type' => 'input',
-				'size' => 30,
+				'type' => 'text',
 				'eval' => 'trim'
 			]
 		],
