@@ -183,18 +183,9 @@
 	margin-top: 0;
 }
 
-
-form input.parsley-error, form textarea.parsley-error, form .parsley-error {
+.app-lib form input.parsley-error, .app-lib form textarea.parsley-error, .app-lib form .parsley-error {
 	border: 1px solid #e04343;
 	box-shadow: 0 0 2px rgba(250, 0, 0, 0.3);
-}
-
-.parsley-errors-list.filled {
-	background: #ffb7b7 none repeat scroll 0 0;
-	border: 1px solid #e04343;
-	color: #d03434;
-	list-style: outside none none;
-	padding: 3px;
 }
 
 .app-lib-video-preview-link {
