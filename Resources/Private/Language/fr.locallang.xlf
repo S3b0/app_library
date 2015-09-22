@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="fr" datatype="plaintext" original="messages" date="2015-09-22T10:02:10Z" product-name="app_library">
+		<header/>
+		<body>
+
+			<!-- GENERAL -->
+			<trans-unit id="attrTitle.download.internal">
+				<source></source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="attrTitle.download.external">
+				<source>Download from %s</source>
+				<target>Téléchargement sur %s</target>
+			</trans-unit>
+			<trans-unit id="search.rule">
+				<source>The search term has to be at least 3 characters long.</source>
+				<target>Le terme de recherche doit être d'au moins 3 caractères.</target>
+			</trans-unit>
+			<trans-unit id="resultsFor">
+				<source>Displaying results for %1$s "%2$s"</source>
+				<target>Afficher les résultats pour la %1$s ''%2$s''</target>
+			</trans-unit>
+
+			<!-- LIST VIEW -->
+			<trans-unit id="views.list.providerLinkTitle">
+				<source>Display all apps by %s »</source>
+				<target>Afficher toutes les apps d'%s »</target>
+			</trans-unit>
+			<trans-unit id="views.list.detailLinkTitle">
+				<source>Click for details</source>
+				<target>Cliquez pour des détails</target>
+			</trans-unit>
+
+			<!-- DETAIL VIEW -->
+			<trans-unit id="views.detail.sidebar.ratedAL">
+				<source>Rated %s out of five stars</source>
+				<target>Classé %s sur cinq étoiles</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.votes">
+				<source>votes</source>
+				<target>Votes</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.categories">
+				<source>Categories</source>
+				<target>Catégories</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.category">
+				<source>Category</source>
+				<target>Catégorie</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.updateDate">
+				<source>Updated</source>
+				<target>Mise à jour</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.fileSize">
+				<source>Size</source>
+				<target>Taille</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.version">
+				<source>Version</source>
+				<target>Version</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.languages">
+				<source>Languages</source>
+				<target>Langues</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.language">
+				<source>Language</source>
+				<target>Langue</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.compatibility">
+				<source>Operating Systems</source>
+				<target>Systèmes d'exploitation</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.developer">
+				<source>Developer</source>
+				<target>Développeur</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.costs">
+				<source>Costs</source>
+				<target>Prix</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.costs.paid">
+				<source>Subject to charge</source>
+				<target>Moyennant un supplément</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.costs.free">
+				<source>Free of charge</source>
+				<target>Gratuitement</target>
+			</trans-unit>
+			<trans-unit id="views.detail.features">
+				<source>Features</source>
+				<target>Caractéristiques</target>
+			</trans-unit>
+			<trans-unit id="views.detail.description">
+				<source>Description</source>
+				<target>Description</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sysReq">
+				<source>System Requirements</source>
+				<target>Configuration requise</target>
+			</trans-unit>
+			<trans-unit id="views.detail.faq">
+				<source>Frequently Asked Questions</source>
+				<target>Foire aux questions [FAQ]</target>
+			</trans-unit>
+			<trans-unit id="views.detail.tags">
+				<source>Tags</source>
+				<target>Tag (métadonnée)</target>
+			</trans-unit>
+			<trans-unit id="views.detail.compatible_products">
+				<source>Compatible and tested with following products</source>
+				<target>Compatible et examiné avec les produits suivants</target>
+			</trans-unit>
+			<trans-unit id="views.detail.related_apps">
+				<source>Related Apps</source>
+				<target>Applications similaires</target>
+			</trans-unit>
+			<trans-unit id="views.detail.recommended_apps">
+				<source>Recommended Apps</source>
+				<target>Applications recommandées</target>
+			</trans-unit>
+
+			<!-- DOWNLOAD REQUEST -->
+			<trans-unit id="newLog.name">
+				<source>Name</source>
+				<target>Nom</target>
+			</trans-unit>
+			<trans-unit id="newLog.email">
+				<source>E-Mail address</source>
+				<target>Email</target>
+			</trans-unit>
+			<trans-unit id="newLog.company">
+				<source>Company</source>
+				<target>Société</target>
+			</trans-unit>
+			<trans-unit id="newLog.address">
+				<source>Address</source>
+				<target>N°, Rue</target>
+			</trans-unit>
+			<trans-unit id="newLog.zip">
+				<source>Postal Code</source>
+				<target>Code Postal</target>
+			</trans-unit>
+			<trans-unit id="newLog.city">
+				<source>City</source>
+				<target>Ville</target>
+			</trans-unit>
+			<trans-unit id="newLog.country">
+				<source>Country</source>
+				<target>Pays</target>
+			</trans-unit>
+			<trans-unit id="newLog.state_province">
+				<source>State / Province</source>
+				<target>État / Province</target>
+			</trans-unit>
+			<trans-unit id="newLog.dps_accept">
+				<source>I herewith declare my express agreement to the %s of ecom instruments GmbH.</source>
+				<target>Je déclare être d'accord avec la %s d'ecom instruments GmbH</target>
+			</trans-unit>
+			<trans-unit id="newLog.mandatory">
+				<source>Fields marked with %s are mandatory.</source>
+				<target>Tous les champs obligatoires %s</target>
+			</trans-unit>
+			<trans-unit id="newLog.submit">
+				<source>Submit</source>
+				<target>Envoyer</target>
+			</trans-unit>
+
+			<trans-unit id="expandAll">
+				<source>Expand all</source>
+				<target>Tout afficher</target>
+			</trans-unit>
+			<trans-unit id="collapseAll">
+				<source>Collapse all</source>
+				<target>Réduire tout</target>
+			</trans-unit>
+			<trans-unit id="askedBy">
+				<source>Question:</source>
+				<target>Question</target>
+			</trans-unit>
+			<trans-unit id="answeredBy">
+				<source>Answer:</source>
+				<target>Réponse</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
