@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="pt" datatype="plaintext" original="messages" date="2015-09-22T10:02:10Z" product-name="app_library">
+		<header/>
+		<body>
+
+			<!-- GENERAL -->
+			<trans-unit id="attrTitle.download.internal">
+				<source></source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="attrTitle.download.external">
+				<source>Download from %s</source>
+				<target>Realizar download desde o %s</target>
+			</trans-unit>
+			<trans-unit id="search.rule">
+				<source>The search term has to be at least 3 characters long.</source>
+				<target>O termo de pesquisa deve conter pelo menos 3 caracteres.</target>
+			</trans-unit>
+			<trans-unit id="resultsFor">
+				<source>Displaying results for %1$s "%2$s"</source>
+				<target>Mostrar os resultados para a %1$s ''%2$s''</target>
+			</trans-unit>
+
+			<!-- LIST VIEW -->
+			<trans-unit id="views.list.providerLinkTitle">
+				<source>Display all apps by %s »</source>
+				<target>Exibir todos os apps da %s»</target>
+			</trans-unit>
+			<trans-unit id="views.list.detailLinkTitle">
+				<source>Click for details</source>
+				<target>Clique aqui para mais detalhes</target>
+			</trans-unit>
+
+			<!-- DETAIL VIEW -->
+			<trans-unit id="views.detail.sidebar.ratedAL">
+				<source>Rated %s out of five stars</source>
+				<target>Avaliado com %s de cinco estrelas</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.votes">
+				<source>votes</source>
+				<target>Votos</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.categories">
+				<source>Categories</source>
+				<target>Categorias</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.category">
+				<source>Category</source>
+				<target>Categoria</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.updateDate">
+				<source>Updated</source>
+				<target>Última atualização</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.fileSize">
+				<source>Size</source>
+				<target>Tamanho do ficheiro</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.version">
+				<source>Version</source>
+				<target>Versão</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.languages">
+				<source>Languages</source>
+				<target>Idiomas</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.language">
+				<source>Language</source>
+				<target>Idioma</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.compatibility">
+				<source>Operating Systems</source>
+				<target>Sistema operacional</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.developer">
+				<source>Developer</source>
+				<target>Programador</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.costs">
+				<source>Costs</source>
+				<target>Preço</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.costs.paid">
+				<source>Subject to charge</source>
+				<target>Sujeito a taxa</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.costs.free">
+				<source>Free of charge</source>
+				<target>Grátis</target>
+			</trans-unit>
+			<trans-unit id="views.detail.features">
+				<source>Features</source>
+				<target>Características</target>
+			</trans-unit>
+			<trans-unit id="views.detail.description">
+				<source>Description</source>
+				<target>Descrição</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sysReq">
+				<source>System Requirements</source>
+				<target>Requisitos do sistema</target>
+			</trans-unit>
+			<trans-unit id="views.detail.faq">
+				<source>Frequently Asked Questions</source>
+				<target>Perguntas mais frequentes</target>
+			</trans-unit>
+			<trans-unit id="views.detail.tags">
+				<source>Tags</source>
+				<target>Etiqueta (metadado)</target>
+			</trans-unit>
+			<trans-unit id="views.detail.compatible_products">
+				<source>Compatible and tested with following products</source>
+				<target>Compatível e testado com os seguintes produtos</target>
+			</trans-unit>
+			<trans-unit id="views.detail.related_apps">
+				<source>Related Apps</source>
+				<target>Aplicativos relacionados</target>
+			</trans-unit>
+			<trans-unit id="views.detail.recommended_apps">
+				<source>Recommended Apps</source>
+				<target>Aplicativos recomendados</target>
+			</trans-unit>
+
+			<!-- DOWNLOAD REQUEST -->
+			<trans-unit id="newLog.name">
+				<source>Name</source>
+				<target>Nome</target>
+			</trans-unit>
+			<trans-unit id="newLog.email">
+				<source>E-Mail address</source>
+				<target>E-Mail</target>
+			</trans-unit>
+			<trans-unit id="newLog.company">
+				<source>Company</source>
+				<target>Empresa</target>
+			</trans-unit>
+			<trans-unit id="newLog.address">
+				<source>Address</source>
+				<target>Rua, Nº.</target>
+			</trans-unit>
+			<trans-unit id="newLog.zip">
+				<source>Postal Code</source>
+				<target>Código postal</target>
+			</trans-unit>
+			<trans-unit id="newLog.city">
+				<source>City</source>
+				<target>Cidade</target>
+			</trans-unit>
+			<trans-unit id="newLog.country">
+				<source>Country</source>
+				<target>País</target>
+			</trans-unit>
+			<trans-unit id="newLog.state_province">
+				<source>State / Province</source>
+				<target>Estado / Província</target>
+			</trans-unit>
+			<trans-unit id="newLog.dps_accept">
+				<source>I herewith declare my express agreement to the %s of ecom instruments GmbH.</source>
+				<target>Declaro estar de acordo com a %s da ecom instruments GmbH</target>
+			</trans-unit>
+			<trans-unit id="newLog.mandatory">
+				<source>Fields marked with %s are mandatory.</source>
+				<target>Os campos assinalados com %s são obrigatórios</target>
+			</trans-unit>
+			<trans-unit id="newLog.submit">
+				<source>Submit</source>
+				<target>Enviar formulário</target>
+			</trans-unit>
+
+			<trans-unit id="expandAll">
+				<source>Expand all</source>
+				<target>Expandir tudo</target>
+			</trans-unit>
+			<trans-unit id="collapseAll">
+				<source>Collapse all</source>
+				<target>Ocultar tudo</target>
+			</trans-unit>
+			<trans-unit id="askedBy">
+				<source>Question:</source>
+				<target>Pergunta</target>
+			</trans-unit>
+			<trans-unit id="answeredBy">
+				<source>Answer:</source>
+				<target>Resposta</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

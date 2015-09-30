@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="nl" datatype="plaintext" original="messages" date="2015-09-22T10:02:10Z" product-name="app_library">
+		<header/>
+		<body>
+
+			<!-- GENERAL -->
+			<trans-unit id="attrTitle.download.internal">
+				<source></source>
+				<target></target>
+			</trans-unit>
+			<trans-unit id="attrTitle.download.external">
+				<source>Download from %s</source>
+				<target>Download van %s</target>
+			</trans-unit>
+			<trans-unit id="search.rule">
+				<source>The search term has to be at least 3 characters long.</source>
+				<target>Het zoekbegrip moet minimaal 3 tekens bevatten.</target>
+			</trans-unit>
+			<trans-unit id="resultsFor">
+				<source>Displaying results for %1$s "%2$s"</source>
+				<target>Zoekresultaat %1$s "%2$s"</target>
+			</trans-unit>
+
+			<!-- LIST VIEW -->
+			<trans-unit id="views.list.providerLinkTitle">
+				<source>Display all apps by %s »</source>
+				<target>Toon alle apps %s »</target>
+			</trans-unit>
+			<trans-unit id="views.list.detailLinkTitle">
+				<source>Click for details</source>
+				<target>Klik hier voor details</target>
+			</trans-unit>
+
+			<!-- DETAIL VIEW -->
+			<trans-unit id="views.detail.sidebar.ratedAL">
+				<source>Rated %s out of five stars</source>
+				<target>Gewaardeerd met een %s uit vijf sterren</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.votes">
+				<source>votes</source>
+				<target>Stemmen</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.categories">
+				<source>Categories</source>
+				<target>Categorieën</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.category">
+				<source>Category</source>
+				<target>Categorie</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.updateDate">
+				<source>Updated</source>
+				<target>Geaktualiseerd</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.fileSize">
+				<source>Size</source>
+				<target>Grote</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.version">
+				<source>Version</source>
+				<target>Versie</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.languages">
+				<source>Languages</source>
+				<target>Talen</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.language">
+				<source>Language</source>
+				<target>Taal</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.compatibility">
+				<source>Operating Systems</source>
+				<target>Besturingssysteem</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.developer">
+				<source>Developer</source>
+				<target>Ontwikkelaar</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.costs">
+				<source>Costs</source>
+				<target>Kosten</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.costs.paid">
+				<source>Subject to charge</source>
+				<target>kostenplichtig</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sidebar.costs.free">
+				<source>Free of charge</source>
+				<target>Kosteloos</target>
+			</trans-unit>
+			<trans-unit id="views.detail.features">
+				<source>Features</source>
+				<target>Functies</target>
+			</trans-unit>
+			<trans-unit id="views.detail.description">
+				<source>Description</source>
+				<target>Beschrijving</target>
+			</trans-unit>
+			<trans-unit id="views.detail.sysReq">
+				<source>System Requirements</source>
+				<target>Systeemeisen</target>
+			</trans-unit>
+			<trans-unit id="views.detail.faq">
+				<source>Frequently Asked Questions</source>
+				<target>Veelgestelde vragen</target>
+			</trans-unit>
+			<trans-unit id="views.detail.tags">
+				<source>Tags</source>
+				<target>Tag (metadata)</target>
+			</trans-unit>
+			<trans-unit id="views.detail.compatible_products">
+				<source>Compatible and tested with following products</source>
+				<target>Geschikt en getest met de volgende produkten</target>
+			</trans-unit>
+			<trans-unit id="views.detail.related_apps">
+				<source>Related Apps</source>
+				<target>Soortgelijke apps</target>
+			</trans-unit>
+			<trans-unit id="views.detail.recommended_apps">
+				<source>Recommended Apps</source>
+				<target>Aanbevolen apps</target>
+			</trans-unit>
+
+			<!-- DOWNLOAD REQUEST -->
+			<trans-unit id="newLog.name">
+				<source>Name</source>
+				<target>Naam</target>
+			</trans-unit>
+			<trans-unit id="newLog.email">
+				<source>E-Mail address</source>
+				<target>E-mailadres</target>
+			</trans-unit>
+			<trans-unit id="newLog.company">
+				<source>Company</source>
+				<target>Firma</target>
+			</trans-unit>
+			<trans-unit id="newLog.address">
+				<source>Address</source>
+				<target>Adres</target>
+			</trans-unit>
+			<trans-unit id="newLog.zip">
+				<source>Postal Code</source>
+				<target>Postcode</target>
+			</trans-unit>
+			<trans-unit id="newLog.city">
+				<source>City</source>
+				<target>Stad</target>
+			</trans-unit>
+			<trans-unit id="newLog.country">
+				<source>Country</source>
+				<target>Land</target>
+			</trans-unit>
+			<trans-unit id="newLog.state_province">
+				<source>State / Province</source>
+				<target>Staat / Provincie</target>
+			</trans-unit>
+			<trans-unit id="newLog.dps_accept">
+				<source>I herewith declare my express agreement to the %s of ecom instruments GmbH.</source>
+				<target>Hierbij verklaar ik overeenkomstig de %s van ecom instruments GmbH te handelen</target>
+			</trans-unit>
+			<trans-unit id="newLog.mandatory">
+				<source>Fields marked with %s are mandatory.</source>
+				<target>Velden gemarkeerd met een %s bent u verplicht in te vullen</target>
+			</trans-unit>
+			<trans-unit id="newLog.submit">
+				<source>Submit</source>
+				<target>Verzenden</target>
+			</trans-unit>
+
+			<trans-unit id="expandAll">
+				<source>Expand all</source>
+				<target>Alles openen</target>
+			</trans-unit>
+			<trans-unit id="collapseAll">
+				<source>Collapse all</source>
+				<target>Alles sluiten</target>
+			</trans-unit>
+			<trans-unit id="askedBy">
+				<source>Question:</source>
+				<target>Vraag</target>
+			</trans-unit>
+			<trans-unit id="answeredBy">
+				<source>Answer:</source>
+				<target>Antwoord</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
