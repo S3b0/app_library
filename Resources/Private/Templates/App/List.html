@@ -36,7 +36,7 @@
 						<p><i class="fa fa-caret-right fa-fw"></i><f:if condition="{apps -> f:count()}">
 							<f:then>{apps -> f:count()} <f:translate id="LLL:typo3/sysext/indexed_search/Resources/Private/Language/locallang.xlf:result.ratingMatches" /> for "{search}"</f:then>
 							<f:else>
-								<f:translate id="LLL:typo3/sysext/indexed_search/Resources/Private/Language/locallang.xlf:result.noResult" />
+								<p><f:translate id="LLL:typo3/sysext/indexed_search/Resources/Private/Language/locallang.xlf:result.noResult" /></p>
 								<f:link.action class="btn btn-primary"><f:translate id="LLL:typo3/sysext/lang/locallang_misc.xlf:liveSearch_showAllResults" /></f:link.action>
 							</f:else>
 						</f:if></p>
@@ -53,7 +53,7 @@
 				</f:if>
 			</f:then>
 			<f:else>
-				<f:translate id="LLL:typo3/sysext/indexed_search/Resources/Private/Language/locallang.xlf:result.noResult" />
+				<p><f:translate id="LLL:typo3/sysext/indexed_search/Resources/Private/Language/locallang.xlf:result.noResult" /></p>
 				<f:link.action class="btn btn-primary"><f:translate id="LLL:typo3/sysext/lang/locallang_misc.xlf:liveSearch_showAllResults" /></f:link.action>
 			</f:else>
 		</f:if>
