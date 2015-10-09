@@ -96,7 +96,7 @@
 		<p class="help-block"><f:translate id="newLog.mandatory" arguments="{0: '<span class=\'text-danger\'>*</span>'}" /></p>
 		<f:form.button type="submit" class="btn btn-primary"><f:translate id="newLog.submit" /></f:form.button>
 	</f:form>
-	<script src="{f:uri.resource(path: 'JavaScript/Libs/parsley.min.js')}"></script>
+	<!--<script src="{f:uri.resource(path: 'JavaScript/Libs/parsley.min.js')}"></script>-->
 	<f:if condition="{f:ecom.fileExists(file: '{f:uri.resource(path: \'JavaScript/Libs/parsley.l18n/{settings.locale}.js\')}')}"><script src="{f:uri.resource(path: 'JavaScript/Libs/parsley.l18n/{settings.locale}.js')}" type="text/javascript" language="JavaScript"></script></f:if>
 	<script src="{f:uri.resource(path: 'JavaScript/ccsr.js')}" type="text/javascript" language="JavaScript"></script>
 </f:section>
