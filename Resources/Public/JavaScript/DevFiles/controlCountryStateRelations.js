@@ -2,7 +2,7 @@
  * Created by S3b0 on 28/04/15.
  */
 
-(function($) {
+$( document ).ready(function($) {
 	var states = [];
 	var selector = $('#state-selector #state');
 	var mandatory = $('#state-selector .text-danger');
@@ -70,4 +70,4 @@
 
 	initCCSR();
 	initParsley();
-})(jQuery);
+});
