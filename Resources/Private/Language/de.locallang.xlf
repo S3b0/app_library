@@ -110,7 +110,7 @@
 				<target>Tags</target>
 			</trans-unit>
 			<trans-unit id="views.detail.compatible_products">
-				<source>Compatible and tested with following products</source>
+				<source>Compatible and tested with the following products</source>
 				<target>Kompatibel und getested mit folgenden Produkten</target>
 			</trans-unit>
 			<trans-unit id="views.detail.related_apps">

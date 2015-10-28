@@ -110,7 +110,7 @@
 				<target>Tag (métadonnée)</target>
 			</trans-unit>
 			<trans-unit id="views.detail.compatible_products">
-				<source>Compatible and tested with following products</source>
+				<source>Compatible and tested with the following products</source>
 				<target>Compatible et examiné avec les produits suivants</target>
 			</trans-unit>
 			<trans-unit id="views.detail.related_apps">
