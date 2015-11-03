@@ -425,6 +425,9 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		return $links;
 	}
 
+	/**
+	 * @return void
+	 */
 	public function downloadVideoPreviewImages() {
 		$links = \TYPO3\CMS\Core\Utility\GeneralUtility::trimExplode(PHP_EOL, $this->youtubeLinks, TRUE);
 		foreach ( $links as &$link ) {
@@ -1358,6 +1361,15 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		} else {
 			return (bool) $value;
 		}
+	}
+
+	public function getCardLinkInlineStlye() {
+		$inlineStyle = '';
+		if ( $this->page ) {
+			$inlineStyle .= 'text-ident:-9999em;';
+		}
+
+		return $inlineStyle;
 	}
 
 }

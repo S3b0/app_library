@@ -2,7 +2,7 @@
 	<f:if condition="{app.featured}"><div class="app-lib-app-qv-featured-badge"></div></f:if>
 	<noscript>
 		<f:if condition="{app.page}">
-			<f:then><f:link.typolink parameter="{app.page}" additionalAttributes="{style: inlineStlyeLink}"></f:link.typolink></f:then>
+			<f:then><f:link.typolink parameter="{app.page}" additionalAttributes="{style: app.cardLinkInlineStlye}"></f:link.typolink></f:then>
 			<f:else><f:link.action pageUid="{settings.mainLibrary}" action="show" arguments="{app: app}" additionalAttributes="{style: inlineStlyeLink}"></f:link.action></f:else>
 		</f:if>
 	</noscript>
