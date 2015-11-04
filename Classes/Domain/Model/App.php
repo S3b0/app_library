@@ -1363,4 +1363,16 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		}
 	}
 
+	/**
+	 * @return string
+	 */
+	public function getCardLinkInlineStlye() {
+		$inlineStyle = '';
+		if ( strlen($this->getPage()) ) {
+			$inlineStyle .= 'text-indent:-9999em;';
+		}
+
+		return $inlineStyle;
+	}
+
 }
