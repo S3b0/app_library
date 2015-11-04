@@ -1363,9 +1363,12 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 		}
 	}
 
+	/**
+	 * @return string
+	 */
 	public function getCardLinkInlineStlye() {
 		$inlineStyle = '';
-		if ( $this->page ) {
+		if ( strlen($this->getPage()) ) {
 			$inlineStyle .= 'text-ident:-9999em;';
 		}
 
