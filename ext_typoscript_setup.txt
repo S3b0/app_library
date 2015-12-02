@@ -1,7 +1,7 @@
 config.tx_extbase {
 	persistence {
 		classes {
-			In2\Femanagerextended\Domain\Model\User {
+			Ecom\EcomToolbox\Domain\Model\User {
 				subclasses {
 					0 = S3b0\AppLibrary\Domain\Model\FrontendUser
 				}
