@@ -9,6 +9,6 @@
 namespace S3b0\AppLibrary\Domain\Model;
 
 
-class FrontendUser extends \In2\Femanagerextended\Domain\Model\User {
+class FrontendUser extends \Ecom\EcomToolbox\Domain\Model\User {
 
 }
