@@ -170,7 +170,8 @@ class AppController extends ExtensionController {
 			'apps' => $apps,
 			'search' => $search,
 			'arguments' => array_diff_key( $this->request->getArguments(), ['search' => 1] ),
-			'showLevelUpLink' => $showLevelUpLink
+			'showLevelUpLink' => $showLevelUpLink,
+			'currentLang' => $GLOBALS['TSFE']->sys_language_uid
 		]);
 	}
 
