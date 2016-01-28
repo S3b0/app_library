@@ -42,7 +42,7 @@
 						</f:if></p>
 						<f:if condition="{search -> f:countString()} < 3"><p><f:translate id="search.rule" /></p></f:if>
 					</f:if>
-					<f:render partial="App/Grid" arguments="{apps: apps}" />
+					<f:render partial="App/Grid" arguments="{apps: apps, currentLang: currentLang}" />
 				</div>
 
 				<f:if condition="{showLevelUpLink}">
