@@ -28,7 +28,16 @@
 		<div class="app-lib-app-qv-details">
 			<f:if condition="{app.page}">
 				<f:then><h5><f:link.typolink parameter="{app.page}" additionalAttributes="{style: app.cardLinkInlineStlye}">{app.title}</f:link.typolink></h5></f:then>
-				<f:else><h5><f:link.action pageUid="{settings.mainLibrary}" action="show" arguments="{app: app}" additionalParams="{L:0}" additionalAttributes="{style: app.cardLinkInlineStlye}">{app.title}</f:link.action></h5></f:else>
+				<f:else>
+		                    <f:if condition="{currentLang} == 6">
+		                        <f:then>
+		                            <h5><f:link.action pageUid="{settings.mainLibrary}" action="show" arguments="{app: app}" additionalParams="{L:6}" additionalAttributes="{style: app.cardLinkInlineStlye}">{app.title}</f:link.action></h5>
+		                        </f:then>
+		                        <f:else>
+		                            <h5><f:link.action pageUid="{settings.mainLibrary}" action="show" arguments="{app: app}" additionalParams="{L:0}" additionalAttributes="{style: app.cardLinkInlineStlye}">{app.title}</f:link.action></h5>
+		                        </f:else>
+		                    </f:if>
+		                </f:else>
 			</f:if>
 			<f:if condition="{settings.enableRating}">
 				<span class="app-lib-stars-container">
@@ -44,7 +53,12 @@
 	<div class="app-lib-app-qv-card-overlay {f:if(condition: iterator.isEven, then: 'even', else: 'odd')}" style="{inlineStlye}">
 		<f:if condition="{app.page}">
 			<f:then><f:link.typolink parameter="{app.page}" additionalAttributes="{style: app.cardLinkInlineStlye}"></f:link.typolink></f:then>
-			<f:else><f:link.action pageUid="{settings.mainLibrary}" action="show" arguments="{app: app}" additionalParams="{L:0}" additionalAttributes="{style: app.cardLinkInlineStlye}"></f:link.action></f:else>
+			<f:else>
+		                <f:if condition="{currentLang} == 6">
+		                    <f:then><f:link.action pageUid="{settings.mainLibrary}" action="show" arguments="{app: app}" additionalParams="{L:6}" additionalAttributes="{style: app.cardLinkInlineStlye}"></f:link.action></f:then>
+		                    <f:else><f:link.action pageUid="{settings.mainLibrary}" action="show" arguments="{app: app}" additionalParams="{L:0}" additionalAttributes="{style: app.cardLinkInlineStlye}"></f:link.action></f:else>
+		                </f:if>
+	        	 </f:else>
 		</f:if>
 		<h5>{app.title}</h5>
 		<small>{app.descriptionTeaser -> f:format.html()}</small>
