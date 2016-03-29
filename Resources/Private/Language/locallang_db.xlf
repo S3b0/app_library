@@ -102,6 +102,9 @@
 			<trans-unit id="tx_applib_domain_model_app.system_requirements">
 				<source>System Requirements (listing)</source>
 			</trans-unit>
+			<trans-unit id="tx_applib_domain_model_app.changelog">
+				<source>Changelog</source>
+			</trans-unit>
 			<trans-unit id="tx_applib_domain_model_app.release_date">
 				<source>Release Date</source>
 			</trans-unit>

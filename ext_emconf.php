@@ -10,7 +10,7 @@
  * "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[ $_EXTKEY ] = [
+$EM_CONF[ 'app_library' ] = [
 	'title' => 'App Library',
 	'description' => 'This extension provides an app library for TYPO3 CMS 6.2+',
 	'category' => 'plugin',
@@ -21,12 +21,13 @@ $EM_CONF[ $_EXTKEY ] = [
 	'uploadfolder' => '1',
 	'createDirs' => '',
 	'clearCacheOnLoad' => 0,
-	'version' => '1.0.5',
+	'version' => '1.0.6',
 	'constraints' => [
 		'depends' => [
-			'typo3' => '6.2',
-			'ecom_toolbox' => '1.2.0',
-			'ecom_product_tools' => ''
+			'typo3' => '7.6.0-7.6.99',
+			'ecom_toolbox' => '1.2.0-0.0.0',
+			'ecom_product_tools' => '',
+			'php' => '5.5.0-0.0.0'
 		],
 		'conflicts' => [],
 		'suggests' => []

@@ -120,6 +120,11 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $systemRequirements = '';
 
 	/**
+	 * @var string
+	 */
+	protected $changelog = '';
+
+	/**
 	 * Set date of release.
 	 *
 	 * @var \DateTime
@@ -577,6 +582,27 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 */
 	public function setSystemRequirements($systemRequirements) {
 		$this->systemRequirements = $systemRequirements;
+	}
+
+	/**
+	 * Returns the changelog
+	 * 
+	 * @return string
+	 */
+	public function getChangelog()
+	{
+		return $this->changelog;
+	}
+
+	/**
+	 * Sets the changelog
+	 * 
+	 * @param string $changelog
+	 * @return void
+	 */
+	public function setChangelog($changelog)
+	{
+		$this->changelog = $changelog;
 	}
 
 	/**
@@ -1355,12 +1381,7 @@ class App extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	 * @return bool
 	 */
 	private function returnBool($value) {
-		/** For all PHP versions 5.5+ use the boolval() method */
-		if ( version_compare(PHP_VERSION, '5.5', '>=') ) {
-			return boolval( $value );
-		} else {
-			return (bool) $value;
-		}
+		return boolval( $value );
 	}
 
 	/**

@@ -4,7 +4,7 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'S3b0.' . $_EXTKEY,
+	'S3b0.AppLibrary',
 	'List',
 	[
 		'App' => 'list, show, requestUserData, download, startDownload',
@@ -22,16 +22,16 @@ if (!defined('TYPO3_MODE')) {
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'S3b0.' . $_EXTKEY,
+	'S3b0.AppLibrary',
 	'SubNav',
 	[ 'App' => 'subNavigationLatest, subNavigationMostPopular, subNavigationFeatured, subNavigationTopDownloads, subNavigationTopRated, subNavigationTagCloud, subNavigationCategories' ],
 	[ 'App' => 'subNavigationLatest, subNavigationMostPopular, subNavigationFeatured, subNavigationTopDownloads, subNavigationTopRated, subNavigationTagCloud' ]
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-	'S3b0.' . $_EXTKEY,
+	'S3b0.AppLibrary',
 	'Faq',
 	[ 'Faq' => 'list' ]
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:' . $_EXTKEY . '/Configuration/PageTS/rte.ts">');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:app_library/Configuration/PageTS/rte.ts">');

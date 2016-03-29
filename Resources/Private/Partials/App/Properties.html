@@ -90,6 +90,15 @@
 	<div class="clearfix app-lib-spacer-vt2"></div>
 </f:if>
 
+<f:if condition="{app.changelog}">
+	<!-- Changelog -->
+	<div class="app-lib-app-dv-chlog">
+		<h2><f:translate id="views.detail.changelog" default="Changelog" /></h2>
+		{app.changelog -> f:format.html()}
+	</div>
+	<div class="clearfix app-lib-spacer-vt2"></div>
+</f:if>
+
 <f:if condition="{app.faq -> f:count()}">
 	<!-- System Requirements -->
 	<div class="app-lib-app-dv-faq">
@@ -108,6 +117,7 @@
 
 <!-- Download Button -->
 <div class="clearfix app-lib-spacer-vt2"></div>
+<a href="javascript:history.back()" class="btn btn-default btn-lg font-thin"><i class="fa fa-angle-left"></i> <f:translate id="LLL:fileadmin/templates/translations/locallang.xlf:backlink" /></a>
 <f:if condition="{app.externalUrl}">
 	<f:then>
 		<f:link.action action="download" class="btn btn-primary btn-lg" target="_blank" arguments="{app: app}" title="{f:translate(id: 'LLL:EXT:rtehtmlarea/res/accessibilityicons/locallang.xlf:external_link_new_window_titleText')}"><i class="fa fa-external-link"></i> <f:translate id="attrTitle.download.external" default="Download from {app.provider.title}" arguments="{0: app.provider.title}" /></f:link.action>

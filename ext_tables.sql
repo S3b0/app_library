@@ -32,6 +32,7 @@ CREATE TABLE tx_applib_domain_model_app (
 	features text NOT NULL,
 	description text NOT NULL,
 	system_requirements text NOT NULL,
+	changelog text NOT NULL,
 	release_date date default '0000-00-00',
 	last_modified date default '0000-00-00',
 	supported_operating_systems int(11) unsigned NOT NULL default '0',
